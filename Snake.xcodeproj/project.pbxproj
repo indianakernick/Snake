@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
+		45B5E68A1EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +17,8 @@
 		45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B5E6841EF66AB000A6A3E2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2/2.0.5/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		45B5E6931EF760F500A6A3E2 /* dir.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = dir.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -23,6 +26,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B5E68A1EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -34,6 +38,7 @@
 			children = (
 				45B5E6741EF66A8B00A6A3E2 /* Snake */,
 				45B5E6731EF66A8B00A6A3E2 /* Products */,
+				45B5E6881EF6726C00A6A3E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -48,11 +53,60 @@
 		45B5E6741EF66A8B00A6A3E2 /* Snake */ = {
 			isa = PBXGroup;
 			children = (
+				45B5E68D1EF6745100A6A3E2 /* Game */,
+				45B5E68C1EF6744800A6A3E2 /* Engine */,
+				45B5E6871EF671F200A6A3E2 /* Resources */,
 				45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */,
 				45B5E67E1EF66A8B00A6A3E2 /* Info.plist */,
 				45B5E6841EF66AB000A6A3E2 /* main.cpp */,
 			);
 			path = Snake;
+			sourceTree = "<group>";
+		};
+		45B5E6871EF671F200A6A3E2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		45B5E6881EF6726C00A6A3E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45B5E68C1EF6744800A6A3E2 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				45B5E6921EF760B800A6A3E2 /* Math */,
+				45B5E6911EF6764400A6A3E2 /* Utils */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+		45B5E68D1EF6745100A6A3E2 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		45B5E6911EF6764400A6A3E2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		45B5E6921EF760B800A6A3E2 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				45B5E6931EF760F500A6A3E2 /* dir.hpp */,
+			);
+			path = Math;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +119,7 @@
 				45B5E66E1EF66A8B00A6A3E2 /* Sources */,
 				45B5E66F1EF66A8B00A6A3E2 /* Frameworks */,
 				45B5E6701EF66A8B00A6A3E2 /* Resources */,
+				45B5E68B1EF672B700A6A3E2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -120,6 +175,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45B5E68B1EF672B700A6A3E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "src=\"/usr/local/lib\"\ndest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\nfor f in \"libSDL2-2.0.0.dylib\"\ndo\n  ditto \"$src/$f\" \"$dest/$f\"\ndone";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		45B5E66E1EF66A8B00A6A3E2 /* Sources */ = {
@@ -229,14 +300,32 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/Cellar/sdl2/**",
+					"/usr/local/Cellar/glm/**",
+				);
 				INFOPLIST_FILE = Snake/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/usr/local/Cellar/sdl2/**",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wall",
+					"-Wextra",
+					"-Weffc++",
+					"-Wpedantic",
+					"-Wextra-semi",
+					"-std=c++1z",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Indi-Kernick.Snake";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -244,13 +333,32 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/Cellar/sdl2/**",
+					"/usr/local/Cellar/glm/**",
+				);
 				INFOPLIST_FILE = Snake/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/usr/local/Cellar/sdl2/**",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-Wall",
+					"-Wextra",
+					"-Weffc++",
+					"-Wpedantic",
+					"-Wextra-semi",
+					"-std=c++1z",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Indi-Kernick.Snake";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
