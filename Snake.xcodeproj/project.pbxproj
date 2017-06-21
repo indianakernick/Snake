@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
-		45B5E68A1EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */; };
+		45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */; };
+		45B5E8D41EFA0DD200A6A3E2 /* sdl app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8D21EFA0DD200A6A3E2 /* sdl app.cpp */; };
+		45B5E8D61EFA171000A6A3E2 /* libSimpleton Engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */; };
+		45B5E8D71EFA176400A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,7 +21,11 @@
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B5E6841EF66AB000A6A3E2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2/2.0.5/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
-		45B5E6931EF760F500A6A3E2 /* dir.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = dir.hpp; sourceTree = "<group>"; };
+		45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = app.cpp; sourceTree = "<group>"; };
+		45B5E8D01EFA0AD200A6A3E2 /* app.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = app.hpp; sourceTree = "<group>"; };
+		45B5E8D21EFA0DD200A6A3E2 /* sdl app.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "sdl app.cpp"; sourceTree = "<group>"; };
+		45B5E8D31EFA0DD200A6A3E2 /* sdl app.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "sdl app.hpp"; sourceTree = "<group>"; };
+		45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSimpleton Engine.dylib"; path = "../../../../../../../usr/local/lib/libSimpleton Engine.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,7 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B5E68A1EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */,
+				45B5E8D71EFA176400A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */,
+				45B5E8D61EFA171000A6A3E2 /* libSimpleton Engine.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				45B5E68D1EF6745100A6A3E2 /* Game */,
-				45B5E68C1EF6744800A6A3E2 /* Engine */,
 				45B5E6871EF671F200A6A3E2 /* Resources */,
 				45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */,
 				45B5E67E1EF66A8B00A6A3E2 /* Info.plist */,
@@ -73,40 +80,21 @@
 		45B5E6881EF6726C00A6A3E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */,
 				45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		45B5E68C1EF6744800A6A3E2 /* Engine */ = {
-			isa = PBXGroup;
-			children = (
-				45B5E6921EF760B800A6A3E2 /* Math */,
-				45B5E6911EF6764400A6A3E2 /* Utils */,
-			);
-			path = Engine;
-			sourceTree = "<group>";
-		};
 		45B5E68D1EF6745100A6A3E2 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */,
+				45B5E8D01EFA0AD200A6A3E2 /* app.hpp */,
+				45B5E8D21EFA0DD200A6A3E2 /* sdl app.cpp */,
+				45B5E8D31EFA0DD200A6A3E2 /* sdl app.hpp */,
 			);
 			path = Game;
-			sourceTree = "<group>";
-		};
-		45B5E6911EF6764400A6A3E2 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		45B5E6921EF760B800A6A3E2 /* Math */ = {
-			isa = PBXGroup;
-			children = (
-				45B5E6931EF760F500A6A3E2 /* dir.hpp */,
-			);
-			path = Math;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +176,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "src=\"/usr/local/lib\"\ndest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\nfor f in \"libSDL2-2.0.0.dylib\"\ndo\n  ditto \"$src/$f\" \"$dest/$f\"\ndone";
+			shellScript = "src=\"/usr/local/lib\"\ndest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\nfor f in \"libSDL2-2.0.0.dylib\" \"libSimpleton Engine.dylib\"\ndo\n  ditto \"$src/$f\" \"$dest/$f\"\ndone";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -198,6 +186,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */,
+				45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */,
+				45B5E8D41EFA0DD200A6A3E2 /* sdl app.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +296,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
 					"/usr/local/Cellar/sdl2/**",
 					"/usr/local/Cellar/glm/**",
 				);
@@ -313,6 +304,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					/usr/local/lib/,
 					"/usr/local/Cellar/sdl2/**",
 				);
 				OTHER_CPLUSPLUSFLAGS = (
@@ -339,6 +331,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
 				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
 					"/usr/local/Cellar/sdl2/**",
 					"/usr/local/Cellar/glm/**",
 				);
@@ -346,6 +339,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					/usr/local/lib/,
 					"/usr/local/Cellar/sdl2/**",
 				);
 				OTHER_CPLUSPLUSFLAGS = (
