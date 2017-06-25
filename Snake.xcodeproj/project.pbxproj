@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4592B4621EFF9EAF00D1640D /* libUnpacker.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E9011EFF90C500A6A3E2 /* libUnpacker.dylib */; };
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
 		45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */; };
 		45B5E8D41EFA0DD200A6A3E2 /* sdl app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8D21EFA0DD200A6A3E2 /* sdl app.cpp */; };
-		45B5E8D61EFA171000A6A3E2 /* libSimpleton Engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */; };
-		45B5E8D71EFA176400A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */; };
+		45B5E90A1EFF936000A6A3E2 /* config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E9031EFF936000A6A3E2 /* config.yaml */; };
+		45B5E90D1EFF936000A6A3E2 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E9061EFF936000A6A3E2 /* sprites.atlas */; };
+		45B5E90E1EFF936000A6A3E2 /* sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E9071EFF936000A6A3E2 /* sprites.png */; };
+		45B5E9121EFF967700A6A3E2 /* libSimpleton Engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */; };
+		45B5E9131EFF9B8500A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,14 @@
 		45B5E8D21EFA0DD200A6A3E2 /* sdl app.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "sdl app.cpp"; sourceTree = "<group>"; };
 		45B5E8D31EFA0DD200A6A3E2 /* sdl app.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "sdl app.hpp"; sourceTree = "<group>"; };
 		45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSimpleton Engine.dylib"; path = "../../../../../../../usr/local/lib/libSimpleton Engine.dylib"; sourceTree = "<group>"; };
+		45B5E9011EFF90C500A6A3E2 /* libUnpacker.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libUnpacker.dylib; path = ../../../../../../../usr/local/lib/libUnpacker.dylib; sourceTree = "<group>"; };
+		45B5E9031EFF936000A6A3E2 /* config.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yaml; sourceTree = "<group>"; };
+		45B5E9041EFF936000A6A3E2 /* corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner.png; sourceTree = "<group>"; };
+		45B5E9051EFF936000A6A3E2 /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head.png; sourceTree = "<group>"; };
+		45B5E9061EFF936000A6A3E2 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = file; path = sprites.atlas; sourceTree = "<group>"; };
+		45B5E9071EFF936000A6A3E2 /* sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprites.png; sourceTree = "<group>"; };
+		45B5E9081EFF936000A6A3E2 /* straight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = straight.png; sourceTree = "<group>"; };
+		45B5E9091EFF936000A6A3E2 /* tail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tail.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,8 +45,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B5E8D71EFA176400A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */,
-				45B5E8D61EFA171000A6A3E2 /* libSimpleton Engine.dylib in Frameworks */,
+				4592B4621EFF9EAF00D1640D /* libUnpacker.dylib in Frameworks */,
+				45B5E9131EFF9B8500A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */,
+				45B5E9121EFF967700A6A3E2 /* libSimpleton Engine.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +86,13 @@
 		45B5E6871EF671F200A6A3E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				45B5E9031EFF936000A6A3E2 /* config.yaml */,
+				45B5E9041EFF936000A6A3E2 /* corner.png */,
+				45B5E9051EFF936000A6A3E2 /* head.png */,
+				45B5E9061EFF936000A6A3E2 /* sprites.atlas */,
+				45B5E9071EFF936000A6A3E2 /* sprites.png */,
+				45B5E9081EFF936000A6A3E2 /* straight.png */,
+				45B5E9091EFF936000A6A3E2 /* tail.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -80,6 +100,7 @@
 		45B5E6881EF6726C00A6A3E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45B5E9011EFF90C500A6A3E2 /* libUnpacker.dylib */,
 				45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */,
 				45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */,
 			);
@@ -158,7 +179,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B5E90D1EFF936000A6A3E2 /* sprites.atlas in Resources */,
+				45B5E90A1EFF936000A6A3E2 /* config.yaml in Resources */,
 				45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */,
+				45B5E90E1EFF936000A6A3E2 /* sprites.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +200,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "src=\"/usr/local/lib\"\ndest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\nfor f in \"libSDL2-2.0.0.dylib\" \"libSimpleton Engine.dylib\"\ndo\n  ditto \"$src/$f\" \"$dest/$f\"\ndone";
+			shellScript = "src=\"/usr/local/lib\"\ndest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\nfor f in \"libSDL2-2.0.0.dylib\" \"libSimpleton Engine.dylib\" \"libUnpacker.dylib\"\ndo\n  ditto \"$src/$f\" \"$dest/$f\"\ndone";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -306,6 +330,7 @@
 					"$(inherited)",
 					/usr/local/lib/,
 					"/usr/local/Cellar/sdl2/**",
+					/usr/local/Cellar/sdl2/2.0.5/lib,
 				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
@@ -341,6 +366,7 @@
 					"$(inherited)",
 					/usr/local/lib/,
 					"/usr/local/Cellar/sdl2/**",
+					/usr/local/Cellar/sdl2/2.0.5/lib,
 				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
@@ -375,6 +401,7 @@
 				45B5E6831EF66A8B00A6A3E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
