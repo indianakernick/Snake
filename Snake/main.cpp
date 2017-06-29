@@ -23,15 +23,15 @@ using Pos = glm::tvec2<PosScalar>;
 using ToVec = Math::ToVec<PosScalar, Math::Dir::RIGHT, Math::Dir::DOWN>;
 
 const Color BACK_COLOR = {127, 127, 255, 255};
-const uint64_t UPDATES_PER_SECOND = 6;
+const uint64_t UPDATES_PER_SECOND = 2;
 
 const Platform::Window::Desc WINDOW_DESC = {
   "Snake",
-  {700, 700},
+  {768, 768},
   true
 };
 
-const Pos GAME_SIZE = {20, 20};
+const Pos GAME_SIZE = {6, 6};
 const glm::vec2 TILE_SIZE = {
   static_cast<float>(WINDOW_DESC.size.x) / GAME_SIZE.x,
   static_cast<float>(WINDOW_DESC.size.y) / GAME_SIZE.y
@@ -113,16 +113,16 @@ bool AppImpl::update(const uint64_t delta) {
     snake.push_front(snake.front() + ToVec::conv(nextDir));
     snake.front() = (snake.front() + GAME_SIZE) % GAME_SIZE;
     
-    for (auto s = snake.cbegin() + 1; s != snake.cend(); ++s) {
-      if (*s == snake.front()) {
-        return false;
-      }
-    }
-    
     if (snake.front() == food) {
+      //food is never is the same position as the snake
       setFoodPos();
     } else {
       snake.pop_back();
+      for (auto s = snake.cbegin() + 1; s != snake.cend(); ++s) {
+        if (*s == snake.front()) {
+          return false;
+        }
+      }
     }
     currentDir = nextDir;
   }
@@ -278,8 +278,6 @@ void AppImpl::renderSnake() {
 
   renderSprite(snake.back(), "tail", ToAngle::conv(backDir, 90.0));
 }
-
-
 
 void AppImpl::renderFood() {
   renderSprite(food, "food");
