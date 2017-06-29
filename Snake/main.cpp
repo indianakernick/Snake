@@ -214,22 +214,18 @@ void AppImpl::renderSprite(const Pos pos, const std::string &name, const double 
 
 double getRotation(const Math::DirPair forBack) {
   switch (forBack) {
-    case Math::DirPair::UP_RIGHT:
-      return 0.0;
     case Math::DirPair::UP_LEFT:
-      return 270.0;
-    case Math::DirPair::RIGHT_UP:
-      return 0.0;
     case Math::DirPair::RIGHT_DOWN:
+      return 0.0;
+    case Math::DirPair::RIGHT_UP:
+    case Math::DirPair::DOWN_LEFT:
       return 90.0;
     case Math::DirPair::DOWN_RIGHT:
-      return 90.0;
-    case Math::DirPair::DOWN_LEFT:
-      return 180.0;
     case Math::DirPair::LEFT_UP:
-      return 270.0;
-    case Math::DirPair::LEFT_DOWN:
       return 180.0;
+    case Math::DirPair::UP_RIGHT:
+    case Math::DirPair::LEFT_DOWN:
+      return 270.0;    
     
     default:
       assert(false);
@@ -242,27 +238,24 @@ void AppImpl::renderSnake() {
   
   renderSprite(snake.front(), "head", ToAngle::conv(currentDir, 90.0));
 
-  Pos lastPos = snake.front();
-  Pos forward = lastPos - snake[1];
+  Pos front = snake.front() - snake[1];
   
   for (auto b = snake.cbegin() + 1; b != snake.cend() - 1; ++b) {
-    const Pos backward = *(b + 1) - *b;
+    const Pos back = *b - *(b + 1);
     
-    const Math::Dir forDir = FromVec::conv(forward);
-    const Math::Dir backDir = FromVec::conv(backward);
+    const Math::Dir forDir = FromVec::conv(front);
+    const Math::Dir backDir = FromVec::conv(back);
     
-    if (Math::opposite(forDir) == backDir) {
+    if (forDir == backDir) {
       renderSprite(*b, "straight", ToAngle::conv(forDir, 90.0));
     } else {
       renderSprite(*b, "corner", getRotation(Math::makePair(forDir, backDir)));
     }
     
-    
-    lastPos = *b;
-    forward = -backward;
+    front = back;
   }
   
-  const Math::Dir backDir = FromVec::conv(snake.back() - lastPos);
+  const Math::Dir backDir = FromVec::conv(*(snake.cend() - 2) - snake.back());
 
   renderSprite(snake.back(), "tail", ToAngle::conv(backDir, 90.0));
 }
