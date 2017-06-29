@@ -23,7 +23,7 @@ using Pos = glm::tvec2<PosScalar>;
 using ToVec = Math::ToVec<PosScalar, Math::Dir::RIGHT, Math::Dir::DOWN>;
 
 const Color BACK_COLOR = {127, 127, 255, 255};
-const uint64_t UPDATES_PER_SECOND = 8;
+const uint64_t UPDATES_PER_SECOND = 6;
 
 const Platform::Window::Desc WINDOW_DESC = {
   "Snake",
@@ -210,8 +210,6 @@ void AppImpl::renderSprite(const Pos pos, const std::string &name, const double 
   );
 }
 
-#include <iostream>
-
 double getRotation(const Math::DirPair forBack) {
   switch (forBack) {
     case Math::DirPair::UP_LEFT:
@@ -232,16 +230,37 @@ double getRotation(const Math::DirPair forBack) {
   }
 }
 
+Pos getDirVec(const Pos thisPos, const Pos behindPos) {
+  Pos behindToThis = thisPos - behindPos;
+  
+  //this accounts for the snake going into one side of the window and
+  //and coming out from the opposite side of the window
+  if (behindToThis.x > 1) {
+    behindToThis.x -= GAME_SIZE.x;
+  }
+  if (behindToThis.y > 1) {
+    behindToThis.y -= GAME_SIZE.y;
+  }
+  if (behindToThis.x < -1) {
+    behindToThis.x += GAME_SIZE.x;
+  }
+  if (behindToThis.y < -1) {
+    behindToThis.y += GAME_SIZE.y;
+  }
+  
+  return behindToThis;
+}
+
 void AppImpl::renderSnake() {
   using ToAngle = Math::ToNum<double>;
   using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
   
   renderSprite(snake.front(), "head", ToAngle::conv(currentDir, 90.0));
 
-  Pos front = snake.front() - snake[1];
+  Pos front = getDirVec(snake.front(), snake[1]);
   
   for (auto b = snake.cbegin() + 1; b != snake.cend() - 1; ++b) {
-    const Pos back = *b - *(b + 1);
+    const Pos back = getDirVec(*b, *(b + 1));
     
     const Math::Dir forDir = FromVec::conv(front);
     const Math::Dir backDir = FromVec::conv(back);
@@ -255,7 +274,7 @@ void AppImpl::renderSnake() {
     front = back;
   }
   
-  const Math::Dir backDir = FromVec::conv(*(snake.cend() - 2) - snake.back());
+  const Math::Dir backDir = FromVec::conv(getDirVec(*(snake.cend() - 2), snake.back()));
 
   renderSprite(snake.back(), "tail", ToAngle::conv(backDir, 90.0));
 }
