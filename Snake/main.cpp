@@ -66,6 +66,7 @@ private:
   void renderSprite(Pos, const std::string &);
   void renderSprite(Pos, const std::string &, double);
   
+  void renderSnakeBody(Pos, Pos, Pos);
   void renderSnake();
   void renderFood();
 };
@@ -210,26 +211,7 @@ void AppImpl::renderSprite(const Pos pos, const std::string &name, const double 
   );
 }
 
-double getRotation(const Math::DirPair forBack) {
-  switch (forBack) {
-    case Math::DirPair::UP_LEFT:
-    case Math::DirPair::RIGHT_DOWN:
-      return 0.0;
-    case Math::DirPair::RIGHT_UP:
-    case Math::DirPair::DOWN_LEFT:
-      return 90.0;
-    case Math::DirPair::DOWN_RIGHT:
-    case Math::DirPair::LEFT_UP:
-      return 180.0;
-    case Math::DirPair::UP_RIGHT:
-    case Math::DirPair::LEFT_DOWN:
-      return 270.0;    
-    
-    default:
-      assert(false);
-  }
-}
-
+//returns a vector pointing from this to behind
 Pos getDirVec(const Pos thisPos, const Pos behindPos) {
   Pos behindToThis = thisPos - behindPos;
   
@@ -251,6 +233,71 @@ Pos getDirVec(const Pos thisPos, const Pos behindPos) {
   return behindToThis;
 }
 
+void AppImpl::renderSnakeBody(const Pos pos, const Pos behindVec, const Pos frontVec) {
+  using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
+  
+  const Math::Dir behindDir = FromVec::conv(behindVec);
+  const Math::Dir frontDir = FromVec::conv(frontVec);
+  const Math::DirPair behindCurrent = Math::makePair(behindDir, frontDir);
+  
+  switch (behindCurrent) {
+    case Math::DirPair::UP_UP:
+      renderSprite(pos, "straight");
+      break;
+    case Math::DirPair::UP_RIGHT:
+      renderSprite(pos, "right corner");
+      break;
+    case Math::DirPair::UP_DOWN:
+      assert(false);
+      break;
+    case Math::DirPair::UP_LEFT:
+      renderSprite(pos, "left corner");
+      break;
+    
+    case Math::DirPair::RIGHT_UP:
+      renderSprite(pos, "left corner", 90.0);
+      break;
+    case Math::DirPair::RIGHT_RIGHT:
+      renderSprite(pos, "straight", 90.0);
+      break;
+    case Math::DirPair::RIGHT_DOWN:
+      renderSprite(pos, "right corner", 90.0);
+      break;
+    case Math::DirPair::RIGHT_LEFT:
+      assert(false);
+      break;
+    
+    case Math::DirPair::DOWN_UP:
+      assert(false);
+      break;
+    case Math::DirPair::DOWN_RIGHT:
+      renderSprite(pos, "left corner", 180.0);
+      break;
+    case Math::DirPair::DOWN_DOWN:
+      renderSprite(pos, "straight", 180.0);
+      break;
+    case Math::DirPair::DOWN_LEFT:
+      renderSprite(pos, "right corner", 180.0);
+      break;
+    
+    case Math::DirPair::LEFT_UP:
+      renderSprite(pos, "right corner", 270.0);
+      break;
+    case Math::DirPair::LEFT_RIGHT:
+      assert(false);
+      break;
+    case Math::DirPair::LEFT_DOWN:
+      renderSprite(pos, "left corner", 270.0);
+      break;
+    case Math::DirPair::LEFT_LEFT:
+      renderSprite(pos, "straight", 270.0);
+      break;
+    
+    default:
+      assert(false);
+  }
+}
+
 void AppImpl::renderSnake() {
   using ToAngle = Math::ToNum<double>;
   using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
@@ -258,19 +305,13 @@ void AppImpl::renderSnake() {
   renderSprite(snake.front(), "head", ToAngle::conv(currentDir, 90.0));
 
   Pos front = getDirVec(snake.front(), snake[1]);
+  Pos nextPos = snake[1];
   
   for (auto b = snake.cbegin() + 1; b != snake.cend() - 1; ++b) {
-    const Pos back = getDirVec(*b, *(b + 1));
-    
-    const Math::Dir forDir = FromVec::conv(front);
-    const Math::Dir backDir = FromVec::conv(back);
-    
-    if (forDir == backDir) {
-      renderSprite(*b, "straight", ToAngle::conv(forDir, 90.0));
-    } else {
-      renderSprite(*b, "corner", getRotation(Math::makePair(forDir, backDir)));
-    }
-    
+    const Pos pos = nextPos;
+    nextPos = *(b + 1);
+    const Pos back = getDirVec(pos, nextPos);
+    renderSnakeBody(pos, back, front);
     front = back;
   }
   

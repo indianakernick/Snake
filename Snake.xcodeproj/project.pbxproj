@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4592B4621EFF9EAF00D1640D /* libUnpacker.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E9011EFF90C500A6A3E2 /* libUnpacker.dylib */; };
+		4592B4961F04F29D00D1640D /* left corner.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B4941F04F29D00D1640D /* left corner.png */; };
+		4592B4971F04F29D00D1640D /* right corner.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B4951F04F29D00D1640D /* right corner.png */; };
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
 		45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4592B4941F04F29D00D1640D /* left corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left corner.png"; sourceTree = "<group>"; };
+		4592B4951F04F29D00D1640D /* right corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right corner.png"; sourceTree = "<group>"; };
 		45B5E6721EF66A8B00A6A3E2 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,7 +36,6 @@
 		45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSimpleton Engine.dylib"; path = "../../../../../../../usr/local/lib/libSimpleton Engine.dylib"; sourceTree = "<group>"; };
 		45B5E9011EFF90C500A6A3E2 /* libUnpacker.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libUnpacker.dylib; path = ../../../../../../../usr/local/lib/libUnpacker.dylib; sourceTree = "<group>"; };
 		45B5E9031EFF936000A6A3E2 /* config.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yaml; sourceTree = "<group>"; };
-		45B5E9041EFF936000A6A3E2 /* corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner.png; sourceTree = "<group>"; };
 		45B5E9051EFF936000A6A3E2 /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head.png; sourceTree = "<group>"; };
 		45B5E9061EFF936000A6A3E2 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = file; path = sprites.atlas; sourceTree = "<group>"; };
 		45B5E9071EFF936000A6A3E2 /* sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprites.png; sourceTree = "<group>"; };
@@ -86,8 +89,9 @@
 		45B5E6871EF671F200A6A3E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4592B4941F04F29D00D1640D /* left corner.png */,
+				4592B4951F04F29D00D1640D /* right corner.png */,
 				45B5E9031EFF936000A6A3E2 /* config.yaml */,
-				45B5E9041EFF936000A6A3E2 /* corner.png */,
 				45B5E9051EFF936000A6A3E2 /* head.png */,
 				45B5E9061EFF936000A6A3E2 /* sprites.atlas */,
 				45B5E9071EFF936000A6A3E2 /* sprites.png */,
@@ -180,6 +184,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B5E90D1EFF936000A6A3E2 /* sprites.atlas in Resources */,
+				4592B4961F04F29D00D1640D /* left corner.png in Resources */,
+				4592B4971F04F29D00D1640D /* right corner.png in Resources */,
 				45B5E90A1EFF936000A6A3E2 /* config.yaml in Resources */,
 				45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */,
 				45B5E90E1EFF936000A6A3E2 /* sprites.png in Resources */,
