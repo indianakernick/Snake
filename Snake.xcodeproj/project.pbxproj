@@ -104,7 +104,6 @@
 		4592B7861F077BEC00D1640D /* head left corner 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B7751F077BEC00D1640D /* head left corner 13.png */; };
 		4592B7871F077BEC00D1640D /* head left corner 14.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B7761F077BEC00D1640D /* head left corner 14.png */; };
 		4592B7881F077BEC00D1640D /* head left corner 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B7771F077BEC00D1640D /* head left corner 15.png */; };
-		4592B7891F077BEC00D1640D /* note.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4592B7781F077BEC00D1640D /* note.txt */; };
 		4592B79A1F077C0300D1640D /* head right corner 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B78A1F077C0300D1640D /* head right corner 0.png */; };
 		4592B79B1F077C0300D1640D /* head right corner 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B78B1F077C0300D1640D /* head right corner 1.png */; };
 		4592B79C1F077C0300D1640D /* head right corner 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B78C1F077C0300D1640D /* head right corner 2.png */; };
@@ -373,7 +372,6 @@
 		4592B7751F077BEC00D1640D /* head left corner 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head left corner 13.png"; sourceTree = "<group>"; };
 		4592B7761F077BEC00D1640D /* head left corner 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head left corner 14.png"; sourceTree = "<group>"; };
 		4592B7771F077BEC00D1640D /* head left corner 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head left corner 15.png"; sourceTree = "<group>"; };
-		4592B7781F077BEC00D1640D /* note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = note.txt; sourceTree = "<group>"; };
 		4592B78A1F077C0300D1640D /* head right corner 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head right corner 0.png"; sourceTree = "<group>"; };
 		4592B78B1F077C0300D1640D /* head right corner 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head right corner 1.png"; sourceTree = "<group>"; };
 		4592B78C1F077C0300D1640D /* head right corner 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "head right corner 2.png"; sourceTree = "<group>"; };
@@ -721,7 +719,6 @@
 				4592B7751F077BEC00D1640D /* head left corner 13.png */,
 				4592B7761F077BEC00D1640D /* head left corner 14.png */,
 				4592B7771F077BEC00D1640D /* head left corner 15.png */,
-				4592B7781F077BEC00D1640D /* note.txt */,
 			);
 			name = "head left corner";
 			sourceTree = "<group>";
@@ -1177,7 +1174,6 @@
 				4592B7621F077BD600D1640D /* head 10.png in Resources */,
 				4592B85D1F077CC500D1640D /* tail left corner 3.png in Resources */,
 				4592B7851F077BEC00D1640D /* head left corner 12.png in Resources */,
-				4592B7891F077BEC00D1640D /* note.txt in Resources */,
 				4592B7C31F077C1600D1640D /* head straight 9.png in Resources */,
 				4592B7031F077B9900D1640D /* eat rat left 11.png in Resources */,
 				4592B8291F077C9800D1640D /* right corner 15.png in Resources */,
