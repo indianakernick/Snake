@@ -126,8 +126,7 @@ bool AppImpl::update(const uint64_t delta) {
       snake.pop_back();
     }
     
-    snake.push_front(snake.front() + ToVec::conv(nextDir));
-    snake.front() = (snake.front() + GAME_SIZE) % GAME_SIZE;
+    snake.push_front((snake.front() + ToVec::conv(nextDir) + GAME_SIZE) % GAME_SIZE);
     
     if (snake.front() != food) {
       for (auto s = snake.cbegin() + 1; s != snake.cend() - 1; ++s) {
@@ -219,26 +218,26 @@ void AppImpl::renderSprite(
   );
 }
 
-//returns a vector pointing from this to behind
-Pos getDirVec(const Pos thisPos, const Pos behindPos) {
-  Pos behindToThis = thisPos - behindPos;
+//returns a vector pointing from this to prev
+Pos getDirVec(const Pos thisPos, const Pos prevPos) {
+  Pos prevToThis = thisPos - prevPos;
   
   //this accounts for the snake going into one side of the window and
   //and coming out from the opposite side of the window
-  if (behindToThis.x > 1) {
-    behindToThis.x -= GAME_SIZE.x;
+  if (prevToThis.x > 1) {
+    prevToThis.x -= GAME_SIZE.x;
   }
-  if (behindToThis.y > 1) {
-    behindToThis.y -= GAME_SIZE.y;
+  if (prevToThis.y > 1) {
+    prevToThis.y -= GAME_SIZE.y;
   }
-  if (behindToThis.x < -1) {
-    behindToThis.x += GAME_SIZE.x;
+  if (prevToThis.x < -1) {
+    prevToThis.x += GAME_SIZE.x;
   }
-  if (behindToThis.y < -1) {
-    behindToThis.y += GAME_SIZE.y;
+  if (prevToThis.y < -1) {
+    prevToThis.y += GAME_SIZE.y;
   }
   
-  return behindToThis;
+  return prevToThis;
 }
 
 double getBodySpriteAngle(const Math::Dir prevToThisDir) {
@@ -286,40 +285,30 @@ std::string dirToString(const Math::Dir dir) {
 void AppImpl::renderSnake() {
   using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
   
-  if (snake.front() == food) {
+  if (eating) {
     renderSprite(snake.front(), "eat rat " + dirToString(currentDir));
   } else {
     renderSprite(snake.front(), "head", getBodySpriteAngle(currentDir));
   }
 
-  Pos thisToNextVec = getDirVec(snake.front(), snake[1]);
-  Pos nextPos = snake[1];
+  Pos nextPos = snake[2];
+  Pos thisToNextVec = getDirVec(snake[1], nextPos);
+  renderSnakeBody("head", snake[1], thisToNextVec, getDirVec(snake[0], snake[1]));
   
-  for (auto b = snake.cbegin() + 1; b != snake.cend() - 1; ++b) {
+  for (auto b = snake.cbegin() + 2; b != snake.cend() - 2; ++b) {
     const Pos pos = nextPos;
     nextPos = *(b + 1);
     const Pos prevToThisVec = getDirVec(pos, nextPos);
-    if (b == snake.cbegin() + 1) {
-      renderSnakeBody("head", pos, prevToThisVec, thisToNextVec);
-    } else if (b == snake.cend() - 2) {
-      if (eating) {
-        renderSnakeBody("body", pos, prevToThisVec, thisToNextVec);
-      } else {
-        renderSnakeBody("tail", pos, prevToThisVec, thisToNextVec);
-      }
-    } else {
-      renderSnakeBody("body", pos, prevToThisVec, thisToNextVec);
-    }
+    renderSnakeBody("body", pos, prevToThisVec, thisToNextVec);
     thisToNextVec = prevToThisVec;
   }
   
-  const Pos prevToThisVec = getDirVec(*(snake.cend() - 2), snake.back());
-  const Math::Dir prevToThisDir = FromVec::conv(prevToThisVec);
-  if (eating) {
-    renderSprite(snake.back(), "tail grow", getBodySpriteAngle(prevToThisDir));
-  } else {
-    renderSprite(snake.back(), "tail", getBodySpriteAngle(prevToThisDir));
-  }
+  const Pos prevToThisVec = getDirVec(nextPos, snake.back());
+  renderSnakeBody(eating ? "body" : "tail", nextPos, prevToThisVec, thisToNextVec);
+  thisToNextVec = prevToThisVec;
+
+  const double tailAngle = getBodySpriteAngle(FromVec::conv(thisToNextVec));
+  renderSprite(snake.back(), eating ? "tail grow" : "tail", tailAngle);
 }
 
 void AppImpl::renderFood() {
