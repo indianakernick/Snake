@@ -46,7 +46,12 @@ public:
       texture(nullptr, &SDL_DestroyTexture),
       freqLimiter(Time::OP_PER_SEC, UPDATES_PER_SECOND) {
     const Pos center = GAME_SIZE / 2;
-    snake = {{center.x - 1, center.y}, center, {center.x + 1, center.y}};
+    snake = {
+      {center.x - 1, center.y},
+      center,
+      {center.x + 1, center.y},
+      {center.x + 2, center.y}
+    };
   }
   
 private:
@@ -55,10 +60,9 @@ private:
   Time::DeltaFreqLimiter<uint64_t> freqLimiter;
   std::deque<Pos> snake;
   double animProg = 0.0;
-  Pos food;
+  Pos food = {0, GAME_SIZE.y / 2};
   Math::Dir currentDir = Math::Dir::LEFT;
   Math::Dir nextDir = Math::Dir::LEFT;
-  bool popNext = false;
   bool eating = false;
 
   void init() override;
@@ -68,7 +72,6 @@ private:
   
   void setNextDir(SDL_Scancode);
   void setFoodPos();
-  void renderSprite(Pos, const std::string &);
   void renderSprite(Pos, const std::string &, double);
   
   void renderSnakeBody(const std::string &, Pos, Pos, Pos);
@@ -117,13 +120,13 @@ bool AppImpl::update(const uint64_t delta) {
   freqLimiter.advance(delta);
   if (freqLimiter.canDo()) {
     animProg = 0.0;
-    if (popNext) {
-      snake.pop_back();
-      popNext = false;
-    } else {
+    if (eating) {
       setFoodPos();
       eating = false;
+    } else {
+      snake.pop_back();
     }
+    
     snake.push_front(snake.front() + ToVec::conv(nextDir));
     snake.front() = (snake.front() + GAME_SIZE) % GAME_SIZE;
     
@@ -133,7 +136,6 @@ bool AppImpl::update(const uint64_t delta) {
           return false;
         }
       }
-      popNext = true;
     } else {
       eating = true;
     }
@@ -204,19 +206,11 @@ SDL_Rect toTile(const Pos pos) {
   };
 }
 
-void AppImpl::renderSprite(const Pos pos, const std::string &name) {
-  const std::string frame = std::to_string(Time::progToFrame(animProg, NUM_FRAMES));
-  const SDL_Rect srcRect = toSDL(sheet.getSprite(name + ' ' + frame));
-  const SDL_Rect dstRect = toTile(pos);
-  SDL_RenderCopy(
-    renderer.get(),
-    texture.get(),
-    &srcRect,
-    &dstRect
-  );
-}
-
-void AppImpl::renderSprite(const Pos pos, const std::string &name, const double rotation) {
+void AppImpl::renderSprite(
+  const Pos pos,
+  const std::string &name,
+  const double rotation = 0.0
+) {
   const std::string frame = std::to_string(Time::progToFrame(animProg, NUM_FRAMES));
   const SDL_Rect srcRect = toSDL(sheet.getSprite(name + ' ' + frame));
   const SDL_Rect dstRect = toTile(pos);
@@ -253,123 +247,89 @@ Pos getDirVec(const Pos thisPos, const Pos behindPos) {
   return behindToThis;
 }
 
+double getBodySpriteAngle(const Math::Dir prevToThisDir) {
+  return Math::ToNum<double>::conv(prevToThisDir, 90.0);
+}
+
+std::string getBodySpriteTurnName(const Math::Dir prevToThisDir, const Math::Dir thisToNextDir) {
+  const Math::SignedDirType diff = Math::diff(prevToThisDir, thisToNextDir);
+  if (diff == 0) {
+    return "straight";
+  } else if (diff == 1) {
+    return "right corner";
+  } else if (diff == -1) {
+    return "left corner";
+  } else {
+    assert(false);
+    return "";
+  }
+}
+
 void AppImpl::renderSnakeBody(
   const std::string &name,
   const Pos pos,
-  const Pos behindVec,
-  const Pos frontVec
+  const Pos prevToThisVec,
+  const Pos thisToNextVec
 ) {
   using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
   
-  const Math::Dir behindDir = FromVec::conv(behindVec);
-  const Math::Dir frontDir = FromVec::conv(frontVec);
-  const Math::DirPair behindCurrent = Math::makePair(behindDir, frontDir);
-  
-  switch (behindCurrent) {
-    case Math::DirPair::UP_UP:
-      renderSprite(pos, name + "straight");
-      break;
-    case Math::DirPair::UP_RIGHT:
-      renderSprite(pos, name + "right corner");
-      break;
-    case Math::DirPair::UP_DOWN:
-      assert(false);
-      break;
-    case Math::DirPair::UP_LEFT:
-      renderSprite(pos, name + "left corner");
-      break;
-    
-    case Math::DirPair::RIGHT_UP:
-      renderSprite(pos, name + "left corner", 90.0);
-      break;
-    case Math::DirPair::RIGHT_RIGHT:
-      renderSprite(pos, name + "straight", 90.0);
-      break;
-    case Math::DirPair::RIGHT_DOWN:
-      renderSprite(pos, name + "right corner", 90.0);
-      break;
-    case Math::DirPair::RIGHT_LEFT:
-      assert(false);
-      break;
-    
-    case Math::DirPair::DOWN_UP:
-      assert(false);
-      break;
-    case Math::DirPair::DOWN_RIGHT:
-      renderSprite(pos, name + "left corner", 180.0);
-      break;
-    case Math::DirPair::DOWN_DOWN:
-      renderSprite(pos, name + "straight", 180.0);
-      break;
-    case Math::DirPair::DOWN_LEFT:
-      renderSprite(pos, name + "right corner", 180.0);
-      break;
-    
-    case Math::DirPair::LEFT_UP:
-      renderSprite(pos, name + "right corner", 270.0);
-      break;
-    case Math::DirPair::LEFT_RIGHT:
-      assert(false);
-      break;
-    case Math::DirPair::LEFT_DOWN:
-      renderSprite(pos, name + "left corner", 270.0);
-      break;
-    case Math::DirPair::LEFT_LEFT:
-      renderSprite(pos, name + "straight", 270.0);
-      break;
-    
-    default:
-      assert(false);
-  }
+  const Math::Dir prevToThisDir = FromVec::conv(prevToThisVec);
+  const Math::Dir thisToNextDir = FromVec::conv(thisToNextVec);
+  renderSprite(
+    pos,
+    name + ' ' + getBodySpriteTurnName(prevToThisDir, thisToNextDir),
+    getBodySpriteAngle(prevToThisDir)
+  );
 }
 
 std::string dirToString(const Math::Dir dir) {
-  switch (dir) {
-    case Math::Dir::UP:
-      return "up";
-    case Math::Dir::RIGHT:
-      return "right";
-    case Math::Dir::DOWN:
-      return "down";
-    case Math::Dir::LEFT:
-      return "left";
-  }
+  static const std::string NAMES[4] = {
+    "up", "right", "down", "left"
+  };
+  return NAMES[Math::ToNum<size_t>::conv(dir)];
 }
 
 void AppImpl::renderSnake() {
-  using ToAngle = Math::ToNum<double>;
   using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
   
   if (snake.front() == food) {
     renderSprite(snake.front(), "eat rat " + dirToString(currentDir));
   } else {
-    renderSprite(snake.front(), "head", ToAngle::conv(currentDir, 90.0));
+    renderSprite(snake.front(), "head", getBodySpriteAngle(currentDir));
   }
 
-  Pos front = getDirVec(snake.front(), snake[1]);
+  Pos thisToNextVec = getDirVec(snake.front(), snake[1]);
   Pos nextPos = snake[1];
   
   for (auto b = snake.cbegin() + 1; b != snake.cend() - 1; ++b) {
     const Pos pos = nextPos;
     nextPos = *(b + 1);
-    const Pos back = getDirVec(pos, nextPos);
+    const Pos prevToThisVec = getDirVec(pos, nextPos);
     if (b == snake.cbegin() + 1) {
-      renderSnakeBody("head ", pos, back, front);
+      renderSnakeBody("head", pos, prevToThisVec, thisToNextVec);
     } else if (b == snake.cend() - 2) {
-      renderSnakeBody("tail ", pos, back, front);
+      if (eating) {
+        renderSnakeBody("body", pos, prevToThisVec, thisToNextVec);
+      } else {
+        renderSnakeBody("tail", pos, prevToThisVec, thisToNextVec);
+      }
     } else {
-      renderSnakeBody("", pos, back, front);
+      renderSnakeBody("body", pos, prevToThisVec, thisToNextVec);
     }
-    front = back;
+    thisToNextVec = prevToThisVec;
   }
   
-  const Math::Dir backDir = FromVec::conv(getDirVec(*(snake.cend() - 2), snake.back()));
-
-  renderSprite(snake.back(), "tail", ToAngle::conv(backDir, 90.0));
+  const Pos prevToThisVec = getDirVec(*(snake.cend() - 2), snake.back());
+  const Math::Dir prevToThisDir = FromVec::conv(prevToThisVec);
+  if (eating) {
+    renderSprite(snake.back(), "tail grow", getBodySpriteAngle(prevToThisDir));
+  } else {
+    renderSprite(snake.back(), "tail", getBodySpriteAngle(prevToThisDir));
+  }
 }
 
 void AppImpl::renderFood() {
-  if (!eating) {
+  if (not eating) {
     renderSprite(food, "rat");
   }
 }
