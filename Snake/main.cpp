@@ -25,6 +25,7 @@ using ToVec = Math::ToVec<PosScalar, Math::Dir::RIGHT, Math::Dir::DOWN>;
 
 const Color BACK_COLOR = {127, 127, 255, 255};
 const uint64_t UPDATES_PER_SECOND = 2;
+const uint64_t MILLI_PER_UPDATE = 1000 / UPDATES_PER_SECOND;
 const uint64_t NUM_FRAMES = 16;
 
 const Platform::Window::Desc WINDOW_DESC = {
@@ -43,8 +44,7 @@ class AppImpl final : public SDLApp {
 public:
   AppImpl()
     : SDLApp(WINDOW_DESC, true),
-      texture(nullptr, &SDL_DestroyTexture),
-      freqLimiter(Time::OP_PER_SEC, UPDATES_PER_SECOND) {
+      texture(nullptr, &SDL_DestroyTexture) {
     const Pos center = GAME_SIZE / 2;
     snake = {
       {center.x - 1, center.y},
@@ -57,9 +57,8 @@ public:
 private:
   Spritesheet sheet;
   std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)> texture;
-  Time::DeltaFreqLimiter<uint64_t> freqLimiter;
+  uint64_t animProg = 0;
   std::deque<Pos> snake;
-  double animProg = 0.0;
   Pos food = {0, GAME_SIZE.y / 2};
   Math::Dir currentDir = Math::Dir::LEFT;
   Math::Dir nextDir = Math::Dir::LEFT;
@@ -117,9 +116,9 @@ bool AppImpl::input(const uint64_t) {
 }
 
 bool AppImpl::update(const uint64_t delta) {
-  freqLimiter.advance(delta);
-  if (freqLimiter.canDo()) {
-    animProg = 0.0;
+  animProg += delta;
+  if (animProg >= MILLI_PER_UPDATE) {
+    animProg = 0;
     if (eating) {
       setFoodPos();
       eating = false;
@@ -144,13 +143,7 @@ bool AppImpl::update(const uint64_t delta) {
   return true;
 }
 
-void AppImpl::render(const uint64_t delta) {
-  animProg += delta / (1000.0 / UPDATES_PER_SECOND);
-  
-  if (animProg >= 1.0) {
-    animProg = 0.9999;
-  }
-
+void AppImpl::render(const uint64_t) {
   renderer.clear(BACK_COLOR);
   renderSnake();
   renderFood();
@@ -211,7 +204,8 @@ void AppImpl::renderSprite(
   const std::string &name,
   const double rotation = 0.0
 ) {
-  const std::string frame = std::to_string(Time::progToFrame(animProg, NUM_FRAMES));
+  const double prog = static_cast<double>(animProg) / MILLI_PER_UPDATE;
+  const std::string frame = std::to_string(Time::progToFrame(prog, NUM_FRAMES));
   const SDL_Rect srcRect = toSDL(sheet.getSprite(name + ' ' + frame));
   const SDL_Rect dstRect = toTile(pos);
   SDL_RenderCopyEx(
