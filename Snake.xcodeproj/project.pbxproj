@@ -75,6 +75,9 @@
 		4592B94F1F08C32E00D1640D /* tail grow 14.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B93F1F08C32E00D1640D /* tail grow 14.png */; };
 		4592B9501F08C32E00D1640D /* tail grow 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B9401F08C32E00D1640D /* tail grow 15.png */; };
 		4592B9531F08E08300D1640D /* app impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B9511F08E08300D1640D /* app impl.cpp */; };
+		4592B9561F09CDA300D1640D /* render manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B9541F09CDA300D1640D /* render manager.cpp */; };
+		4592B9591F09CDAD00D1640D /* rat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B9571F09CDAD00D1640D /* rat.cpp */; };
+		4592B95C1F09CDB400D1640D /* snake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B95A1F09CDB400D1640D /* snake.cpp */; };
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
 		45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */; };
@@ -360,6 +363,14 @@
 		4592B9401F08C32E00D1640D /* tail grow 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tail grow 15.png"; sourceTree = "<group>"; };
 		4592B9511F08E08300D1640D /* app impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "app impl.cpp"; sourceTree = "<group>"; };
 		4592B9521F08E08300D1640D /* app impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "app impl.hpp"; sourceTree = "<group>"; };
+		4592B9541F09CDA300D1640D /* render manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "render manager.cpp"; sourceTree = "<group>"; };
+		4592B9551F09CDA300D1640D /* render manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "render manager.hpp"; sourceTree = "<group>"; };
+		4592B9571F09CDAD00D1640D /* rat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rat.cpp; sourceTree = "<group>"; };
+		4592B9581F09CDAD00D1640D /* rat.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rat.hpp; sourceTree = "<group>"; };
+		4592B95A1F09CDB400D1640D /* snake.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = snake.cpp; sourceTree = "<group>"; };
+		4592B95B1F09CDB400D1640D /* snake.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = snake.hpp; sourceTree = "<group>"; };
+		4592B95D1F09D0C700D1640D /* types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = types.hpp; sourceTree = "<group>"; };
+		4592B95E1F09D14000D1640D /* constants.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = constants.hpp; sourceTree = "<group>"; };
 		45B5E6721EF66A8B00A6A3E2 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -854,6 +865,14 @@
 				45B5E8D31EFA0DD200A6A3E2 /* sdl app.hpp */,
 				4592B9511F08E08300D1640D /* app impl.cpp */,
 				4592B9521F08E08300D1640D /* app impl.hpp */,
+				4592B9541F09CDA300D1640D /* render manager.cpp */,
+				4592B9551F09CDA300D1640D /* render manager.hpp */,
+				4592B9571F09CDAD00D1640D /* rat.cpp */,
+				4592B9581F09CDAD00D1640D /* rat.hpp */,
+				4592B95A1F09CDB400D1640D /* snake.cpp */,
+				4592B95B1F09CDB400D1640D /* snake.hpp */,
+				4592B95D1F09D0C700D1640D /* types.hpp */,
+				4592B95E1F09D14000D1640D /* constants.hpp */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -1013,7 +1032,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4592B9531F08E08300D1640D /* app impl.cpp in Sources */,
+				4592B9561F09CDA300D1640D /* render manager.cpp in Sources */,
 				45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */,
+				4592B95C1F09CDB400D1640D /* snake.cpp in Sources */,
+				4592B9591F09CDAD00D1640D /* rat.cpp in Sources */,
 				45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */,
 				45B5E8D41EFA0DD200A6A3E2 /* sdl app.cpp in Sources */,
 			);
