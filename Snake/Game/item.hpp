@@ -1,34 +1,43 @@
 //
-//  power up.hpp
+//  item.hpp
 //  Snake
 //
 //  Created by Indi Kernick on 4/7/17.
 //  Copyright © 2017 Indi Kernick. All rights reserved.
 //
 
-#ifndef game_power_up_hpp
-#define game_power_up_hpp
+#ifndef game_item_hpp
+#define game_item_hpp
 
 #include "types.hpp"
 
 class RenderManager;
 
-class PowerUp {
+class Item {
 public:
-  explicit PowerUp(Pos);
-  virtual ~PowerUp() = default;
+  explicit Item(Pos);
+  virtual ~Item() = default;
   
   Pos getPos() const;
-  bool isBeingConsumed() const;
+  bool isAlive() const;
   virtual void consume();
   
+  virtual void update();
   virtual void render(RenderManager &) const = 0;
 
 protected:
   Pos pos;
 
+  enum class State : uint8_t {
+    SPAWNING,
+    ALIVE,
+    BEING_CONSUMED
+  };
+  
+  State getState() const;
+
 private:
-  bool beingConsumed = false;
+  State state = State::SPAWNING;
 };
 
 #endif

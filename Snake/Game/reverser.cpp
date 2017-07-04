@@ -11,12 +11,12 @@
 #include "render manager.hpp"
 
 Reverser::Reverser(const Pos pos)
-  : PowerUp(pos) {}
+  : Item(pos) {}
 
 void Reverser::render(RenderManager &renderer) const {
   renderer.renderTile("reverser", pos);
 }
 
-std::unique_ptr<PowerUp> makeReverser(const Pos pos) {
+std::unique_ptr<Item> makeReverser(const Pos pos) {
   return std::make_unique<Reverser>(pos);
 }

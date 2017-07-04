@@ -18,7 +18,7 @@ AppImpl::AppImpl()
     renderMan(renderer, fontLib),
     snake(GAME_SIZE / 2),
     rat({0, GAME_SIZE.y / 2}) {
-  powerupFactories.emplace_back(&makeReverser);
+  itemFactories.emplace_back(&makeReverser);
 }
 
 bool AppImpl::input(const uint64_t) {
@@ -44,22 +44,28 @@ bool AppImpl::update(const uint64_t delta) {
     
     if (snake.isEating(rat)) {
       score.incr();
-      rat.reset(getFreePos());
+      rat = Rat(getFreePos());
     } else {
-      for (auto p = powerups.begin(); p != powerups.end(); ++p) {
-        if (snake.tryToConsume(**p)) {
-          auto consumed = p--;
-          powerups.erase(consumed);
+      for (auto i = items.cbegin(); i != items.cend(); ++i) {
+        if (snake.tryToConsume(**i)) {
+          auto consumed = i--;
+          items.erase(consumed);
         }
       }
+      
+      rat.update();
     }
     
-    if (shouldSpawnPowerUp()) {
-      spawnPowerup();
+    for (auto i = items.cbegin(); i != items.cend(); ++i) {
+      (*i)->update();
+    }
+    
+    if (shouldSpawnItem()) {
+      spawnItem();
     }
     
     snake.update();
-    snake.tryToEat(rat);
+    snake.tryToConsume(rat);
     
     if (snake.isDead()) {
       score.reset();
@@ -71,7 +77,7 @@ bool AppImpl::update(const uint64_t delta) {
 
 void AppImpl::render(const uint64_t) {
   renderer.clear(BACK_COLOR);
-  for (auto p = powerups.cbegin(); p != powerups.cend(); ++p) {
+  for (auto p = items.cbegin(); p != items.cend(); ++p) {
     (*p)->render(renderMan);
   }
   rat.render(renderMan);
@@ -80,18 +86,18 @@ void AppImpl::render(const uint64_t) {
   renderer.present();
 }
 
-void AppImpl::spawnPowerup() {
+void AppImpl::spawnItem() {
   static std::random_device gen;
-  std::uniform_int_distribution<size_t> dist(0, powerupFactories.size());
+  std::uniform_int_distribution<size_t> dist(0, itemFactories.size() - 1);
   
-  powerups.emplace_back(powerupFactories[dist(gen)](getFreePos()));
+  items.emplace_back(itemFactories[dist(gen)](getFreePos()));
 }
 
-bool AppImpl::shouldSpawnPowerUp() const {
+bool AppImpl::shouldSpawnItem() const {
   static std::random_device gen;
   std::uniform_int_distribution<int> dist(0, POWERUP_SPAWN_PROB);
   
-  return dist(gen) == 0 && powerups.size() < MAX_POWERUPS;
+  return dist(gen) == 0 && items.size() < MAX_POWERUPS;
 }
 
 Pos AppImpl::getFreePos() const {
@@ -111,7 +117,7 @@ Pos AppImpl::getFreePos() const {
       continue;
     }
     
-    for (auto p = powerups.cbegin(); p != powerups.cend(); ++p) {
+    for (auto p = items.cbegin(); p != items.cend(); ++p) {
       if (newPos == (*p)->getPos()) {
         overlapping = true;
         break;

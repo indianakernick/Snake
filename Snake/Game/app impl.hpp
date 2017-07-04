@@ -15,10 +15,10 @@
 #include "snake.hpp"
 #include "score.hpp"
 #include "sdl app.hpp"
-#include "power up.hpp"
+#include "item.hpp"
 #include "render manager.hpp"
 
-using PowerUpFactory = std::unique_ptr<PowerUp> (*)(const Pos);
+using ItemFactory = std::unique_ptr<Item> (*)(const Pos);
 
 class AppImpl final : public SDLApp {
 public:
@@ -30,15 +30,15 @@ private:
   Snake snake;
   Rat rat;
   Score score;
-  std::list<std::unique_ptr<PowerUp>> powerups;
-  std::vector<PowerUpFactory> powerupFactories;
+  std::list<std::unique_ptr<Item>> items;
+  std::vector<ItemFactory> itemFactories;
 
   bool input(uint64_t) override;
   bool update(uint64_t) override;
   void render(uint64_t) override;
   
-  void spawnPowerup();
-  bool shouldSpawnPowerUp() const;
+  void spawnItem();
+  bool shouldSpawnItem() const;
   Pos getFreePos() const;
   void snakeInput(SDL_Scancode);
 };

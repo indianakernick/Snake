@@ -11,23 +11,13 @@
 #include "render manager.hpp"
 
 Rat::Rat(const Pos pos)
-  : pos(pos) {}
-
-void Rat::reset(const Pos newPos) {
-  pos = newPos;
-  beingEaten = false;
-}
-
-Pos Rat::getPos() const {
-  return pos;
-}
-
-void Rat::eat() {
-  beingEaten = true;
-}
+  : Item(pos) {}
 
 void Rat::render(RenderManager &renderer) const {
-  if (not beingEaten) {
+  const State state = getState();
+  if (state == State::ALIVE) {
     renderer.renderTile("rat", pos);
+  } else if (state == State::SPAWNING) {
+    renderer.renderTile("rat spawn", pos);
   }
 }

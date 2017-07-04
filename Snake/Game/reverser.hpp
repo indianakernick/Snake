@@ -10,15 +10,15 @@
 #define game_reverser_hpp
 
 #include <memory>
-#include "power up.hpp"
+#include "item.hpp"
 
-class Reverser : public PowerUp {
+class Reverser : public Item {
 public:
   Reverser(Pos);
   
   void render(RenderManager &) const override;
 };
 
-std::unique_ptr<PowerUp> makeReverser(Pos);
+std::unique_ptr<Item> makeReverser(Pos);
 
 #endif

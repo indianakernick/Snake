@@ -9,7 +9,6 @@
 #include "snake.hpp"
 
 #include "rat.hpp"
-#include "power up.hpp"
 #include "reverser.hpp"
 #include "constants.hpp"
 #include "render manager.hpp"
@@ -56,7 +55,7 @@ void Snake::move(const Math::Dir newDir) {
 }
 
 bool Snake::isEating(const Rat &rat) const {
-  return eating && positions.front() == rat.getPos();
+  return state == State::EATING && positions.front() == rat.getPos();
 }
 
 bool Snake::colliding(const Pos pos, const bool withHead) const {
@@ -69,26 +68,21 @@ bool Snake::colliding(const Pos pos, const bool withHead) const {
   );
 }
 
-void Snake::tryToEat(Rat &rat) {
-  if (head() == rat.getPos()) {
-    eating = true;
-    rat.eat();
-  }
-}
-
 bool Snake::isDead() const {
-  return dead;
+  return state == State::DEAD;
 }
 
-bool Snake::tryToConsume(PowerUp &powerup) {
-  if (head() == powerup.getPos() && not powerup.isBeingConsumed()) {
-    powerup.consume();
-    PowerUp *const ptr = &powerup;
+bool Snake::tryToConsume(Item &item) {
+  if (head() == item.getPos() && item.isAlive()) {
+    item.consume();
+    Item *const ptr = &item;
     
     if (dynamic_cast<Reverser *>(ptr)) {
       std::reverse(positions.begin(), --positions.end());
       currentDir = FromVec::conv(getDirVec(positions[0], positions[1]));
       nextDir = currentDir;
+    } else if (dynamic_cast<Rat *>(ptr)) {
+      state = State::EATING;
     }
     
     return true;
@@ -105,15 +99,15 @@ Pos Snake::tail() const {
 }
 
 void Snake::update() {
-  if (eating) {
-    eating = false;
+  if (state == State::EATING) {
+    state = State::ALIVE;
   } else {
     positions.pop_back();
   }
   positions.push_front((positions.front() + ToVec::conv(nextDir) + GAME_SIZE) % GAME_SIZE);
   currentDir = nextDir;
   if (colliding(head(), false) && head() != tail()) {
-    dead = true;
+    state = State::DEAD;
   }
 }
 
@@ -163,7 +157,7 @@ namespace {
 }
 
 void Snake::render(RenderManager &renderer) const {
-  if (eating) {
+  if (state == State::EATING) {
     renderer.renderTile("eat rat " + dirToString(currentDir), head());
   } else {
     renderer.renderTile("head", head(), getBodySpriteAngle(currentDir));
@@ -182,9 +176,9 @@ void Snake::render(RenderManager &renderer) const {
   }
   
   const Pos prevToThisVec = getDirVec(nextPos, positions.back());
-  renderBody(renderer, eating ? "body" : "tail", nextPos, prevToThisVec, thisToNextVec);
+  renderBody(renderer, state == State::EATING ? "body" : "tail", nextPos, prevToThisVec, thisToNextVec);
   thisToNextVec = prevToThisVec;
 
   const double tailAngle = getBodySpriteAngle(FromVec::conv(thisToNextVec));
-  renderer.renderTile(eating ? "tail grow" : "tail", tail(), tailAngle);
+  renderer.renderTile(state == State::EATING ? "tail grow" : "tail", tail(), tailAngle);
 }

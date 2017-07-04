@@ -9,23 +9,15 @@
 #ifndef game_rat_hpp
 #define game_rat_hpp
 
-#include "types.hpp"
+#include "item.hpp"
 
 class RenderManager;
 
-class Rat {
+class Rat : public Item {
 public:
   explicit Rat(Pos);
   
-  void reset(Pos);
-  Pos getPos() const;
-  void eat();
-  
-  void render(RenderManager &) const;
-  
-private:
-  Pos pos;
-  bool beingEaten = false;
+  void render(RenderManager &) const override;
 };
 
 #endif

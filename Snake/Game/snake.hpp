@@ -13,7 +13,7 @@
 #include "types.hpp"
 
 class Rat;
-class PowerUp;
+class Item;
 class RenderManager;
 
 class Snake {
@@ -23,10 +23,9 @@ public:
   void move(Math::Dir);
   bool isEating(const Rat &) const;
   bool colliding(Pos, bool = true) const;
-  void tryToEat(Rat &);
   bool isDead() const;
   
-  bool tryToConsume(PowerUp &);
+  bool tryToConsume(Item &);
   
   Pos head() const;
   Pos tail() const;
@@ -38,8 +37,12 @@ private:
   std::deque<Pos> positions;
   Math::Dir currentDir = Math::Dir::LEFT;
   Math::Dir nextDir = Math::Dir::LEFT;
-  bool eating = false;
-  bool dead = false;
+  
+  enum class State : uint8_t {
+    ALIVE,
+    EATING,
+    DEAD
+  } state = State::ALIVE;
 };
 
 #endif
