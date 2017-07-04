@@ -84,6 +84,7 @@ bool Snake::tryToConsume(PowerUp &powerup) {
   if (head() == powerup.getPos() && not powerup.isBeingConsumed()) {
     powerup.consume();
     PowerUp *const ptr = &powerup;
+    
     if (dynamic_cast<Reverser *>(ptr)) {
       std::reverse(positions.begin(), --positions.end());
       currentDir = FromVec::conv(getDirVec(positions[0], positions[1]));

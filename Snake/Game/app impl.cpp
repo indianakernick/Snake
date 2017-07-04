@@ -17,7 +17,9 @@ AppImpl::AppImpl()
   : SDLApp(WINDOW_DESC, true),
     renderMan(renderer, fontLib),
     snake(GAME_SIZE / 2),
-    rat({0, GAME_SIZE.y / 2}) {}
+    rat({0, GAME_SIZE.y / 2}) {
+  powerupFactories.emplace_back(&makeReverser);
+}
 
 bool AppImpl::input(const uint64_t) {
   SDL_Event e;
@@ -53,7 +55,7 @@ bool AppImpl::update(const uint64_t delta) {
     }
     
     if (shouldSpawnPowerUp()) {
-      powerups.emplace_back(makeReverser(getFreePos()));
+      spawnPowerup();
     }
     
     snake.update();
@@ -76,6 +78,13 @@ void AppImpl::render(const uint64_t) {
   snake.render(renderMan);
   score.render(renderMan);
   renderer.present();
+}
+
+void AppImpl::spawnPowerup() {
+  static std::random_device gen;
+  std::uniform_int_distribution<size_t> dist(0, powerupFactories.size());
+  
+  powerups.emplace_back(powerupFactories[dist(gen)](getFreePos()));
 }
 
 bool AppImpl::shouldSpawnPowerUp() const {

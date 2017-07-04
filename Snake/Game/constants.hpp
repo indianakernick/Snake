@@ -22,7 +22,7 @@ const uint64_t NUM_FRAMES = 16;
 const Platform::Window::Desc WINDOW_DESC = {
   "Snake",
   {768, 768},
-  true
+  false
 };
 
 const Pos GAME_SIZE = {12, 12};
