@@ -10,8 +10,10 @@
 #define game_snake_hpp
 
 #include <deque>
-#include "rat.hpp"
+#include "types.hpp"
 
+class Rat;
+class PowerUp;
 class RenderManager;
 
 class Snake {
@@ -23,6 +25,11 @@ public:
   bool colliding(Pos, bool = true) const;
   void tryToEat(Rat &);
   bool isDead() const;
+  
+  //consume the powerup
+  void tryToConsume(PowerUp &);
+  //actually do what the power up does. This is called on the next game loop
+  bool finishConsuming(PowerUp &);
   
   Pos head() const;
   Pos tail() const;

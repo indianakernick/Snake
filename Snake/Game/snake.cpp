@@ -8,8 +8,38 @@
 
 #include "snake.hpp"
 
+#include "rat.hpp"
+#include "power up.hpp"
+#include "reverser.hpp"
 #include "constants.hpp"
 #include "render manager.hpp"
+
+namespace {
+  using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
+  
+  //returns a vector pointing from this to prev
+  Pos getDirVec(const Pos thisPos, const Pos prevPos) {
+    Pos prevToThis = thisPos - prevPos;
+    
+    //this accounts for the snake going into one side of the window and
+    //and coming out from the opposite side of the window
+    if (prevToThis.x > 1) {
+      prevToThis.x -= GAME_SIZE.x;
+    }
+    if (prevToThis.y > 1) {
+      prevToThis.y -= GAME_SIZE.y;
+    }
+    if (prevToThis.x < -1) {
+      prevToThis.x += GAME_SIZE.x;
+    }
+    if (prevToThis.y < -1) {
+      prevToThis.y += GAME_SIZE.y;
+    }
+    
+    return prevToThis;
+  }
+
+}
 
 Snake::Snake(const Pos center)
   : positions({
@@ -50,6 +80,25 @@ bool Snake::isDead() const {
   return dead;
 }
 
+void Snake::tryToConsume(PowerUp &powerup) {
+  if (head() == powerup.getPos() && not powerup.isBeingConsumed()) {
+    powerup.consume();
+  }
+}
+
+bool Snake::finishConsuming(PowerUp &powerup) {
+  if (positions[1] == powerup.getPos() && powerup.isBeingConsumed()) {
+    PowerUp *const ptr = &powerup;
+    if (PowerUp *reverser = dynamic_cast<Reverser *>(ptr)) {
+      std::reverse(positions.begin(), --positions.end());
+      currentDir = FromVec::conv(getDirVec(positions[0], positions[1]));
+      nextDir = currentDir;
+    }
+    return true;
+  }
+  return false;
+}
+
 Pos Snake::head() const {
   return positions.front();
 }
@@ -71,74 +120,52 @@ void Snake::update() {
   }
 }
 
-//returns a vector pointing from this to prev
-Pos getDirVec(const Pos thisPos, const Pos prevPos) {
-  Pos prevToThis = thisPos - prevPos;
-  
-  //this accounts for the snake going into one side of the window and
-  //and coming out from the opposite side of the window
-  if (prevToThis.x > 1) {
-    prevToThis.x -= GAME_SIZE.x;
+namespace {
+  double getBodySpriteAngle(const Math::Dir prevToThisDir) {
+    return Math::ToNum<double>::conv(prevToThisDir, 90.0);
   }
-  if (prevToThis.y > 1) {
-    prevToThis.y -= GAME_SIZE.y;
-  }
-  if (prevToThis.x < -1) {
-    prevToThis.x += GAME_SIZE.x;
-  }
-  if (prevToThis.y < -1) {
-    prevToThis.y += GAME_SIZE.y;
-  }
-  
-  return prevToThis;
-}
 
-double getBodySpriteAngle(const Math::Dir prevToThisDir) {
-  return Math::ToNum<double>::conv(prevToThisDir, 90.0);
-}
-
-std::string getBodySpriteTurnName(const Math::Dir prevToThisDir, const Math::Dir thisToNextDir) {
-  const Math::SignedDirType diff = Math::diff(prevToThisDir, thisToNextDir);
-  if (diff == 0) {
-    return "straight";
-  } else if (diff == 1) {
-    return "right corner";
-  } else if (diff == -1) {
-    return "left corner";
-  } else {
-    assert(false);
-    return "";
+  std::string getBodySpriteTurnName(const Math::Dir prevToThisDir, const Math::Dir thisToNextDir) {
+    const Math::SignedDirType diff = Math::diff(prevToThisDir, thisToNextDir);
+    if (diff == 0) {
+      return "straight";
+    } else if (diff == 1) {
+      return "right corner";
+    } else if (diff == -1) {
+      return "left corner";
+    } else {
+      assert(false);
+      return "";
+    }
   }
-}
 
-void renderBody(
-  RenderManager &renderer,
-  const std::string &name,
-  const Pos pos,
-  const Pos prevToThisVec,
-  const Pos thisToNextVec
-) {
-  using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
-  
-  const Math::Dir prevToThisDir = FromVec::conv(prevToThisVec);
-  const Math::Dir thisToNextDir = FromVec::conv(thisToNextVec);
-  renderer.renderTile(
-    name + ' ' + getBodySpriteTurnName(prevToThisDir, thisToNextDir),
-    pos,
-    getBodySpriteAngle(prevToThisDir)
-  );
-}
+  void renderBody(
+    RenderManager &renderer,
+    const std::string &name,
+    const Pos pos,
+    const Pos prevToThisVec,
+    const Pos thisToNextVec
+  ) {
+    using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
+    
+    const Math::Dir prevToThisDir = FromVec::conv(prevToThisVec);
+    const Math::Dir thisToNextDir = FromVec::conv(thisToNextVec);
+    renderer.renderTile(
+      name + ' ' + getBodySpriteTurnName(prevToThisDir, thisToNextDir),
+      pos,
+      getBodySpriteAngle(prevToThisDir)
+    );
+  }
 
-std::string dirToString(const Math::Dir dir) {
-  static const std::string NAMES[4] = {
-    "up", "right", "down", "left"
-  };
-  return NAMES[Math::ToNum<size_t>::conv(dir)];
+  std::string dirToString(const Math::Dir dir) {
+    static const std::string NAMES[4] = {
+      "up", "right", "down", "left"
+    };
+    return NAMES[Math::ToNum<size_t>::conv(dir)];
+  }
 }
 
 void Snake::render(RenderManager &renderer) const {
-  using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
-  
   if (eating) {
     renderer.renderTile("eat rat " + dirToString(currentDir), head());
   } else {

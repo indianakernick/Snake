@@ -17,6 +17,8 @@
 		4592B9611F0A1EE800D1640D /* score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B95F1F0A1EE800D1640D /* score.cpp */; };
 		4592B9631F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4592B9621F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib */; };
 		4592B96A1F0A2ABE00D1640D /* Andale Mono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4592B9691F0A2ABE00D1640D /* Andale Mono.ttf */; };
+		4592B9771F0B4A5300D1640D /* power up.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B9751F0B4A5300D1640D /* power up.cpp */; };
+		4592B97A1F0B4D1200D1640D /* reverser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B9781F0B4D1200D1640D /* reverser.cpp */; };
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
 		45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */; };
@@ -314,6 +316,10 @@
 		4592B9601F0A1EE800D1640D /* score.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = score.hpp; sourceTree = "<group>"; };
 		4592B9621F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_ttf-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2_ttf/2.0.14/lib/libSDL2_ttf-2.0.0.dylib"; sourceTree = "<group>"; };
 		4592B9691F0A2ABE00D1640D /* Andale Mono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Andale Mono.ttf"; sourceTree = "<group>"; };
+		4592B9751F0B4A5300D1640D /* power up.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "power up.cpp"; sourceTree = "<group>"; };
+		4592B9761F0B4A5300D1640D /* power up.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "power up.hpp"; sourceTree = "<group>"; };
+		4592B9781F0B4D1200D1640D /* reverser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = reverser.cpp; sourceTree = "<group>"; };
+		4592B9791F0B4D1200D1640D /* reverser.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = reverser.hpp; sourceTree = "<group>"; };
 		45B5E6721EF66A8B00A6A3E2 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -821,6 +827,10 @@
 				4592B95E1F09D14000D1640D /* constants.hpp */,
 				4592B95F1F0A1EE800D1640D /* score.cpp */,
 				4592B9601F0A1EE800D1640D /* score.hpp */,
+				4592B9751F0B4A5300D1640D /* power up.cpp */,
+				4592B9761F0B4A5300D1640D /* power up.hpp */,
+				4592B9781F0B4D1200D1640D /* reverser.cpp */,
+				4592B9791F0B4D1200D1640D /* reverser.hpp */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -921,7 +931,9 @@
 				45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */,
 				4592B95C1F09CDB400D1640D /* snake.cpp in Sources */,
 				4592B9591F09CDAD00D1640D /* rat.cpp in Sources */,
+				4592B9771F0B4A5300D1640D /* power up.cpp in Sources */,
 				45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */,
+				4592B97A1F0B4D1200D1640D /* reverser.cpp in Sources */,
 				4592B9611F0A1EE800D1640D /* score.cpp in Sources */,
 				45B5E8D41EFA0DD200A6A3E2 /* sdl app.cpp in Sources */,
 			);

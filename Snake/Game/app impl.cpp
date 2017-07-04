@@ -9,6 +9,7 @@
 #include "app impl.hpp"
 
 #include <random>
+#include "reverser.hpp"
 #include "constants.hpp"
 #include <Simpleton/Platform/system info.hpp>
 
@@ -38,9 +39,23 @@ bool AppImpl::update(const uint64_t delta) {
   if (animProg >= MILLI_PER_UPDATE) {
     animProg = 0;
     renderMan.reset();
+    
     if (snake.isEating(rat)) {
       score.incr();
-      rat.reset(getFoodPos());
+      rat.reset(getFreePos());
+    } else {
+      for (auto p = powerups.begin(); p != powerups.end(); ++p) {
+        if (snake.finishConsuming(**p)) {
+          auto consumed = p--;
+          powerups.erase(consumed);
+        } else {
+          snake.tryToConsume(**p);
+        }
+      }
+    }
+    
+    if (shouldSpawnPowerUp()) {
+      powerups.emplace_back(makeReverser(getFreePos()));
     }
     
     snake.update();
@@ -56,10 +71,48 @@ bool AppImpl::update(const uint64_t delta) {
 
 void AppImpl::render(const uint64_t) {
   renderer.clear(BACK_COLOR);
-  snake.render(renderMan);
+  for (auto p = powerups.cbegin(); p != powerups.cend(); ++p) {
+    (*p)->render(renderMan);
+  }
   rat.render(renderMan);
+  snake.render(renderMan);
   score.render(renderMan);
   renderer.present();
+}
+
+bool AppImpl::shouldSpawnPowerUp() const {
+  static std::random_device gen;
+  std::uniform_int_distribution<int> dist(0, POWERUP_SPAWN_PROB);
+  
+  return dist(gen) == 0 && powerups.size() < MAX_POWERUPS;
+}
+
+Pos AppImpl::getFreePos() const {
+  static std::random_device gen;
+  std::uniform_int_distribution<PosScalar> distX(0, GAME_SIZE.x - 1);
+  std::uniform_int_distribution<PosScalar> distY(0, GAME_SIZE.y - 1);
+  
+  Pos newPos;
+  
+  bool overlapping = true;
+  while (overlapping) {
+    overlapping = false;
+  
+    newPos = {distX(gen), distY(gen)};
+    if (snake.colliding(newPos)) {
+      overlapping = true;
+      continue;
+    }
+    
+    for (auto p = powerups.cbegin(); p != powerups.cend(); ++p) {
+      if (newPos == (*p)->getPos()) {
+        overlapping = true;
+        break;
+      }
+    }
+  }
+  
+  return newPos;
 }
 
 void AppImpl::snakeInput(const SDL_Scancode code) {
@@ -77,18 +130,4 @@ void AppImpl::snakeInput(const SDL_Scancode code) {
       snake.move(Math::Dir::LEFT);
     default: ;
   }
-}
-
-Pos AppImpl::getFoodPos() const {
-  static std::random_device gen;
-  static std::uniform_int_distribution<PosScalar> distX(0, GAME_SIZE.x - 1);
-  static std::uniform_int_distribution<PosScalar> distY(0, GAME_SIZE.y - 1);
-  
-  Pos newPos;
-  
-  do {
-    newPos = {distX(gen), distY(gen)};
-  } while (snake.colliding(newPos));
-  
-  return newPos;
 }

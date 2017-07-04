@@ -9,10 +9,12 @@
 #ifndef game_app_impl_hpp
 #define game_app_impl_hpp
 
+#include <list>
 #include "rat.hpp"
 #include "snake.hpp"
 #include "score.hpp"
 #include "sdl app.hpp"
+#include "power up.hpp"
 #include "render manager.hpp"
 
 class AppImpl final : public SDLApp {
@@ -25,12 +27,14 @@ private:
   Snake snake;
   Rat rat;
   Score score;
+  std::list<std::unique_ptr<PowerUp>> powerups;
 
   bool input(uint64_t) override;
   bool update(uint64_t) override;
   void render(uint64_t) override;
   
-  Pos getFoodPos() const;
+  bool shouldSpawnPowerUp() const;
+  Pos getFreePos() const;
   void snakeInput(SDL_Scancode);
 };
 
