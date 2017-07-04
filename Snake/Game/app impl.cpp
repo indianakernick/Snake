@@ -14,13 +14,9 @@
 
 AppImpl::AppImpl()
   : SDLApp(WINDOW_DESC, true),
-    renderMan(renderer, Platform::getResDir() + "sprites"),
+    renderMan(renderer, fontLib),
     snake(GAME_SIZE / 2),
     rat({0, GAME_SIZE.y / 2}) {}
-
-void AppImpl::init() {
-  
-}
 
 bool AppImpl::input(const uint64_t) {
   SDL_Event e;
@@ -43,6 +39,7 @@ bool AppImpl::update(const uint64_t delta) {
     animProg = 0;
     renderMan.reset();
     if (snake.isEating(rat)) {
+      score.incr();
       rat.reset(getFoodPos());
     }
     
@@ -50,6 +47,7 @@ bool AppImpl::update(const uint64_t delta) {
     snake.tryToEat(rat);
     
     if (snake.isDead()) {
+      score.reset();
       return false;
     }
   }
@@ -60,6 +58,7 @@ void AppImpl::render(const uint64_t) {
   renderer.clear(BACK_COLOR);
   snake.render(renderMan);
   rat.render(renderMan);
+  score.render(renderMan);
   renderer.present();
 }
 

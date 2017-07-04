@@ -9,6 +9,7 @@
 #include "snake.hpp"
 
 #include "constants.hpp"
+#include "render manager.hpp"
 
 Snake::Snake(const Pos center)
   : positions({
@@ -121,7 +122,7 @@ void renderBody(
   
   const Math::Dir prevToThisDir = FromVec::conv(prevToThisVec);
   const Math::Dir thisToNextDir = FromVec::conv(thisToNextVec);
-  renderer.render(
+  renderer.renderTile(
     name + ' ' + getBodySpriteTurnName(prevToThisDir, thisToNextDir),
     pos,
     getBodySpriteAngle(prevToThisDir)
@@ -139,9 +140,9 @@ void Snake::render(RenderManager &renderer) const {
   using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
   
   if (eating) {
-    renderer.render("eat rat " + dirToString(currentDir), head());
+    renderer.renderTile("eat rat " + dirToString(currentDir), head());
   } else {
-    renderer.render("head", head(), getBodySpriteAngle(currentDir));
+    renderer.renderTile("head", head(), getBodySpriteAngle(currentDir));
   }
 
   Pos nextPos = positions[2];
@@ -161,5 +162,5 @@ void Snake::render(RenderManager &renderer) const {
   thisToNextVec = prevToThisVec;
 
   const double tailAngle = getBodySpriteAngle(FromVec::conv(thisToNextVec));
-  renderer.render(eating ? "tail grow" : "tail", tail(), tailAngle);
+  renderer.renderTile(eating ? "tail grow" : "tail", tail(), tailAngle);
 }

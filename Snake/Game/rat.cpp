@@ -8,6 +8,8 @@
 
 #include "rat.hpp"
 
+#include "render manager.hpp"
+
 Rat::Rat(const Pos pos)
   : pos(pos) {}
 
@@ -26,6 +28,6 @@ void Rat::eat() {
 
 void Rat::render(RenderManager &renderer) const {
   if (not beingEaten) {
-    renderer.render("rat", pos);
+    renderer.renderTile("rat", pos);
   }
 }

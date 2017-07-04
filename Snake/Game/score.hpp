@@ -1,31 +1,27 @@
 //
-//  rat.hpp
+//  score.hpp
 //  Snake
 //
 //  Created by Indi Kernick on 3/7/17.
 //  Copyright © 2017 Indi Kernick. All rights reserved.
 //
 
-#ifndef game_rat_hpp
-#define game_rat_hpp
-
-#include "types.hpp"
+#ifndef game_score_hpp
+#define game_score_hpp
 
 class RenderManager;
 
-class Rat {
+class Score {
 public:
-  explicit Rat(Pos);
+  Score() = default;
   
-  void reset(Pos);
-  Pos getPos() const;
-  void eat();
+  void incr(unsigned = 1);
+  void reset();
   
   void render(RenderManager &) const;
   
 private:
-  Pos pos;
-  bool beingEaten = false;
+  unsigned val = 0;
 };
 
 #endif

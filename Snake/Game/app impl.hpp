@@ -11,6 +11,7 @@
 
 #include "rat.hpp"
 #include "snake.hpp"
+#include "score.hpp"
 #include "sdl app.hpp"
 #include "render manager.hpp"
 
@@ -23,8 +24,8 @@ private:
   uint64_t animProg = 0;
   Snake snake;
   Rat rat;
+  Score score;
 
-  void init() override;
   bool input(uint64_t) override;
   bool update(uint64_t) override;
   void render(uint64_t) override;

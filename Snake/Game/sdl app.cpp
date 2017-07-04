@@ -10,5 +10,6 @@
 
 SDLApp::SDLApp(const Platform::Window::Desc &windowDesc, const bool vsync)
   : lib(),
+    fontLib(),
     window(lib.makeWindow(windowDesc)),
     renderer(lib.makeRenderer(window, vsync)) {}

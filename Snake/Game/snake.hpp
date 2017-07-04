@@ -11,7 +11,8 @@
 
 #include <deque>
 #include "rat.hpp"
-#include "render manager.hpp"
+
+class RenderManager;
 
 class Snake {
 public:

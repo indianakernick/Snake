@@ -11,12 +11,14 @@
 
 #include "app.hpp"
 #include <Simpleton/Platform/window library.hpp>
+#include <Simpleton/Platform/font library.hpp>
 
 class SDLApp : public App {
 public:
   SDLApp(const Platform::Window::Desc &, bool);
 
   Platform::WindowLibrary lib;
+  Platform::FontLibrary fontLib;
   Platform::Window window;
   Platform::Renderer renderer;
 };
