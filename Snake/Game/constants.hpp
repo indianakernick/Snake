@@ -31,7 +31,7 @@ const glm::vec2 TILE_SIZE = {
   static_cast<float>(WINDOW_DESC.size.y) / GAME_SIZE.y
 };
 
-const int FONT_SIZE = 10;
+const int FONT_SIZE = 12;
 
 const std::string SPRITE_IMAGE_PATH = "sprites.png";
 const std::string SPRITE_ATLAS_PATH = "sprites.atlas";

@@ -36,7 +36,7 @@ RenderManager::RenderManager(Platform::Renderer &renderer, Platform::FontLibrary
   SDL_UpdateTexture(texture.get(), nullptr, image.data(), static_cast<int>(image.pitch()));
   SDL_SetTextureBlendMode(texture.get(), SDL_BLENDMODE_BLEND);
   
-  TTF_SetFontHinting(font.get(), TTF_HINTING_NORMAL);
+  TTF_SetFontHinting(font.get(), TTF_HINTING_LIGHT);
 }
 
 void RenderManager::reset() {
