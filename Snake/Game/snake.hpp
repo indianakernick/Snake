@@ -26,10 +26,7 @@ public:
   void tryToEat(Rat &);
   bool isDead() const;
   
-  //consume the powerup
-  void tryToConsume(PowerUp &);
-  //actually do what the power up does. This is called on the next game loop
-  bool finishConsuming(PowerUp &);
+  bool tryToConsume(PowerUp &);
   
   Pos head() const;
   Pos tail() const;

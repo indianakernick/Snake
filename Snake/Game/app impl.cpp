@@ -45,11 +45,9 @@ bool AppImpl::update(const uint64_t delta) {
       rat.reset(getFreePos());
     } else {
       for (auto p = powerups.begin(); p != powerups.end(); ++p) {
-        if (snake.finishConsuming(**p)) {
+        if (snake.tryToConsume(**p)) {
           auto consumed = p--;
           powerups.erase(consumed);
-        } else {
-          snake.tryToConsume(**p);
         }
       }
     }

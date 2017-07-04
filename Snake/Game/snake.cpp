@@ -80,20 +80,16 @@ bool Snake::isDead() const {
   return dead;
 }
 
-void Snake::tryToConsume(PowerUp &powerup) {
+bool Snake::tryToConsume(PowerUp &powerup) {
   if (head() == powerup.getPos() && not powerup.isBeingConsumed()) {
     powerup.consume();
-  }
-}
-
-bool Snake::finishConsuming(PowerUp &powerup) {
-  if (positions[1] == powerup.getPos() && powerup.isBeingConsumed()) {
     PowerUp *const ptr = &powerup;
-    if (PowerUp *reverser = dynamic_cast<Reverser *>(ptr)) {
+    if (dynamic_cast<Reverser *>(ptr)) {
       std::reverse(positions.begin(), --positions.end());
       currentDir = FromVec::conv(getDirVec(positions[0], positions[1]));
       nextDir = currentDir;
     }
+    
     return true;
   }
   return false;
