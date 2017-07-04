@@ -352,6 +352,22 @@
 		4592B9AA1F0B848400D1640D /* rat spawn 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rat spawn 13.png"; sourceTree = "<group>"; };
 		4592B9AB1F0B848400D1640D /* rat spawn 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rat spawn 14.png"; sourceTree = "<group>"; };
 		4592B9AC1F0B848400D1640D /* rat spawn 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rat spawn 15.png"; sourceTree = "<group>"; };
+		4592B9BE1F0B89BD00D1640D /* reverser spawn 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 0.png"; sourceTree = "<group>"; };
+		4592B9BF1F0B89BD00D1640D /* reverser spawn 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 1.png"; sourceTree = "<group>"; };
+		4592B9C01F0B89BD00D1640D /* reverser spawn 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 2.png"; sourceTree = "<group>"; };
+		4592B9C11F0B89BD00D1640D /* reverser spawn 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 3.png"; sourceTree = "<group>"; };
+		4592B9C21F0B89BD00D1640D /* reverser spawn 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 4.png"; sourceTree = "<group>"; };
+		4592B9C31F0B89BD00D1640D /* reverser spawn 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 5.png"; sourceTree = "<group>"; };
+		4592B9C41F0B89BD00D1640D /* reverser spawn 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 6.png"; sourceTree = "<group>"; };
+		4592B9C51F0B89BD00D1640D /* reverser spawn 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 7.png"; sourceTree = "<group>"; };
+		4592B9C61F0B89BD00D1640D /* reverser spawn 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 8.png"; sourceTree = "<group>"; };
+		4592B9C71F0B89BD00D1640D /* reverser spawn 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 9.png"; sourceTree = "<group>"; };
+		4592B9C81F0B89BD00D1640D /* reverser spawn 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 10.png"; sourceTree = "<group>"; };
+		4592B9C91F0B89BD00D1640D /* reverser spawn 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 11.png"; sourceTree = "<group>"; };
+		4592B9CA1F0B89BD00D1640D /* reverser spawn 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 12.png"; sourceTree = "<group>"; };
+		4592B9CB1F0B89BD00D1640D /* reverser spawn 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 13.png"; sourceTree = "<group>"; };
+		4592B9CC1F0B89BD00D1640D /* reverser spawn 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 14.png"; sourceTree = "<group>"; };
+		4592B9CD1F0B89BD00D1640D /* reverser spawn 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 15.png"; sourceTree = "<group>"; };
 		45B5E6721EF66A8B00A6A3E2 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -818,6 +834,29 @@
 			name = "rat spawn";
 			sourceTree = "<group>";
 		};
+		4592B9BD1F0B89A800D1640D /* reverser spawn */ = {
+			isa = PBXGroup;
+			children = (
+				4592B9BE1F0B89BD00D1640D /* reverser spawn 0.png */,
+				4592B9BF1F0B89BD00D1640D /* reverser spawn 1.png */,
+				4592B9C01F0B89BD00D1640D /* reverser spawn 2.png */,
+				4592B9C11F0B89BD00D1640D /* reverser spawn 3.png */,
+				4592B9C21F0B89BD00D1640D /* reverser spawn 4.png */,
+				4592B9C31F0B89BD00D1640D /* reverser spawn 5.png */,
+				4592B9C41F0B89BD00D1640D /* reverser spawn 6.png */,
+				4592B9C51F0B89BD00D1640D /* reverser spawn 7.png */,
+				4592B9C61F0B89BD00D1640D /* reverser spawn 8.png */,
+				4592B9C71F0B89BD00D1640D /* reverser spawn 9.png */,
+				4592B9C81F0B89BD00D1640D /* reverser spawn 10.png */,
+				4592B9C91F0B89BD00D1640D /* reverser spawn 11.png */,
+				4592B9CA1F0B89BD00D1640D /* reverser spawn 12.png */,
+				4592B9CB1F0B89BD00D1640D /* reverser spawn 13.png */,
+				4592B9CC1F0B89BD00D1640D /* reverser spawn 14.png */,
+				4592B9CD1F0B89BD00D1640D /* reverser spawn 15.png */,
+			);
+			name = "reverser spawn";
+			sourceTree = "<group>";
+		};
 		45B5E6691EF66A8B00A6A3E2 = {
 			isa = PBXGroup;
 			children = (
@@ -853,6 +892,7 @@
 				4592B9691F0A2ABE00D1640D /* Andale Mono.ttf */,
 				4592B8CA1F077D5F00D1640D /* sprites.atlas */,
 				4592B8CB1F077D5F00D1640D /* sprites.png */,
+				4592B9BD1F0B89A800D1640D /* reverser spawn */,
 				4592B99C1F0B847400D1640D /* rat spawn */,
 				4592B97B1F0B6F2100D1640D /* reverser */,
 				4592B6C71F077B5500D1640D /* body right corner */,

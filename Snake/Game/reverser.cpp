@@ -14,7 +14,12 @@ Reverser::Reverser(const Pos pos)
   : Item(pos) {}
 
 void Reverser::render(RenderManager &renderer) const {
-  renderer.renderTile("reverser", pos);
+  const State state = getState();
+  if (state == State::SPAWNING) {
+    renderer.renderTile("reverser spawn", pos);
+  } else {
+    renderer.renderTile("reverser", pos);
+  }
 }
 
 std::unique_ptr<Item> makeReverser(const Pos pos) {
