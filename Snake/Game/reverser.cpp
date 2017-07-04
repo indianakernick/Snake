@@ -14,7 +14,7 @@ Reverser::Reverser(const Pos pos)
   : PowerUp(pos) {}
 
 void Reverser::render(RenderManager &renderer) const {
-  renderer.renderTile("tail", pos);
+  renderer.renderTile("reverser", pos);
 }
 
 std::unique_ptr<PowerUp> makeReverser(const Pos pos) {

@@ -37,7 +37,7 @@ const std::string SPRITE_IMAGE_PATH = "sprites.png";
 const std::string SPRITE_ATLAS_PATH = "sprites.atlas";
 const std::string FONT_PATH = "Andale Mono.ttf";
 
-const int POWERUP_SPAWN_PROB = 200;
+const int POWERUP_SPAWN_PROB = 250;
 const size_t MAX_POWERUPS = 5;
 
 #endif
