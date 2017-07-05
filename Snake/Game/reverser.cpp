@@ -21,7 +21,3 @@ void Reverser::render(RenderManager &renderer) const {
     renderer.renderTile("reverser", pos);
   }
 }
-
-std::unique_ptr<Item> makeReverser(const Pos pos) {
-  return std::make_unique<Reverser>(pos);
-}

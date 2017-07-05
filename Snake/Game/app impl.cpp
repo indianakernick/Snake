@@ -9,6 +9,7 @@
 #include "app impl.hpp"
 
 #include <random>
+#include "slicer.hpp"
 #include "reverser.hpp"
 #include "constants.hpp"
 #include <Simpleton/Platform/system info.hpp>
@@ -18,7 +19,8 @@ AppImpl::AppImpl()
     renderMan(renderer, fontLib),
     snake(GAME_SIZE / 2),
     rat({0, GAME_SIZE.y / 2}) {
-  itemFactories.emplace_back(&makeReverser);
+  itemFactories.emplace_back(&makeItem<Reverser>);
+  itemFactories.emplace_back(&makeItem<Slicer>);
 }
 
 bool AppImpl::input(const uint64_t) {

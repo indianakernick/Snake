@@ -9,6 +9,7 @@
 #ifndef game_item_hpp
 #define game_item_hpp
 
+#include <memory>
 #include "types.hpp"
 
 class RenderManager;
@@ -39,5 +40,15 @@ protected:
 private:
   State state = State::SPAWNING;
 };
+
+template <typename ItemType>
+std::enable_if_t<
+  std::is_base_of<Item, ItemType>::value &&
+  !std::is_same<Item, ItemType>::value,
+  std::unique_ptr<Item>
+>
+makeItem(const Pos pos) {
+  return std::make_unique<ItemType>(pos);
+}
 
 #endif

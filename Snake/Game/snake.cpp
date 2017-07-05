@@ -9,6 +9,7 @@
 #include "snake.hpp"
 
 #include "rat.hpp"
+#include "slicer.hpp"
 #include "reverser.hpp"
 #include "constants.hpp"
 #include "render manager.hpp"
@@ -83,6 +84,8 @@ bool Snake::tryToConsume(Item &item) {
       nextDir = currentDir;
     } else if (dynamic_cast<Rat *>(ptr)) {
       state = State::EATING;
+    } else if (dynamic_cast<Slicer *>(ptr)) {
+      positions.resize(std::max(size_t(4), positions.size() / 2));
     }
     
     return true;

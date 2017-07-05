@@ -20,6 +20,7 @@
 		4592B97A1F0B4D1200D1640D /* reverser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B9781F0B4D1200D1640D /* reverser.cpp */; };
 		4592B9D21F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4592B9D11F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib */; };
 		4592B9D61F0C6A6400D1640D /* Grand9K Pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4592B9D51F0C6A6300D1640D /* Grand9K Pixel.ttf */; };
+		4592BA0B1F0CD7A300D1640D /* slicer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592BA091F0CD7A300D1640D /* slicer.cpp */; };
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
 		45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */; };
@@ -370,6 +371,40 @@
 		4592B9CD1F0B89BD00D1640D /* reverser spawn 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 15.png"; sourceTree = "<group>"; };
 		4592B9D11F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libyaml-cpp.0.5.3.dylib"; path = "../../../../../../../usr/local/Cellar/yaml-cpp/0.5.3/lib/libyaml-cpp.0.5.3.dylib"; sourceTree = "<group>"; };
 		4592B9D51F0C6A6300D1640D /* Grand9K Pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Grand9K Pixel.ttf"; sourceTree = "<group>"; };
+		4592B9D91F0CD73300D1640D /* slicer 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 0.png"; sourceTree = "<group>"; };
+		4592B9DA1F0CD73300D1640D /* slicer 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 1.png"; sourceTree = "<group>"; };
+		4592B9DB1F0CD73300D1640D /* slicer 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 2.png"; sourceTree = "<group>"; };
+		4592B9DC1F0CD73300D1640D /* slicer 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 3.png"; sourceTree = "<group>"; };
+		4592B9DD1F0CD73300D1640D /* slicer 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 4.png"; sourceTree = "<group>"; };
+		4592B9DE1F0CD73300D1640D /* slicer 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 5.png"; sourceTree = "<group>"; };
+		4592B9DF1F0CD73300D1640D /* slicer 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 6.png"; sourceTree = "<group>"; };
+		4592B9E01F0CD73300D1640D /* slicer 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 7.png"; sourceTree = "<group>"; };
+		4592B9E11F0CD73300D1640D /* slicer 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 8.png"; sourceTree = "<group>"; };
+		4592B9E21F0CD73300D1640D /* slicer 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 9.png"; sourceTree = "<group>"; };
+		4592B9E31F0CD73300D1640D /* slicer 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 10.png"; sourceTree = "<group>"; };
+		4592B9E41F0CD73300D1640D /* slicer 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 11.png"; sourceTree = "<group>"; };
+		4592B9E51F0CD73300D1640D /* slicer 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 12.png"; sourceTree = "<group>"; };
+		4592B9E61F0CD73300D1640D /* slicer 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 13.png"; sourceTree = "<group>"; };
+		4592B9E71F0CD73300D1640D /* slicer 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 14.png"; sourceTree = "<group>"; };
+		4592B9E81F0CD73300D1640D /* slicer 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer 15.png"; sourceTree = "<group>"; };
+		4592B9E91F0CD74A00D1640D /* slicer spawn 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 0.png"; sourceTree = "<group>"; };
+		4592B9EA1F0CD74A00D1640D /* slicer spawn 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 1.png"; sourceTree = "<group>"; };
+		4592B9EB1F0CD74A00D1640D /* slicer spawn 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 2.png"; sourceTree = "<group>"; };
+		4592B9EC1F0CD74A00D1640D /* slicer spawn 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 3.png"; sourceTree = "<group>"; };
+		4592B9ED1F0CD74A00D1640D /* slicer spawn 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 4.png"; sourceTree = "<group>"; };
+		4592B9EE1F0CD74A00D1640D /* slicer spawn 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 5.png"; sourceTree = "<group>"; };
+		4592B9EF1F0CD74A00D1640D /* slicer spawn 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 6.png"; sourceTree = "<group>"; };
+		4592B9F01F0CD74A00D1640D /* slicer spawn 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 7.png"; sourceTree = "<group>"; };
+		4592B9F11F0CD74A00D1640D /* slicer spawn 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 8.png"; sourceTree = "<group>"; };
+		4592B9F21F0CD74A00D1640D /* slicer spawn 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 9.png"; sourceTree = "<group>"; };
+		4592B9F31F0CD74A00D1640D /* slicer spawn 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 10.png"; sourceTree = "<group>"; };
+		4592B9F41F0CD74A00D1640D /* slicer spawn 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 11.png"; sourceTree = "<group>"; };
+		4592B9F51F0CD74A00D1640D /* slicer spawn 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 12.png"; sourceTree = "<group>"; };
+		4592B9F61F0CD74A00D1640D /* slicer spawn 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 13.png"; sourceTree = "<group>"; };
+		4592B9F71F0CD74A00D1640D /* slicer spawn 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 14.png"; sourceTree = "<group>"; };
+		4592B9F81F0CD74A00D1640D /* slicer spawn 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 15.png"; sourceTree = "<group>"; };
+		4592BA091F0CD7A300D1640D /* slicer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = slicer.cpp; sourceTree = "<group>"; };
+		4592BA0A1F0CD7A300D1640D /* slicer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = slicer.hpp; sourceTree = "<group>"; };
 		45B5E6721EF66A8B00A6A3E2 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -860,6 +895,52 @@
 			name = "reverser spawn";
 			sourceTree = "<group>";
 		};
+		4592B9D71F0CD61500D1640D /* slicer */ = {
+			isa = PBXGroup;
+			children = (
+				4592B9D91F0CD73300D1640D /* slicer 0.png */,
+				4592B9DA1F0CD73300D1640D /* slicer 1.png */,
+				4592B9DB1F0CD73300D1640D /* slicer 2.png */,
+				4592B9DC1F0CD73300D1640D /* slicer 3.png */,
+				4592B9DD1F0CD73300D1640D /* slicer 4.png */,
+				4592B9DE1F0CD73300D1640D /* slicer 5.png */,
+				4592B9DF1F0CD73300D1640D /* slicer 6.png */,
+				4592B9E01F0CD73300D1640D /* slicer 7.png */,
+				4592B9E11F0CD73300D1640D /* slicer 8.png */,
+				4592B9E21F0CD73300D1640D /* slicer 9.png */,
+				4592B9E31F0CD73300D1640D /* slicer 10.png */,
+				4592B9E41F0CD73300D1640D /* slicer 11.png */,
+				4592B9E51F0CD73300D1640D /* slicer 12.png */,
+				4592B9E61F0CD73300D1640D /* slicer 13.png */,
+				4592B9E71F0CD73300D1640D /* slicer 14.png */,
+				4592B9E81F0CD73300D1640D /* slicer 15.png */,
+			);
+			name = slicer;
+			sourceTree = "<group>";
+		};
+		4592B9D81F0CD61E00D1640D /* slicer spawn */ = {
+			isa = PBXGroup;
+			children = (
+				4592B9E91F0CD74A00D1640D /* slicer spawn 0.png */,
+				4592B9EA1F0CD74A00D1640D /* slicer spawn 1.png */,
+				4592B9EB1F0CD74A00D1640D /* slicer spawn 2.png */,
+				4592B9EC1F0CD74A00D1640D /* slicer spawn 3.png */,
+				4592B9ED1F0CD74A00D1640D /* slicer spawn 4.png */,
+				4592B9EE1F0CD74A00D1640D /* slicer spawn 5.png */,
+				4592B9EF1F0CD74A00D1640D /* slicer spawn 6.png */,
+				4592B9F01F0CD74A00D1640D /* slicer spawn 7.png */,
+				4592B9F11F0CD74A00D1640D /* slicer spawn 8.png */,
+				4592B9F21F0CD74A00D1640D /* slicer spawn 9.png */,
+				4592B9F31F0CD74A00D1640D /* slicer spawn 10.png */,
+				4592B9F41F0CD74A00D1640D /* slicer spawn 11.png */,
+				4592B9F51F0CD74A00D1640D /* slicer spawn 12.png */,
+				4592B9F61F0CD74A00D1640D /* slicer spawn 13.png */,
+				4592B9F71F0CD74A00D1640D /* slicer spawn 14.png */,
+				4592B9F81F0CD74A00D1640D /* slicer spawn 15.png */,
+			);
+			name = "slicer spawn";
+			sourceTree = "<group>";
+		};
 		45B5E6691EF66A8B00A6A3E2 = {
 			isa = PBXGroup;
 			children = (
@@ -895,6 +976,8 @@
 				4592B9D51F0C6A6300D1640D /* Grand9K Pixel.ttf */,
 				4592B8CA1F077D5F00D1640D /* sprites.atlas */,
 				4592B8CB1F077D5F00D1640D /* sprites.png */,
+				4592B9D81F0CD61E00D1640D /* slicer spawn */,
+				4592B9D71F0CD61500D1640D /* slicer */,
 				4592B9BD1F0B89A800D1640D /* reverser spawn */,
 				4592B99C1F0B847400D1640D /* rat spawn */,
 				4592B97B1F0B6F2100D1640D /* reverser */,
@@ -955,6 +1038,8 @@
 				4592B9761F0B4A5300D1640D /* item.hpp */,
 				4592B9781F0B4D1200D1640D /* reverser.cpp */,
 				4592B9791F0B4D1200D1640D /* reverser.hpp */,
+				4592BA091F0CD7A300D1640D /* slicer.cpp */,
+				4592BA0A1F0CD7A300D1640D /* slicer.hpp */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -1052,6 +1137,7 @@
 			files = (
 				4592B9531F08E08300D1640D /* app impl.cpp in Sources */,
 				4592B9561F09CDA300D1640D /* render manager.cpp in Sources */,
+				4592BA0B1F0CD7A300D1640D /* slicer.cpp in Sources */,
 				45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */,
 				4592B95C1F09CDB400D1640D /* snake.cpp in Sources */,
 				4592B9591F09CDAD00D1640D /* rat.cpp in Sources */,

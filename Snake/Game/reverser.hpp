@@ -19,6 +19,4 @@ public:
   void render(RenderManager &) const override;
 };
 
-std::unique_ptr<Item> makeReverser(Pos);
-
 #endif
