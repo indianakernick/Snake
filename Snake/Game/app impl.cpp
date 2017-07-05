@@ -21,6 +21,8 @@ AppImpl::AppImpl()
     rat({0, GAME_SIZE.y / 2}) {
   itemFactories.emplace_back(&makeItem<Reverser>);
   itemFactories.emplace_back(&makeItem<Slicer>);
+  itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(Reverser::RARITY)]);
+  itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(Slicer::RARITY)]);
 }
 
 bool AppImpl::input(const uint64_t) {
@@ -63,9 +65,7 @@ bool AppImpl::update(const uint64_t delta) {
       (*i)->update();
     }
     
-    if (shouldSpawnItem()) {
-      spawnItem();
-    }
+    spawnItemIfShould();
     
     snake.update();
     if (shouldSpawnRat) {
@@ -93,22 +93,28 @@ void AppImpl::render(const uint64_t) {
   renderer.present();
 }
 
-void AppImpl::spawnItem() {
-  static std::random_device gen;
-  std::uniform_int_distribution<size_t> dist(0, itemFactories.size() - 1);
+void AppImpl::spawnItemIfShould() {
+  static std::default_random_engine gen;
   
-  items.emplace_back(itemFactories[dist(gen)](getFreePos()));
-}
-
-bool AppImpl::shouldSpawnItem() const {
-  static std::random_device gen;
-  std::uniform_int_distribution<int> dist(0, POWERUP_SPAWN_PROB);
+  if (items.size() >= MAX_ITEMS) {
+    return;
+  }
   
-  return dist(gen) == 0 && items.size() < MAX_POWERUPS;
+  std::uniform_real_distribution<double> dist(0.0, 1.0);
+  double num = dist(gen);
+  
+  for (size_t i = 0; i != itemProbs.size(); i++) {
+    if (num < itemProbs[i]) {
+      items.emplace_back(itemFactories[i](getFreePos()));
+      return;
+    } else {
+      num -= itemProbs[i];
+    }
+  }
 }
 
 Pos AppImpl::getFreePos() const {
-  static std::random_device gen;
+  static std::default_random_engine gen;
   std::uniform_int_distribution<PosScalar> distX(0, GAME_SIZE.x - 1);
   std::uniform_int_distribution<PosScalar> distY(0, GAME_SIZE.y - 1);
   

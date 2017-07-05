@@ -32,13 +32,13 @@ private:
   Score score;
   std::list<std::unique_ptr<Item>> items;
   std::vector<ItemFactory> itemFactories;
+  std::vector<double> itemProbs;
 
   bool input(uint64_t) override;
   bool update(uint64_t) override;
   void render(uint64_t) override;
   
-  void spawnItem();
-  bool shouldSpawnItem() const;
+  void spawnItemIfShould();
   Pos getFreePos() const;
   void snakeInput(SDL_Scancode);
 };

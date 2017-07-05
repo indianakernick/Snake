@@ -16,6 +16,13 @@ class RenderManager;
 
 class Item {
 public:
+  enum class Rarity {
+    LOW,
+    MEDIUM,
+    HIGH,
+    VERY_HIGH
+  };
+
   explicit Item(Pos);
   virtual ~Item() = default;
   

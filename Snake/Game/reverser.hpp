@@ -9,11 +9,12 @@
 #ifndef game_reverser_hpp
 #define game_reverser_hpp
 
-#include <memory>
 #include "item.hpp"
 
 class Reverser : public Item {
 public:
+  static constexpr Rarity RARITY = Rarity::LOW;
+
   Reverser(Pos);
   
   void render(RenderManager &) const override;

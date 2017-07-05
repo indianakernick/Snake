@@ -13,6 +13,8 @@
 
 class Slicer : public Item {
 public:
+  static constexpr Rarity RARITY = Rarity::HIGH;
+
   Slicer(Pos);
   
   void render(RenderManager &) const override;
