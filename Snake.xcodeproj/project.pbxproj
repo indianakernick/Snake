@@ -21,6 +21,7 @@
 		4592B9D21F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4592B9D11F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib */; };
 		4592B9D61F0C6A6400D1640D /* Grand9K Pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4592B9D51F0C6A6300D1640D /* Grand9K Pixel.ttf */; };
 		4592BA0B1F0CD7A300D1640D /* slicer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592BA091F0CD7A300D1640D /* slicer.cpp */; };
+		4592BA301F0CE79600D1640D /* coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592BA2E1F0CE79600D1640D /* coin.cpp */; };
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
 		45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */; };
@@ -405,6 +406,40 @@
 		4592B9F81F0CD74A00D1640D /* slicer spawn 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slicer spawn 15.png"; sourceTree = "<group>"; };
 		4592BA091F0CD7A300D1640D /* slicer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = slicer.cpp; sourceTree = "<group>"; };
 		4592BA0A1F0CD7A300D1640D /* slicer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = slicer.hpp; sourceTree = "<group>"; };
+		4592BA0E1F0CE6EA00D1640D /* coin 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 0.png"; sourceTree = "<group>"; };
+		4592BA0F1F0CE6EA00D1640D /* coin 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 1.png"; sourceTree = "<group>"; };
+		4592BA101F0CE6EA00D1640D /* coin 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 2.png"; sourceTree = "<group>"; };
+		4592BA111F0CE6EA00D1640D /* coin 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 3.png"; sourceTree = "<group>"; };
+		4592BA121F0CE6EA00D1640D /* coin 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 4.png"; sourceTree = "<group>"; };
+		4592BA131F0CE6EA00D1640D /* coin 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 5.png"; sourceTree = "<group>"; };
+		4592BA141F0CE6EA00D1640D /* coin 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 6.png"; sourceTree = "<group>"; };
+		4592BA151F0CE6EA00D1640D /* coin 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 7.png"; sourceTree = "<group>"; };
+		4592BA161F0CE6EA00D1640D /* coin 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 8.png"; sourceTree = "<group>"; };
+		4592BA171F0CE6EA00D1640D /* coin 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 9.png"; sourceTree = "<group>"; };
+		4592BA181F0CE6EA00D1640D /* coin 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 10.png"; sourceTree = "<group>"; };
+		4592BA191F0CE6EA00D1640D /* coin 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 11.png"; sourceTree = "<group>"; };
+		4592BA1A1F0CE6EA00D1640D /* coin 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 12.png"; sourceTree = "<group>"; };
+		4592BA1B1F0CE6EA00D1640D /* coin 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 13.png"; sourceTree = "<group>"; };
+		4592BA1C1F0CE6EA00D1640D /* coin 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 14.png"; sourceTree = "<group>"; };
+		4592BA1D1F0CE6EA00D1640D /* coin 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin 15.png"; sourceTree = "<group>"; };
+		4592BA1E1F0CE71200D1640D /* coin spawn 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 12.png"; sourceTree = "<group>"; };
+		4592BA1F1F0CE71200D1640D /* coin spawn 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 0.png"; sourceTree = "<group>"; };
+		4592BA201F0CE71200D1640D /* coin spawn 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 1.png"; sourceTree = "<group>"; };
+		4592BA211F0CE71200D1640D /* coin spawn 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 2.png"; sourceTree = "<group>"; };
+		4592BA221F0CE71200D1640D /* coin spawn 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 3.png"; sourceTree = "<group>"; };
+		4592BA231F0CE71200D1640D /* coin spawn 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 4.png"; sourceTree = "<group>"; };
+		4592BA241F0CE71200D1640D /* coin spawn 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 5.png"; sourceTree = "<group>"; };
+		4592BA251F0CE71200D1640D /* coin spawn 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 6.png"; sourceTree = "<group>"; };
+		4592BA261F0CE71200D1640D /* coin spawn 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 7.png"; sourceTree = "<group>"; };
+		4592BA271F0CE71200D1640D /* coin spawn 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 8.png"; sourceTree = "<group>"; };
+		4592BA281F0CE71200D1640D /* coin spawn 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 9.png"; sourceTree = "<group>"; };
+		4592BA291F0CE71200D1640D /* coin spawn 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 10.png"; sourceTree = "<group>"; };
+		4592BA2A1F0CE71200D1640D /* coin spawn 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 11.png"; sourceTree = "<group>"; };
+		4592BA2B1F0CE71200D1640D /* coin spawn 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 13.png"; sourceTree = "<group>"; };
+		4592BA2C1F0CE71200D1640D /* coin spawn 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 14.png"; sourceTree = "<group>"; };
+		4592BA2D1F0CE71200D1640D /* coin spawn 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 15.png"; sourceTree = "<group>"; };
+		4592BA2E1F0CE79600D1640D /* coin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coin.cpp; sourceTree = "<group>"; };
+		4592BA2F1F0CE79600D1640D /* coin.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = coin.hpp; sourceTree = "<group>"; };
 		45B5E6721EF66A8B00A6A3E2 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -941,6 +976,52 @@
 			name = "slicer spawn";
 			sourceTree = "<group>";
 		};
+		4592BA0C1F0CE6A300D1640D /* coin */ = {
+			isa = PBXGroup;
+			children = (
+				4592BA0E1F0CE6EA00D1640D /* coin 0.png */,
+				4592BA0F1F0CE6EA00D1640D /* coin 1.png */,
+				4592BA101F0CE6EA00D1640D /* coin 2.png */,
+				4592BA111F0CE6EA00D1640D /* coin 3.png */,
+				4592BA121F0CE6EA00D1640D /* coin 4.png */,
+				4592BA131F0CE6EA00D1640D /* coin 5.png */,
+				4592BA141F0CE6EA00D1640D /* coin 6.png */,
+				4592BA151F0CE6EA00D1640D /* coin 7.png */,
+				4592BA161F0CE6EA00D1640D /* coin 8.png */,
+				4592BA171F0CE6EA00D1640D /* coin 9.png */,
+				4592BA181F0CE6EA00D1640D /* coin 10.png */,
+				4592BA191F0CE6EA00D1640D /* coin 11.png */,
+				4592BA1A1F0CE6EA00D1640D /* coin 12.png */,
+				4592BA1B1F0CE6EA00D1640D /* coin 13.png */,
+				4592BA1C1F0CE6EA00D1640D /* coin 14.png */,
+				4592BA1D1F0CE6EA00D1640D /* coin 15.png */,
+			);
+			name = coin;
+			sourceTree = "<group>";
+		};
+		4592BA0D1F0CE6AA00D1640D /* coin spawn */ = {
+			isa = PBXGroup;
+			children = (
+				4592BA1F1F0CE71200D1640D /* coin spawn 0.png */,
+				4592BA201F0CE71200D1640D /* coin spawn 1.png */,
+				4592BA211F0CE71200D1640D /* coin spawn 2.png */,
+				4592BA221F0CE71200D1640D /* coin spawn 3.png */,
+				4592BA231F0CE71200D1640D /* coin spawn 4.png */,
+				4592BA241F0CE71200D1640D /* coin spawn 5.png */,
+				4592BA251F0CE71200D1640D /* coin spawn 6.png */,
+				4592BA261F0CE71200D1640D /* coin spawn 7.png */,
+				4592BA271F0CE71200D1640D /* coin spawn 8.png */,
+				4592BA281F0CE71200D1640D /* coin spawn 9.png */,
+				4592BA291F0CE71200D1640D /* coin spawn 10.png */,
+				4592BA2A1F0CE71200D1640D /* coin spawn 11.png */,
+				4592BA1E1F0CE71200D1640D /* coin spawn 12.png */,
+				4592BA2B1F0CE71200D1640D /* coin spawn 13.png */,
+				4592BA2C1F0CE71200D1640D /* coin spawn 14.png */,
+				4592BA2D1F0CE71200D1640D /* coin spawn 15.png */,
+			);
+			name = "coin spawn";
+			sourceTree = "<group>";
+		};
 		45B5E6691EF66A8B00A6A3E2 = {
 			isa = PBXGroup;
 			children = (
@@ -976,6 +1057,8 @@
 				4592B9D51F0C6A6300D1640D /* Grand9K Pixel.ttf */,
 				4592B8CA1F077D5F00D1640D /* sprites.atlas */,
 				4592B8CB1F077D5F00D1640D /* sprites.png */,
+				4592BA0D1F0CE6AA00D1640D /* coin spawn */,
+				4592BA0C1F0CE6A300D1640D /* coin */,
 				4592B9D81F0CD61E00D1640D /* slicer spawn */,
 				4592B9D71F0CD61500D1640D /* slicer */,
 				4592B9BD1F0B89A800D1640D /* reverser spawn */,
@@ -1040,6 +1123,8 @@
 				4592B9791F0B4D1200D1640D /* reverser.hpp */,
 				4592BA091F0CD7A300D1640D /* slicer.cpp */,
 				4592BA0A1F0CD7A300D1640D /* slicer.hpp */,
+				4592BA2E1F0CE79600D1640D /* coin.cpp */,
+				4592BA2F1F0CE79600D1640D /* coin.hpp */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -1126,7 +1211,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "src=\"/usr/local/lib\"\ndest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\nfor f in \"libSDL2-2.0.0.dylib\" \"libSimpleton Engine.dylib\" \"libUnpacker.dylib\"\ndo\n  ditto \"$src/$f\" \"$dest/$f\"\ndone";
+			shellScript = "src=\"/usr/local/lib\"\ndest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\nfor f in \"libSDL2-2.0.0.dylib\" \"libSimpleton Engine.dylib\" \"libUnpacker.dylib\"\ndo\n  ditto \"$src/$f\" \"$dest/$f\"\ndone\n\ncd \"Snake/Resources\"\n\npacker --silent config.yaml";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1137,6 +1222,7 @@
 			files = (
 				4592B9531F08E08300D1640D /* app impl.cpp in Sources */,
 				4592B9561F09CDA300D1640D /* render manager.cpp in Sources */,
+				4592BA301F0CE79600D1640D /* coin.cpp in Sources */,
 				4592BA0B1F0CD7A300D1640D /* slicer.cpp in Sources */,
 				45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */,
 				4592B95C1F09CDB400D1640D /* snake.cpp in Sources */,

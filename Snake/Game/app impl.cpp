@@ -9,6 +9,7 @@
 #include "app impl.hpp"
 
 #include <random>
+#include "coin.hpp"
 #include "slicer.hpp"
 #include "reverser.hpp"
 #include "constants.hpp"
@@ -21,8 +22,10 @@ AppImpl::AppImpl()
     rat({0, GAME_SIZE.y / 2}) {
   itemFactories.emplace_back(&makeItem<Reverser>);
   itemFactories.emplace_back(&makeItem<Slicer>);
+  itemFactories.emplace_back(&makeItem<Coin>);
   itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(Reverser::RARITY)]);
   itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(Slicer::RARITY)]);
+  itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(Coin::RARITY)]);
 }
 
 bool AppImpl::input(const uint64_t) {
@@ -125,6 +128,12 @@ Pos AppImpl::getFreePos() const {
     overlapping = false;
   
     newPos = {distX(gen), distY(gen)};
+    
+    if (newPos == rat.getPos()) {
+      overlapping = true;
+      continue;
+    }
+    
     if (snake.colliding(newPos)) {
       overlapping = true;
       continue;
