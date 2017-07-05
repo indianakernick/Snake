@@ -16,10 +16,10 @@
 		4592B95C1F09CDB400D1640D /* snake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B95A1F09CDB400D1640D /* snake.cpp */; };
 		4592B9611F0A1EE800D1640D /* score.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B95F1F0A1EE800D1640D /* score.cpp */; };
 		4592B9631F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4592B9621F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib */; };
-		4592B96A1F0A2ABE00D1640D /* Andale Mono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4592B9691F0A2ABE00D1640D /* Andale Mono.ttf */; };
 		4592B9771F0B4A5300D1640D /* item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B9751F0B4A5300D1640D /* item.cpp */; };
 		4592B97A1F0B4D1200D1640D /* reverser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B9781F0B4D1200D1640D /* reverser.cpp */; };
 		4592B9D21F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4592B9D11F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib */; };
+		4592B9D61F0C6A6400D1640D /* Grand9K Pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4592B9D51F0C6A6300D1640D /* Grand9K Pixel.ttf */; };
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
 		45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */; };
@@ -316,7 +316,6 @@
 		4592B95F1F0A1EE800D1640D /* score.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = score.cpp; sourceTree = "<group>"; };
 		4592B9601F0A1EE800D1640D /* score.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = score.hpp; sourceTree = "<group>"; };
 		4592B9621F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_ttf-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2_ttf/2.0.14/lib/libSDL2_ttf-2.0.0.dylib"; sourceTree = "<group>"; };
-		4592B9691F0A2ABE00D1640D /* Andale Mono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Andale Mono.ttf"; sourceTree = "<group>"; };
 		4592B9751F0B4A5300D1640D /* item.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = item.cpp; sourceTree = "<group>"; };
 		4592B9761F0B4A5300D1640D /* item.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = item.hpp; sourceTree = "<group>"; };
 		4592B9781F0B4D1200D1640D /* reverser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = reverser.cpp; sourceTree = "<group>"; };
@@ -370,6 +369,7 @@
 		4592B9CC1F0B89BD00D1640D /* reverser spawn 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 14.png"; sourceTree = "<group>"; };
 		4592B9CD1F0B89BD00D1640D /* reverser spawn 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reverser spawn 15.png"; sourceTree = "<group>"; };
 		4592B9D11F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libyaml-cpp.0.5.3.dylib"; path = "../../../../../../../usr/local/Cellar/yaml-cpp/0.5.3/lib/libyaml-cpp.0.5.3.dylib"; sourceTree = "<group>"; };
+		4592B9D51F0C6A6300D1640D /* Grand9K Pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Grand9K Pixel.ttf"; sourceTree = "<group>"; };
 		45B5E6721EF66A8B00A6A3E2 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -892,7 +892,7 @@
 		45B5E6871EF671F200A6A3E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4592B9691F0A2ABE00D1640D /* Andale Mono.ttf */,
+				4592B9D51F0C6A6300D1640D /* Grand9K Pixel.ttf */,
 				4592B8CA1F077D5F00D1640D /* sprites.atlas */,
 				4592B8CB1F077D5F00D1640D /* sprites.png */,
 				4592B9BD1F0B89A800D1640D /* reverser spawn */,
@@ -1020,7 +1020,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4592B96A1F0A2ABE00D1640D /* Andale Mono.ttf in Resources */,
+				4592B9D61F0C6A6400D1640D /* Grand9K Pixel.ttf in Resources */,
 				4592B8CE1F07884300D1640D /* sprites.atlas in Resources */,
 				4592B8CF1F07884300D1640D /* sprites.png in Resources */,
 				45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */,

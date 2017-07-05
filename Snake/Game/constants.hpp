@@ -28,11 +28,11 @@ const Platform::Window::Desc WINDOW_DESC = {
 const Pos GAME_SIZE = {16, 16};
 const Pos TILE_SPRITE_SIZE = {16, 16};
 
-const int FONT_SIZE = 12;
+const int FONT_SIZE = 8;
 
 const std::string SPRITE_IMAGE_PATH = "sprites.png";
 const std::string SPRITE_ATLAS_PATH = "sprites.atlas";
-const std::string FONT_PATH = "Andale Mono.ttf";
+const std::string FONT_PATH = "Grand9K Pixel.ttf";
 
 const int POWERUP_SPAWN_PROB = 100;
 const size_t MAX_POWERUPS = 5;
