@@ -11,13 +11,11 @@
 
 #include "item.hpp"
 
-class Reverser : public Item {
+class Reverser : public ItemConfig<Reverser> {
 public:
   static constexpr Rarity RARITY = Rarity::LOW;
-
-  Reverser(Pos);
   
-  void render(RenderManager &) const override;
+  Reverser(Pos);
 };
 
 #endif

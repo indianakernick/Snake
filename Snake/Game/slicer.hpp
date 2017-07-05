@@ -11,13 +11,11 @@
 
 #include "item.hpp"
 
-class Slicer : public Item {
+class Slicer : public ItemConfig<Slicer> {
 public:
   static constexpr Rarity RARITY = Rarity::HIGH;
 
   Slicer(Pos);
-  
-  void render(RenderManager &) const override;
 };
 
 #endif

@@ -8,16 +8,10 @@
 
 #include "slicer.hpp"
 
-#include "render manager.hpp"
-
 Slicer::Slicer(const Pos pos)
-  : Item(pos) {}
+  : ItemConfig(pos) {}
 
-void Slicer::render(RenderManager &renderer) const {
-  const State state = getState();
-  if (state == State::SPAWNING) {
-    renderer.renderTile("slicer spawn", pos);
-  } else {
-    renderer.renderTile("slicer", pos);
-  }
-}
+SET_ITEM_SPRITE(Slicer, SPAWNING,       "slicer spawn");
+SET_ITEM_SPRITE(Slicer, ALIVE,          "slicer");
+SET_ITEM_SPRITE(Slicer, BEING_CONSUMED, "slicer");
+SET_ITEM_SPRITE(Slicer, DESPAWNING,     "slicer");

@@ -8,8 +8,8 @@
 
 #include "item.hpp"
 
-Item::Item(const Pos pos)
-  : pos(pos) {}
+Item::Item(const Pos pos, const unsigned lifeTime)
+  : pos(pos), timeTillDeath(lifeTime) {}
 
 Pos Item::getPos() const {
   return pos;
@@ -25,6 +25,12 @@ void Item::consume() {
 }
 
 void Item::update() {
+  if (state == State::ALIVE) {
+    timeTillDeath--;
+    if (timeTillDeath == 0) {
+      state = State::DESPAWNING;
+    }
+  }
   if (state == State::SPAWNING) {
     state = State::ALIVE;
   }

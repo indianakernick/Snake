@@ -8,16 +8,10 @@
 
 #include "coin.hpp"
 
-#include "render manager.hpp"
-
 Coin::Coin(const Pos pos)
-  : Item(pos) {}
+  : ItemConfig(pos) {}
 
-void Coin::render(RenderManager &renderer) const {
-  const State state = getState();
-  if (state == State::SPAWNING) {
-    renderer.renderTile("coin spawn", pos);
-  } else {
-    renderer.renderTile("coin", pos);
-  }
-}
+SET_ITEM_SPRITE(Coin, SPAWNING,       "coin spawn");
+SET_ITEM_SPRITE(Coin, ALIVE,          "coin");
+SET_ITEM_SPRITE(Coin, BEING_CONSUMED, "coin");
+SET_ITEM_SPRITE(Coin, DESPAWNING,     "coin");

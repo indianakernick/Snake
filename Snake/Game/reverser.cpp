@@ -8,16 +8,10 @@
 
 #include "reverser.hpp"
 
-#include "render manager.hpp"
-
 Reverser::Reverser(const Pos pos)
-  : Item(pos) {}
+  : ItemConfig(pos) {}
 
-void Reverser::render(RenderManager &renderer) const {
-  const State state = getState();
-  if (state == State::SPAWNING) {
-    renderer.renderTile("reverser spawn", pos);
-  } else {
-    renderer.renderTile("reverser", pos);
-  }
-}
+SET_ITEM_SPRITE(Reverser, SPAWNING,       "reverser spawn");
+SET_ITEM_SPRITE(Reverser, ALIVE,          "reverser");
+SET_ITEM_SPRITE(Reverser, BEING_CONSUMED, "reverser");
+SET_ITEM_SPRITE(Reverser, DESPAWNING,     "reverser");

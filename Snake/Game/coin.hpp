@@ -11,13 +11,11 @@
 
 #include "item.hpp"
 
-class Coin : public Item {
+class Coin : public ItemConfig<Coin> {
 public:
   static constexpr Rarity RARITY = Rarity::VERY_HIGH;
   
   Coin(Pos);
-  
-  void render(RenderManager &) const override;
 };
 
 #endif

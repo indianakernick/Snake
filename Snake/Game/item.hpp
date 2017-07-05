@@ -11,8 +11,7 @@
 
 #include <memory>
 #include "types.hpp"
-
-class RenderManager;
+#include "render manager.hpp"
 
 class Item {
 public:
@@ -23,12 +22,12 @@ public:
     VERY_HIGH
   };
 
-  explicit Item(Pos);
+  explicit Item(Pos, unsigned = std::numeric_limits<unsigned>::max());
   virtual ~Item() = default;
   
   Pos getPos() const;
   bool isAlive() const;
-  virtual void consume();
+  void consume();
   
   virtual void update();
   virtual void render(RenderManager &) const = 0;
@@ -39,12 +38,14 @@ protected:
   enum class State : uint8_t {
     SPAWNING,
     ALIVE,
-    BEING_CONSUMED
+    BEING_CONSUMED,
+    DESPAWNING
   };
   
   State getState() const;
 
 private:
+  unsigned timeTillDeath;
   State state = State::SPAWNING;
 };
 
@@ -57,5 +58,49 @@ std::enable_if_t<
 makeItem(const Pos pos) {
   return std::make_unique<ItemType>(pos);
 }
+
+template <typename Subclass>
+class ItemConfig : public Item {
+public:
+  ItemConfig(const Pos pos)
+    : Item(pos) {}
+  ItemConfig(const Pos pos, const unsigned lifeTime)
+    : Item(pos, lifeTime) {}
+  ~ItemConfig() {
+    static_assert(std::is_base_of<ItemConfig, Subclass>::value);
+  }
+  
+  void render(RenderManager &renderMan) const override {
+    #define CASE(STATE)                                                         \
+      case State::STATE:                                                        \
+        if (STATE##_SPRITE) {                                                   \
+          renderMan.renderTile(STATE##_SPRITE, pos);                            \
+        }                                                                       \
+        break
+    
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wundefined-var-template"
+    
+    switch (getState()) {
+      CASE(SPAWNING);
+      CASE(ALIVE);
+      CASE(BEING_CONSUMED);
+      CASE(DESPAWNING);
+    }
+    
+    #pragma clang diagnostic pop
+    
+    #undef CASE
+  }
+  
+protected:
+  static const char *const SPAWNING_SPRITE;
+  static const char *const ALIVE_SPRITE;
+  static const char *const BEING_CONSUMED_SPRITE;
+  static const char *const DESPAWNING_SPRITE;
+};
+
+#define SET_ITEM_SPRITE(SUB_CLASS, STATE, PATH) template <> \
+  const char *const ItemConfig<SUB_CLASS>::STATE##_SPRITE = PATH
 
 #endif
