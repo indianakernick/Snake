@@ -25,6 +25,8 @@ RenderManager::RenderManager(Platform::Renderer &renderer, Platform::FontLibrary
     texture(nullptr, &SDL_DestroyTexture),
     font(fontLib.openFont(Platform::getResDir() + FONT_PATH, FONT_SIZE)),
     renderer(renderer.get()) {
+  SDL_RenderSetLogicalSize(renderer.get(), GAME_SIZE.x * TILE_SPRITE_SIZE.x, GAME_SIZE.y * TILE_SPRITE_SIZE.y);
+  
   const Image &image = sheet.getImage();
   texture.reset(SDL_CreateTexture(
     renderer.get(),
@@ -47,16 +49,22 @@ void RenderManager::update(const uint64_t delta) {
   animProg += delta;
 }
 
+void RenderManager::renderBack() {
+  SDL_SetRenderDrawColor(renderer, BACK_COLOR.r, BACK_COLOR.g, BACK_COLOR.b, BACK_COLOR.a);
+  const SDL_Rect rect = {0, 0, GAME_SIZE.x * TILE_SPRITE_SIZE.x, GAME_SIZE.y * TILE_SPRITE_SIZE.y};
+  SDL_RenderFillRect(renderer, &rect);
+}
+
 SDL_Rect toSDL(const RectPx rect) {
   return {rect.x, rect.y, rect.w, rect.h};
 }
 
 SDL_Rect toTile(const Pos pos) {
   return {
-    static_cast<int>(pos.x * TILE_SIZE.x),
-    static_cast<int>(pos.y * TILE_SIZE.y),
-    static_cast<int>(TILE_SIZE.x),
-    static_cast<int>(TILE_SIZE.y)
+    static_cast<int>(pos.x * TILE_SPRITE_SIZE.x),
+    static_cast<int>(pos.y * TILE_SPRITE_SIZE.y),
+    static_cast<int>(TILE_SPRITE_SIZE.x),
+    static_cast<int>(TILE_SPRITE_SIZE.y)
   };
 }
 
@@ -107,8 +115,6 @@ void RenderManager::renderText(const std::string &text, const Color color, const
   if (SDL_QueryTexture(texture.get(), nullptr, nullptr, &dstRect.w, &dstRect.h) == -1) {
     throw std::runtime_error(std::string("Failed to render text: ") + SDL_GetError());
   }
-  dstRect.w *= 4;
-  dstRect.h *= 4;
   
   SDL_RenderCopy(renderer, texture.get(), nullptr, &dstRect);
 }

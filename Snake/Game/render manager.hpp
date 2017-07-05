@@ -22,6 +22,7 @@ public:
   void reset();
   
   void update(uint64_t);
+  void renderBack();
   void renderTile(const std::string &, Pos, double = 0.0);
   void renderText(const std::string &, Color, Pos);
   Pos textSize(const std::string &);

@@ -76,7 +76,8 @@ bool AppImpl::update(const uint64_t delta) {
 }
 
 void AppImpl::render(const uint64_t) {
-  renderer.clear(BACK_COLOR);
+  renderer.clear();
+  renderMan.renderBack();
   for (auto p = items.cbegin(); p != items.cend(); ++p) {
     (*p)->render(renderMan);
   }

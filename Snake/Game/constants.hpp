@@ -15,21 +15,18 @@
 const Color BACK_COLOR = {127, 127, 255, 255};
 const Color SCORE_COLOR = {255, 255, 255, 255};
 
-const uint64_t UPDATES_PER_SECOND = 2;
-const uint64_t MILLI_PER_UPDATE = 1000 / UPDATES_PER_SECOND;
+const uint64_t ANIM_FPS = 30;
 const uint64_t NUM_FRAMES = 16;
+const uint64_t MILLI_PER_UPDATE = (1000 * NUM_FRAMES) / ANIM_FPS;
 
 const Platform::Window::Desc WINDOW_DESC = {
   "Snake",
   {768, 768},
-  false
+  true
 };
 
-const Pos GAME_SIZE = {12, 12};
-const glm::vec2 TILE_SIZE = {
-  static_cast<float>(WINDOW_DESC.size.x) / GAME_SIZE.x,
-  static_cast<float>(WINDOW_DESC.size.y) / GAME_SIZE.y
-};
+const Pos GAME_SIZE = {16, 16};
+const Pos TILE_SPRITE_SIZE = {16, 16};
 
 const int FONT_SIZE = 12;
 

@@ -18,7 +18,7 @@
 #include "item.hpp"
 #include "render manager.hpp"
 
-using ItemFactory = std::unique_ptr<Item> (*)(const Pos);
+using ItemFactory = std::unique_ptr<Item> (*)(Pos);
 
 class AppImpl final : public SDLApp {
 public:
