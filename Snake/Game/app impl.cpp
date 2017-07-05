@@ -42,9 +42,10 @@ bool AppImpl::update(const uint64_t delta) {
     animProg = 0;
     renderMan.reset();
     
+    bool shouldSpawnRat = false;
     if (snake.isEating(rat)) {
       score.incr();
-      rat = Rat(getFreePos());
+      shouldSpawnRat = true;
     } else {
       for (auto i = items.cbegin(); i != items.cend(); ++i) {
         if (snake.tryToConsume(**i)) {
@@ -65,6 +66,9 @@ bool AppImpl::update(const uint64_t delta) {
     }
     
     snake.update();
+    if (shouldSpawnRat) {
+      rat = Rat(getFreePos());
+    }
     snake.tryToConsume(rat);
     
     if (snake.isDead()) {

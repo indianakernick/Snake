@@ -25,7 +25,7 @@ const Platform::Window::Desc WINDOW_DESC = {
   true
 };
 
-const Pos GAME_SIZE = {16, 16};
+const Pos GAME_SIZE = {12, 12};
 const Pos TILE_SPRITE_SIZE = {16, 16};
 
 const int FONT_SIZE = 8;
