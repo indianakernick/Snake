@@ -22,6 +22,7 @@
 		4592B9D61F0C6A6400D1640D /* Grand9K Pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4592B9D51F0C6A6300D1640D /* Grand9K Pixel.ttf */; };
 		4592BA0B1F0CD7A300D1640D /* slicer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592BA091F0CD7A300D1640D /* slicer.cpp */; };
 		4592BA301F0CE79600D1640D /* coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592BA2E1F0CE79600D1640D /* coin.cpp */; };
+		4592BA351F0DAEFE00D1640D /* coin consumed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592BA331F0DAEFE00D1640D /* coin consumed.cpp */; };
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
 		45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */; };
@@ -440,6 +441,8 @@
 		4592BA2D1F0CE71200D1640D /* coin spawn 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coin spawn 15.png"; sourceTree = "<group>"; };
 		4592BA2E1F0CE79600D1640D /* coin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = coin.cpp; sourceTree = "<group>"; };
 		4592BA2F1F0CE79600D1640D /* coin.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = coin.hpp; sourceTree = "<group>"; };
+		4592BA331F0DAEFE00D1640D /* coin consumed.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "coin consumed.cpp"; sourceTree = "<group>"; };
+		4592BA341F0DAEFE00D1640D /* coin consumed.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "coin consumed.hpp"; sourceTree = "<group>"; };
 		45B5E6721EF66A8B00A6A3E2 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1022,6 +1025,30 @@
 			name = "coin spawn";
 			sourceTree = "<group>";
 		};
+		4592BA311F0CF66900D1640D /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				4592B9751F0B4A5300D1640D /* item.cpp */,
+				4592B9761F0B4A5300D1640D /* item.hpp */,
+				4592B9781F0B4D1200D1640D /* reverser.cpp */,
+				4592B9791F0B4D1200D1640D /* reverser.hpp */,
+				4592BA091F0CD7A300D1640D /* slicer.cpp */,
+				4592BA0A1F0CD7A300D1640D /* slicer.hpp */,
+				4592BA2E1F0CE79600D1640D /* coin.cpp */,
+				4592BA2F1F0CE79600D1640D /* coin.hpp */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
+		4592BA321F0DAED100D1640D /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				4592BA331F0DAEFE00D1640D /* coin consumed.cpp */,
+				4592BA341F0DAEFE00D1640D /* coin consumed.hpp */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
 		45B5E6691EF66A8B00A6A3E2 = {
 			isa = PBXGroup;
 			children = (
@@ -1117,14 +1144,8 @@
 				4592B95E1F09D14000D1640D /* constants.hpp */,
 				4592B95F1F0A1EE800D1640D /* score.cpp */,
 				4592B9601F0A1EE800D1640D /* score.hpp */,
-				4592B9751F0B4A5300D1640D /* item.cpp */,
-				4592B9761F0B4A5300D1640D /* item.hpp */,
-				4592B9781F0B4D1200D1640D /* reverser.cpp */,
-				4592B9791F0B4D1200D1640D /* reverser.hpp */,
-				4592BA091F0CD7A300D1640D /* slicer.cpp */,
-				4592BA0A1F0CD7A300D1640D /* slicer.hpp */,
-				4592BA2E1F0CE79600D1640D /* coin.cpp */,
-				4592BA2F1F0CE79600D1640D /* coin.hpp */,
+				4592BA321F0DAED100D1640D /* Events */,
+				4592BA311F0CF66900D1640D /* Items */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -1230,6 +1251,7 @@
 				4592B9771F0B4A5300D1640D /* item.cpp in Sources */,
 				45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */,
 				4592B97A1F0B4D1200D1640D /* reverser.cpp in Sources */,
+				4592BA351F0DAEFE00D1640D /* coin consumed.cpp in Sources */,
 				4592B9611F0A1EE800D1640D /* score.cpp in Sources */,
 				45B5E8D41EFA0DD200A6A3E2 /* sdl app.cpp in Sources */,
 			);

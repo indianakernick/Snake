@@ -13,7 +13,9 @@
 #include "slicer.hpp"
 #include "reverser.hpp"
 #include "constants.hpp"
+#include "coin consumed.hpp"
 #include "render manager.hpp"
+#include <Simpleton/Event/manager.hpp>
 
 namespace {
   using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
@@ -88,7 +90,7 @@ bool Snake::tryToConsume(Item &item) {
     } else if (dynamic_cast<Slicer *>(ptr)) {
       positions.resize(std::max(size_t(4), positions.size() / 2));
     } else if (dynamic_cast<Coin *>(ptr)) {
-      
+      evtMan->emit<CoinConsumed>();
     }
     
     return true;

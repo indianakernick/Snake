@@ -13,6 +13,7 @@
 #include "slicer.hpp"
 #include "reverser.hpp"
 #include "constants.hpp"
+#include <Simpleton/Event/manager.hpp>
 #include <Simpleton/Platform/system info.hpp>
 
 AppImpl::AppImpl()
@@ -67,6 +68,8 @@ bool AppImpl::update(const uint64_t delta) {
     for (auto i = items.cbegin(); i != items.cend(); ++i) {
       (*i)->update();
     }
+    
+    evtMan->update();
     
     spawnItemIfShould();
     

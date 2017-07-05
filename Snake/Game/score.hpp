@@ -9,11 +9,13 @@
 #ifndef game_score_hpp
 #define game_score_hpp
 
+#include "coin consumed.hpp"
+
 class RenderManager;
 
 class Score {
 public:
-  Score() = default;
+  Score();
   
   void incr(unsigned = 1);
   void reset();
@@ -22,6 +24,8 @@ public:
   
 private:
   unsigned val = 0;
+  
+  void onCoinConsumed(CoinConsumed::Ptr);
 };
 
 #endif
