@@ -9,9 +9,8 @@
 #include "reverser.hpp"
 
 Reverser::Reverser(const Pos pos)
-  : ItemConfig(pos) {}
+  : ItemConfig(pos, LIFE_TIME) {}
 
 SET_ITEM_SPRITE(Reverser, SPAWNING,       "reverser spawn");
 SET_ITEM_SPRITE(Reverser, ALIVE,          "reverser");
 SET_ITEM_SPRITE(Reverser, BEING_CONSUMED, "reverser");
-SET_ITEM_SPRITE(Reverser, DESPAWNING,     "reverser");

@@ -9,9 +9,8 @@
 #include "coin.hpp"
 
 Coin::Coin(const Pos pos)
-  : ItemConfig(pos) {}
+  : ItemConfig(pos, LIFE_TIME) {}
 
 SET_ITEM_SPRITE(Coin, SPAWNING,       "coin spawn");
 SET_ITEM_SPRITE(Coin, ALIVE,          "coin");
 SET_ITEM_SPRITE(Coin, BEING_CONSUMED, "coin");
-SET_ITEM_SPRITE(Coin, DESPAWNING,     "coin");

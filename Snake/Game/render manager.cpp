@@ -71,19 +71,13 @@ SDL_Rect toTile(const Pos pos) {
 void RenderManager::renderTile(const std::string &name, const Pos pos, const double rotation) {
   const double prog = static_cast<double>(animProg) / MILLI_PER_UPDATE;
   const std::string frame = std::to_string(Time::progToFrame(prog, NUM_FRAMES));
-  const SDL_Rect srcRect = toSDL(sheet.getSprite(name + ' ' + frame));
-  const SDL_Rect dstRect = toTile(pos);
-  if (SDL_RenderCopyEx(
-    renderer,
-    texture.get(),
-    &srcRect,
-    &dstRect,
-    rotation,
-    nullptr,
-    SDL_FLIP_NONE
-  ) != 0) {
-    throw std::runtime_error(std::string("Failed to render tile: ") + SDL_GetError());
-  }
+  renderTileImpl(name + ' ' + frame, pos, rotation);
+}
+
+void RenderManager::renderTileReverse(const std::string &name, const Pos pos, const double rotation) {
+  const double prog = static_cast<double>(animProg) / MILLI_PER_UPDATE;
+  const std::string frame = std::to_string(NUM_FRAMES - 1 - Time::progToFrame(prog, NUM_FRAMES));
+  renderTileImpl(name + ' ' + frame, pos, rotation);
 }
 
 SDL_Color toSDL(const Color color) {
@@ -126,4 +120,24 @@ Pos RenderManager::textSize(const std::string &text) {
     throw std::runtime_error(std::string("Failed to get text size: ") + TTF_GetError());
   }
   return size;
+}
+
+void RenderManager::renderTileImpl(
+  const std::string &name,
+  const Pos pos,
+  const double rotation
+) {
+  const SDL_Rect srcRect = toSDL(sheet.getSprite(name));
+  const SDL_Rect dstRect = toTile(pos);
+  if (SDL_RenderCopyEx(
+    renderer,
+    texture.get(),
+    &srcRect,
+    &dstRect,
+    rotation,
+    nullptr,
+    SDL_FLIP_NONE
+  ) != 0) {
+    throw std::runtime_error(std::string("Failed to render tile: ") + SDL_GetError());
+  }
 }

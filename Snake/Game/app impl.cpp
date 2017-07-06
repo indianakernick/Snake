@@ -56,7 +56,7 @@ bool AppImpl::update(const uint64_t delta) {
       shouldSpawnRat = true;
     } else {
       for (auto i = items.cbegin(); i != items.cend(); ++i) {
-        if (snake.tryToConsume(**i)) {
+        if ((*i)->isDespawning() || snake.tryToConsume(**i)) {
           auto consumed = i--;
           items.erase(consumed);
         }

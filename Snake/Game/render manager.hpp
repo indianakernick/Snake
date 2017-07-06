@@ -24,6 +24,7 @@ public:
   void update(uint64_t);
   void renderBack();
   void renderTile(const std::string &, Pos, double = 0.0);
+  void renderTileReverse(const std::string &, Pos, double = 0.0);
   void renderText(const std::string &, Color, Pos);
   Pos textSize(const std::string &);
   
@@ -33,6 +34,8 @@ private:
   std::unique_ptr<TTF_Font, decltype(&TTF_CloseFont)> font;
   SDL_Renderer *renderer;
   uint64_t animProg = 0;
+  
+  void renderTileImpl(const std::string &, Pos, double);
 };
 
 #endif

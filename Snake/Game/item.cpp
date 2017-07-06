@@ -19,6 +19,10 @@ bool Item::isAlive() const {
   return state == State::ALIVE;
 }
 
+bool Item::isDespawning() const {
+  return state == State::DESPAWNING;
+}
+
 void Item::consume() {
   assert(isAlive());
   state = State::BEING_CONSUMED;
@@ -26,8 +30,7 @@ void Item::consume() {
 
 void Item::update() {
   if (state == State::ALIVE) {
-    timeTillDeath--;
-    if (timeTillDeath == 0) {
+    if (--timeTillDeath == 0) {
       state = State::DESPAWNING;
     }
   }

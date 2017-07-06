@@ -27,6 +27,7 @@ public:
   
   Pos getPos() const;
   bool isAlive() const;
+  bool isDespawning() const;
   void consume();
   
   virtual void update();
@@ -85,7 +86,10 @@ public:
       CASE(SPAWNING);
       CASE(ALIVE);
       CASE(BEING_CONSUMED);
-      CASE(DESPAWNING);
+      case State::DESPAWNING:
+        if (SPAWNING_SPRITE) {
+          renderMan.renderTileReverse(SPAWNING_SPRITE, pos);
+        }
     }
     
     #pragma clang diagnostic pop
@@ -97,7 +101,6 @@ protected:
   static const char *const SPAWNING_SPRITE;
   static const char *const ALIVE_SPRITE;
   static const char *const BEING_CONSUMED_SPRITE;
-  static const char *const DESPAWNING_SPRITE;
 };
 
 #define SET_ITEM_SPRITE(SUB_CLASS, STATE, PATH) template <> \

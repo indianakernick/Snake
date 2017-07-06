@@ -14,6 +14,7 @@
 class Slicer : public ItemConfig<Slicer> {
 public:
   static constexpr Rarity RARITY = Rarity::HIGH;
+  static constexpr unsigned LIFE_TIME = 200;
 
   Slicer(Pos);
 };
