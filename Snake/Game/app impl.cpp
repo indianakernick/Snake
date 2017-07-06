@@ -100,7 +100,7 @@ void AppImpl::render(const uint64_t) {
 }
 
 void AppImpl::spawnItemIfShould() {
-  static std::default_random_engine gen;
+  static std::random_device gen;
   
   if (items.size() >= MAX_ITEMS) {
     return;
@@ -120,7 +120,7 @@ void AppImpl::spawnItemIfShould() {
 }
 
 Pos AppImpl::getFreePos() const {
-  static std::default_random_engine gen;
+  static std::random_device gen;
   std::uniform_int_distribution<PosScalar> distX(0, GAME_SIZE.x - 1);
   std::uniform_int_distribution<PosScalar> distY(0, GAME_SIZE.y - 1);
   
