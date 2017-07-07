@@ -67,14 +67,18 @@ SDL_Rect toTile(const Pos pos) {
 }
 
 void RenderManager::renderTile(const std::string &name, const Pos pos, const double rotation) {
+  using ProgToFrame = Time::ProgToFrame<uint32_t>;
+
   const double prog = static_cast<double>(animProg) / MILLI_PER_UPDATE;
-  const std::string frame = std::to_string(Time::progToFrame(prog, NUM_FRAMES));
+  const std::string frame = std::to_string(ProgToFrame::conv(prog, NUM_FRAMES));
   renderTileImpl(name + ' ' + frame, pos, rotation);
 }
 
 void RenderManager::renderTileReverse(const std::string &name, const Pos pos, const double rotation) {
+  using ProgToFrame = Time::ProgToFrame<uint32_t, Time::Round::FLOOR, false, true>;
+  
   const double prog = static_cast<double>(animProg) / MILLI_PER_UPDATE;
-  const std::string frame = std::to_string(NUM_FRAMES - 1 - Time::progToFrame(prog, NUM_FRAMES));
+  const std::string frame = std::to_string(ProgToFrame::conv(prog, NUM_FRAMES));
   renderTileImpl(name + ' ' + frame, pos, rotation);
 }
 

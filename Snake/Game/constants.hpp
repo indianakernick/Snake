@@ -15,9 +15,9 @@
 const Color BACK_COLOR = {127, 127, 255, 255};
 const Color TEXT_COLOR = {255, 255, 255, 255};
 
-const uint64_t ANIM_FPS = 50;
-const uint64_t NUM_FRAMES = 16;
-const uint64_t MILLI_PER_UPDATE = (1000 * NUM_FRAMES) / ANIM_FPS;
+const uint32_t ANIM_FPS = 50;
+const uint32_t NUM_FRAMES = 16;
+const uint32_t MILLI_PER_UPDATE = (1000 * NUM_FRAMES) / ANIM_FPS;
 
 const Platform::Window::Desc WINDOW_DESC = {
   "Snake",
@@ -40,9 +40,9 @@ const size_t MAX_ITEMS = 6;
 
 const double ITEM_SPAWN_PROB[4] = {
   1.0 / 100.0,  //Rarity::LOW
-  1.0 / 500.0, //Rarity::MEDIUM
+  1.0 / 500.0,  //Rarity::MEDIUM
   1.0 / 2500.0, //Rarity::HIGH
-  1.0 / 5000.0 //Rarity::VERY_HIGH
+  1.0 / 5000.0  //Rarity::VERY_HIGH
 };
 
 #endif
