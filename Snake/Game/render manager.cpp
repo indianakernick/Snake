@@ -13,8 +13,8 @@
 #include <Simpleton/Platform/sdl object.hpp>
 #include <Simpleton/Platform/system info.hpp>
 
-Spritesheet makeSheet() {
-  return makeSpritesheet(
+Unpack::Spritesheet makeSheet() {
+  return Unpack::makeSpritesheet(
     Platform::getResDir() + SPRITE_ATLAS_PATH,
     Platform::getResDir() + SPRITE_IMAGE_PATH
   );
@@ -27,7 +27,7 @@ RenderManager::RenderManager(Platform::Renderer &renderer, Platform::FontLibrary
     renderer(renderer.get()) {
   SDL_RenderSetLogicalSize(renderer.get(), GAME_SIZE.x * TILE_SPRITE_SIZE.x, GAME_SIZE.y * TILE_SPRITE_SIZE.y);
   
-  const Image &image = sheet.getImage();
+  const Unpack::Image &image = sheet.getImage();
   texture.reset(SDL_CreateTexture(
     renderer.get(),
     SDL_PIXELFORMAT_ABGR8888,

@@ -31,7 +31,7 @@ public:
   
 private:
   Platform::FontLibrary &fontLib;
-  Spritesheet sheet;
+  Unpack::Spritesheet sheet;
   std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)> texture;
   std::unordered_map<int, std::unique_ptr<TTF_Font, decltype(&TTF_CloseFont)>> fonts;
   SDL_Renderer *renderer;
