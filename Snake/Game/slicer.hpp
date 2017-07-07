@@ -13,7 +13,7 @@
 
 class Slicer : public ItemConfig<Slicer> {
 public:
-  static constexpr Rarity RARITY = Rarity::HIGH;
+  static constexpr Rarity RARITY = Rarity::MEDIUM;
   static constexpr unsigned LIFE_TIME = 50;
 
   Slicer(Pos);
