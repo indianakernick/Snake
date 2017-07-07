@@ -21,9 +21,9 @@ Spritesheet makeSheet() {
 }
 
 RenderManager::RenderManager(Platform::Renderer &renderer, Platform::FontLibrary &fontLib)
-  : sheet(makeSheet()),
+  : fontLib(fontLib),
+    sheet(makeSheet()),
     texture(nullptr, &SDL_DestroyTexture),
-    font(fontLib.openFont(Platform::getResDir() + FONT_PATH, FONT_SIZE)),
     renderer(renderer.get()) {
   SDL_RenderSetLogicalSize(renderer.get(), GAME_SIZE.x * TILE_SPRITE_SIZE.x, GAME_SIZE.y * TILE_SPRITE_SIZE.y);
   
@@ -37,8 +37,6 @@ RenderManager::RenderManager(Platform::Renderer &renderer, Platform::FontLibrary
   ));
   SDL_UpdateTexture(texture.get(), nullptr, image.data(), static_cast<int>(image.pitch()));
   SDL_SetTextureBlendMode(texture.get(), SDL_BLENDMODE_BLEND);
-  
-  TTF_SetFontHinting(font.get(), TTF_HINTING_LIGHT);
 }
 
 void RenderManager::reset() {
@@ -84,9 +82,11 @@ SDL_Color toSDL(const Color color) {
   return {color.r, color.g, color.b, color.a};
 }
 
-void RenderManager::renderText(const std::string &text, const Color color, const Pos pos) {
+void RenderManager::renderText(const int size, const std::string &text, const Color color, const Pos pos) {
+  TTF_Font *const font = getFont(size);
+  
   SDL_OBJECT_FREE(Surface) surface(
-    TTF_RenderText_Solid(font.get(), text.c_str(), toSDL(color)),
+    TTF_RenderText_Solid(font, text.c_str(), toSDL(color)),
     &SDL_FreeSurface
   );
   
@@ -113,13 +113,14 @@ void RenderManager::renderText(const std::string &text, const Color color, const
   SDL_RenderCopy(renderer, texture.get(), nullptr, &dstRect);
 }
 
-Pos RenderManager::textSize(const std::string &text) {
+Pos RenderManager::textSize(const int size, const std::string &text) {
   static_assert(std::is_same<PosScalar, int>::value);
-  Pos size;
-  if (TTF_SizeText(font.get(), text.c_str(), &size.x, &size.y) == -1) {
+  TTF_Font *const font = getFont(size);
+  Pos textSize;
+  if (TTF_SizeText(font, text.c_str(), &textSize.x, &textSize.y) == -1) {
     throw std::runtime_error(std::string("Failed to get text size: ") + TTF_GetError());
   }
-  return size;
+  return textSize;
 }
 
 void RenderManager::renderTileImpl(
@@ -139,5 +140,17 @@ void RenderManager::renderTileImpl(
     SDL_FLIP_NONE
   ) != 0) {
     throw std::runtime_error(std::string("Failed to render tile: ") + SDL_GetError());
+  }
+}
+
+TTF_Font *RenderManager::getFont(const int size) {
+  auto iter = fonts.find(size);
+  if (iter == fonts.end()) {
+    Platform::Font font = fontLib.openFont(Platform::getResDir() + FONT_PATH, size);
+    TTF_Font *const fontPtr = font.get();
+    fonts.emplace(size, std::move(font));
+    return fontPtr;
+  } else {
+    return iter->second.get();
   }
 }

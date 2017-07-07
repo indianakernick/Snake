@@ -20,6 +20,7 @@ class Snake {
 public:
   static constexpr unsigned INVIS_DURATION = 100;
 
+  Snake() = default;
   explicit Snake(Pos);
   
   void move(Math::Dir);

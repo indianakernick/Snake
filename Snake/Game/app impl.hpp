@@ -33,14 +33,25 @@ private:
   std::list<std::unique_ptr<Item>> items;
   std::vector<ItemFactory> itemFactories;
   std::vector<double> itemProbs;
+  
+  enum class State {
+    HOME,
+    GAME,
+    PAUSE,
+    DEAD
+  } state = State::HOME;
 
   bool input(uint64_t) override;
   bool update(uint64_t) override;
   void render(uint64_t) override;
   
+  void updateGame();
+  
   void spawnItemIfShould();
   Pos getFreePos() const;
   void snakeInput(SDL_Scancode);
+  void changeState();
+  void reset();
 };
 
 #endif

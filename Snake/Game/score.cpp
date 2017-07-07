@@ -25,7 +25,7 @@ void Score::reset() {
 }
 
 void Score::render(RenderManager &renderMan) const {
-  renderMan.renderText("Score: " + std::to_string(val), SCORE_COLOR, {0, 0});
+  renderMan.renderText(SCORE_FONT_SIZE, "Score: " + std::to_string(val), TEXT_COLOR, {0, 0});
 }
 
 void Score::onCoinConsumed(const CoinConsumed::Ptr) {

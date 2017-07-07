@@ -15,6 +15,7 @@ class RenderManager;
 
 class Rat : public Item {
 public:
+  Rat();
   explicit Rat(Pos);
   
   void render(RenderManager &) const override;

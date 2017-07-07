@@ -19,9 +19,8 @@
 
 AppImpl::AppImpl()
   : SDLApp(WINDOW_DESC, true),
-    renderMan(renderer, fontLib),
-    snake(GAME_SIZE / 2),
-    rat({0, GAME_SIZE.y / 2}) {
+    renderMan(renderer, fontLib) {
+  reset();
   itemFactories.emplace_back(&makeItem<Reverser>);
   itemFactories.emplace_back(&makeItem<Slicer>);
   itemFactories.emplace_back(&makeItem<Coin>);
@@ -39,7 +38,12 @@ bool AppImpl::input(const uint64_t) {
       case SDL_QUIT:
         return false;
       case SDL_KEYDOWN:
-        snakeInput(e.key.keysym.scancode);
+        if (state == State::GAME) {
+          snakeInput(e.key.keysym.scancode);
+        }
+        if (e.key.keysym.scancode == SDL_SCANCODE_SPACE) {
+          changeState();
+        }
         break;
     }
   }
@@ -47,44 +51,14 @@ bool AppImpl::input(const uint64_t) {
 }
 
 bool AppImpl::update(const uint64_t delta) {
-  animProg += delta;
-  renderMan.update(delta);
-  if (animProg >= MILLI_PER_UPDATE) {
-    animProg = 0;
-    renderMan.reset();
-    
-    bool shouldSpawnRat = false;
-    if (snake.isEating(rat)) {
-      score.incr();
-      shouldSpawnRat = true;
-    } else {
-      for (auto i = items.cbegin(); i != items.cend(); ++i) {
-        if ((*i)->isDespawning() || snake.tryToConsume(**i)) {
-          auto consumed = i--;
-          items.erase(consumed);
-        }
-      }
+  if (state == State::GAME) {
+    animProg += delta;
+    renderMan.update(delta);
+    if (animProg >= MILLI_PER_UPDATE) {
+      animProg = 0;
+      renderMan.reset();
       
-      rat.update();
-    }
-    
-    for (auto i = items.cbegin(); i != items.cend(); ++i) {
-      (*i)->update();
-    }
-    
-    evtMan->update();
-    
-    spawnItemIfShould();
-    
-    snake.update();
-    if (shouldSpawnRat) {
-      rat = Rat(getFreePos());
-    }
-    snake.tryToConsume(rat);
-    
-    if (snake.isDead()) {
-      score.reset();
-      return false;
+      updateGame();
     }
   }
   return true;
@@ -93,13 +67,70 @@ bool AppImpl::update(const uint64_t delta) {
 void AppImpl::render(const uint64_t) {
   renderer.clear();
   renderMan.renderBack();
-  for (auto p = items.cbegin(); p != items.cend(); ++p) {
-    (*p)->render(renderMan);
+  if (state != State::HOME) {
+    for (auto p = items.cbegin(); p != items.cend(); ++p) {
+      (*p)->render(renderMan);
+    }
+    rat.render(renderMan);
+    snake.render(renderMan);
+    score.render(renderMan);
   }
-  rat.render(renderMan);
-  snake.render(renderMan);
-  score.render(renderMan);
+  
+  if (state == State::HOME) {
+    const Pos titleSize = renderMan.textSize(TITLE_FONT_SIZE, "Snake");
+    const Pos titlePos = (GAME_SIZE * TILE_SPRITE_SIZE - titleSize) / 2;
+    renderMan.renderText(TITLE_FONT_SIZE, "Snake", TEXT_COLOR, titlePos);
+    
+    const PosScalar subTitleWidth = renderMan.textSize(SUBTITLE_FONT_SIZE, "Press space to play").x;
+    const Pos subTitlePos = {(GAME_SIZE.x * TILE_SPRITE_SIZE.x - subTitleWidth) / 2, titlePos.y + titleSize.y};
+    renderMan.renderText(SUBTITLE_FONT_SIZE, "Press space to play", TEXT_COLOR, subTitlePos);
+  } else if (state == State::PAUSE) {
+    const Pos subTitleSize = renderMan.textSize(SUBTITLE_FONT_SIZE, "Press space to resume");
+    const Pos subTitlePos = (GAME_SIZE * TILE_SPRITE_SIZE - subTitleSize) / 2;
+    renderMan.renderText(SUBTITLE_FONT_SIZE, "Press space to resume", TEXT_COLOR, subTitlePos);
+  } else if (state == State::DEAD) {
+    const Pos subTitleSize = renderMan.textSize(SUBTITLE_FONT_SIZE, "Press space to play again");
+    const Pos subTitlePos = (GAME_SIZE * TILE_SPRITE_SIZE - subTitleSize) / 2;
+    renderMan.renderText(SUBTITLE_FONT_SIZE, "Press space to play again", TEXT_COLOR, subTitlePos);
+  }
+  
   renderer.present();
+}
+
+void AppImpl::updateGame() {
+  bool shouldSpawnRat = false;
+  if (snake.isEating(rat)) {
+    score.incr();
+    shouldSpawnRat = true;
+  } else {
+    for (auto i = items.cbegin(); i != items.cend(); ++i) {
+      if ((*i)->isDespawning() || snake.tryToConsume(**i)) {
+        auto consumed = i--;
+        items.erase(consumed);
+      }
+    }
+    
+    rat.update();
+  }
+  
+  for (auto i = items.cbegin(); i != items.cend(); ++i) {
+    (*i)->update();
+  }
+  
+  evtMan->update();
+  
+  spawnItemIfShould();
+  
+  snake.update();
+  if (shouldSpawnRat) {
+    rat = Rat(getFreePos());
+  }
+  snake.tryToConsume(rat);
+  
+  if (snake.isDead()) {
+    score.reset();
+    state = State::DEAD;
+  }
 }
 
 void AppImpl::spawnItemIfShould() {
@@ -171,4 +202,29 @@ void AppImpl::snakeInput(const SDL_Scancode code) {
       snake.move(Math::Dir::LEFT);
     default: ;
   }
+}
+
+void AppImpl::changeState() {
+  switch (state) {
+    case State::HOME:
+      state = State::GAME;
+      reset();
+      break;
+    case State::GAME:
+      state = State::PAUSE;
+      break;
+    case State::PAUSE:
+      state = State::GAME;
+      break;
+    case State::DEAD:
+      state = State::GAME;
+      reset();
+  }
+}
+
+void AppImpl::reset() {
+  snake = Snake(GAME_SIZE / 2);
+  rat = Rat({0, GAME_SIZE.y / 2});
+  items.clear();
+  score.reset();
 }

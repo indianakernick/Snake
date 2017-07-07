@@ -13,7 +13,7 @@
 #include <Simpleton/Platform/window.hpp>
 
 const Color BACK_COLOR = {127, 127, 255, 255};
-const Color SCORE_COLOR = {255, 255, 255, 255};
+const Color TEXT_COLOR = {255, 255, 255, 255};
 
 const uint64_t ANIM_FPS = 40;
 const uint64_t NUM_FRAMES = 16;
@@ -28,7 +28,9 @@ const Platform::Window::Desc WINDOW_DESC = {
 const Pos GAME_SIZE = {16, 16};
 const Pos TILE_SPRITE_SIZE = {16, 16};
 
-const int FONT_SIZE = 8;
+const int SCORE_FONT_SIZE = 8;
+const int TITLE_FONT_SIZE = 32;
+const int SUBTITLE_FONT_SIZE = 16;
 
 const std::string SPRITE_IMAGE_PATH = "sprites.png";
 const std::string SPRITE_ATLAS_PATH = "sprites.atlas";

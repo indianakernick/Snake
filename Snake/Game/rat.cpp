@@ -10,14 +10,19 @@
 
 #include "render manager.hpp"
 
+Rat::Rat()
+  : Item({-1, -1}) {}
+
 Rat::Rat(const Pos pos)
   : Item(pos) {}
 
 void Rat::render(RenderManager &renderer) const {
-  const State state = getState();
-  if (state == State::ALIVE) {
-    renderer.renderTile("rat", pos);
-  } else if (state == State::SPAWNING) {
-    renderer.renderTile("rat spawn", pos);
+  if (pos != Pos(-1, -1)) {
+    const State state = getState();
+    if (state == State::ALIVE) {
+      renderer.renderTile("rat", pos);
+    } else if (state == State::SPAWNING) {
+      renderer.renderTile("rat spawn", pos);
+    }
   }
 }

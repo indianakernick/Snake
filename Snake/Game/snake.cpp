@@ -42,7 +42,6 @@ namespace {
     
     return prevToThis;
   }
-
 }
 
 Snake::Snake(const Pos center)
@@ -54,12 +53,14 @@ Snake::Snake(const Pos center)
     }) {}
 
 void Snake::move(const Math::Dir newDir) {
+  assert(positions.size());
   if (Math::opposite(newDir) != currentDir) {
     nextDir = newDir;
   }
 }
 
 bool Snake::isEating(const Rat &rat) const {
+  assert(positions.size());
   return state == State::EATING && positions.front() == rat.getPos();
 }
 
@@ -172,6 +173,10 @@ namespace {
 }
 
 void Snake::render(RenderManager &renderer) const {
+  if (positions.size() == 0) {
+    return;
+  }
+  
   const bool visible = timeTillVisible == 0;
   const bool eating = state == State::EATING;
 
