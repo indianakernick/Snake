@@ -1361,6 +1361,76 @@
 			name = "invis head right corner";
 			sourceTree = "<group>";
 		};
+		4592BAC01F0F05FA00D1640D /* items */ = {
+			isa = PBXGroup;
+			children = (
+				4592BA0C1F0CE6A300D1640D /* coin */,
+				4592BA0D1F0CE6AA00D1640D /* coin spawn */,
+				4592BA361F0F037800D1640D /* invis potion */,
+				4592BA371F0F038300D1640D /* invis potion spawn */,
+				4592B97B1F0B6F2100D1640D /* reverser */,
+				4592B9BD1F0B89A800D1640D /* reverser spawn */,
+				4592B6C41F077B3C00D1640D /* rat */,
+				4592B99C1F0B847400D1640D /* rat spawn */,
+				4592B9D71F0CD61500D1640D /* slicer */,
+				4592B9D81F0CD61E00D1640D /* slicer spawn */,
+			);
+			name = items;
+			sourceTree = "<group>";
+		};
+		4592BAC11F0F062A00D1640D /* snake */ = {
+			isa = PBXGroup;
+			children = (
+				4592BAC41F0F063F00D1640D /* tail */,
+				4592BAC31F0F063B00D1640D /* body */,
+				4592BAC21F0F063000D1640D /* head */,
+			);
+			name = snake;
+			sourceTree = "<group>";
+		};
+		4592BAC21F0F063000D1640D /* head */ = {
+			isa = PBXGroup;
+			children = (
+				4592B6BA1F077AEC00D1640D /* eat rat down */,
+				4592B6BB1F077AF400D1640D /* eat rat left */,
+				4592B6B91F077AE600D1640D /* eat rat right */,
+				4592B6B81F077ADD00D1640D /* eat rat up */,
+				4592B6BC1F077AFB00D1640D /* head */,
+				4592B6BE1F077B0F00D1640D /* head left corner */,
+				4592B6BF1F077B1400D1640D /* head right corner */,
+				4592B6BD1F077B0900D1640D /* head straight */,
+				4592BA3E1F0F03BB00D1640D /* invis head left corner */,
+				4592BA3F1F0F03C300D1640D /* invis head right corner */,
+				4592BA3D1F0F03B400D1640D /* invis head straight */,
+			);
+			name = head;
+			sourceTree = "<group>";
+		};
+		4592BAC31F0F063B00D1640D /* body */ = {
+			isa = PBXGroup;
+			children = (
+				4592B6C61F077B4F00D1640D /* body left corner */,
+				4592B6C71F077B5500D1640D /* body right corner */,
+				4592B6C51F077B4A00D1640D /* body straight */,
+			);
+			name = body;
+			sourceTree = "<group>";
+		};
+		4592BAC41F0F063F00D1640D /* tail */ = {
+			isa = PBXGroup;
+			children = (
+				4592BA3A1F0F039E00D1640D /* invis tail left corner */,
+				4592BA3B1F0F03A500D1640D /* invis tail right corner */,
+				4592BA391F0F039700D1640D /* invis tail straight */,
+				4592B6C01F077B1A00D1640D /* tail */,
+				4592B9301F08C31000D1640D /* tail grow */,
+				4592B6C11F077B2000D1640D /* tail left corner */,
+				4592B6C21F077B2600D1640D /* tail right corner */,
+				4592B6C31F077B2F00D1640D /* tail straight */,
+			);
+			name = tail;
+			sourceTree = "<group>";
+		};
 		45B5E6691EF66A8B00A6A3E2 = {
 			isa = PBXGroup;
 			children = (
@@ -1393,42 +1463,12 @@
 		45B5E6871EF671F200A6A3E2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4592BAC11F0F062A00D1640D /* snake */,
+				4592BAC01F0F05FA00D1640D /* items */,
+				45B5E9031EFF936000A6A3E2 /* config.yaml */,
 				4592B9D51F0C6A6300D1640D /* Grand9K Pixel.ttf */,
 				4592B8CA1F077D5F00D1640D /* sprites.atlas */,
 				4592B8CB1F077D5F00D1640D /* sprites.png */,
-				4592BA3F1F0F03C300D1640D /* invis head right corner */,
-				4592BA3E1F0F03BB00D1640D /* invis head left corner */,
-				4592BA3D1F0F03B400D1640D /* invis head straight */,
-				4592BA3B1F0F03A500D1640D /* invis tail right corner */,
-				4592BA3A1F0F039E00D1640D /* invis tail left corner */,
-				4592BA391F0F039700D1640D /* invis tail straight */,
-				4592BA371F0F038300D1640D /* invis potion spawn */,
-				4592BA361F0F037800D1640D /* invis potion */,
-				4592BA0D1F0CE6AA00D1640D /* coin spawn */,
-				4592BA0C1F0CE6A300D1640D /* coin */,
-				4592B9D81F0CD61E00D1640D /* slicer spawn */,
-				4592B9D71F0CD61500D1640D /* slicer */,
-				4592B9BD1F0B89A800D1640D /* reverser spawn */,
-				4592B99C1F0B847400D1640D /* rat spawn */,
-				4592B97B1F0B6F2100D1640D /* reverser */,
-				4592B6C71F077B5500D1640D /* body right corner */,
-				4592B6C61F077B4F00D1640D /* body left corner */,
-				4592B6C51F077B4A00D1640D /* body straight */,
-				4592B6C21F077B2600D1640D /* tail right corner */,
-				4592B6C11F077B2000D1640D /* tail left corner */,
-				4592B6C31F077B2F00D1640D /* tail straight */,
-				4592B6C01F077B1A00D1640D /* tail */,
-				4592B6BF1F077B1400D1640D /* head right corner */,
-				4592B6BE1F077B0F00D1640D /* head left corner */,
-				4592B6BD1F077B0900D1640D /* head straight */,
-				4592B6BC1F077AFB00D1640D /* head */,
-				4592B6BB1F077AF400D1640D /* eat rat left */,
-				4592B6BA1F077AEC00D1640D /* eat rat down */,
-				4592B6B91F077AE600D1640D /* eat rat right */,
-				4592B6B81F077ADD00D1640D /* eat rat up */,
-				4592B6C41F077B3C00D1640D /* rat */,
-				4592B9301F08C31000D1640D /* tail grow */,
-				45B5E9031EFF936000A6A3E2 /* config.yaml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
