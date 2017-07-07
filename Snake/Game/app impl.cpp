@@ -64,6 +64,16 @@ bool AppImpl::update(const uint64_t delta) {
   return true;
 }
 
+void renderTitle(RenderManager &renderMan, const char *title, const char *subTitle) {
+  const Pos titleSize = renderMan.textSize(TITLE_FONT_SIZE, title);
+  const Pos titlePos = (GAME_SIZE * TILE_SPRITE_SIZE - titleSize) / 2;
+  renderMan.renderText(TITLE_FONT_SIZE, title, TEXT_COLOR, titlePos);
+  
+  const PosScalar subTitleWidth = renderMan.textSize(SUBTITLE_FONT_SIZE, subTitle).x;
+  const Pos subTitlePos = {(GAME_SIZE.x * TILE_SPRITE_SIZE.x - subTitleWidth) / 2, titlePos.y + titleSize.y};
+  renderMan.renderText(SUBTITLE_FONT_SIZE, subTitle, TEXT_COLOR, subTitlePos);
+}
+
 void AppImpl::render(const uint64_t) {
   renderer.clear();
   renderMan.renderBack();
@@ -77,21 +87,11 @@ void AppImpl::render(const uint64_t) {
   }
   
   if (state == State::HOME) {
-    const Pos titleSize = renderMan.textSize(TITLE_FONT_SIZE, "Snake");
-    const Pos titlePos = (GAME_SIZE * TILE_SPRITE_SIZE - titleSize) / 2;
-    renderMan.renderText(TITLE_FONT_SIZE, "Snake", TEXT_COLOR, titlePos);
-    
-    const PosScalar subTitleWidth = renderMan.textSize(SUBTITLE_FONT_SIZE, "Press space to play").x;
-    const Pos subTitlePos = {(GAME_SIZE.x * TILE_SPRITE_SIZE.x - subTitleWidth) / 2, titlePos.y + titleSize.y};
-    renderMan.renderText(SUBTITLE_FONT_SIZE, "Press space to play", TEXT_COLOR, subTitlePos);
+    renderTitle(renderMan, "Snake", "Press space to play");
   } else if (state == State::PAUSE) {
-    const Pos subTitleSize = renderMan.textSize(SUBTITLE_FONT_SIZE, "Press space to resume");
-    const Pos subTitlePos = (GAME_SIZE * TILE_SPRITE_SIZE - subTitleSize) / 2;
-    renderMan.renderText(SUBTITLE_FONT_SIZE, "Press space to resume", TEXT_COLOR, subTitlePos);
+    renderTitle(renderMan, "Pause", "Press space to resume");
   } else if (state == State::DEAD) {
-    const Pos subTitleSize = renderMan.textSize(SUBTITLE_FONT_SIZE, "Press space to play again");
-    const Pos subTitlePos = (GAME_SIZE * TILE_SPRITE_SIZE - subTitleSize) / 2;
-    renderMan.renderText(SUBTITLE_FONT_SIZE, "Press space to play again", TEXT_COLOR, subTitlePos);
+    renderTitle(renderMan, "Wasted", "Press space to play again");
   }
   
   renderer.present();
