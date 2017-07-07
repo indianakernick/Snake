@@ -18,6 +18,8 @@ class RenderManager;
 
 class Snake {
 public:
+  static constexpr unsigned INVIS_DURATION = 100;
+
   explicit Snake(Pos);
   
   void move(Math::Dir);
@@ -35,6 +37,7 @@ public:
   
 private:
   std::deque<Pos> positions;
+  unsigned timeTillVisible = 0;
   Math::Dir currentDir = Math::Dir::LEFT;
   Math::Dir nextDir = Math::Dir::LEFT;
   

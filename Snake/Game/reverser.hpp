@@ -14,7 +14,7 @@
 class Reverser : public ItemConfig<Reverser> {
 public:
   static constexpr Rarity RARITY = Rarity::LOW;
-  static constexpr unsigned LIFE_TIME = 500;
+  static constexpr unsigned LIFE_TIME = 100;
   
   Reverser(Pos);
 };

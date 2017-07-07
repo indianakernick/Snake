@@ -13,6 +13,7 @@
 #include "slicer.hpp"
 #include "reverser.hpp"
 #include "constants.hpp"
+#include "invis potion.hpp"
 #include "coin consumed.hpp"
 #include "render manager.hpp"
 #include <Simpleton/Event/manager.hpp>
@@ -91,6 +92,8 @@ bool Snake::tryToConsume(Item &item) {
       positions.resize(std::max(size_t(4), positions.size() / 2));
     } else if (dynamic_cast<Coin *>(ptr)) {
       evtMan->emit<CoinConsumed>();
+    } else if (dynamic_cast<InvisPotion *>(ptr)) {
+      timeTillVisible = INVIS_DURATION;
     }
     
     return true;
@@ -116,6 +119,9 @@ void Snake::update() {
   currentDir = nextDir;
   if (colliding(head(), false) && head() != tail()) {
     state = State::DEAD;
+  }
+  if (timeTillVisible) {
+    timeTillVisible--;
   }
 }
 
@@ -143,14 +149,15 @@ namespace {
     const std::string &name,
     const Pos pos,
     const Pos prevToThisVec,
-    const Pos thisToNextVec
+    const Pos thisToNextVec,
+    const bool visible
   ) {
     using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
     
     const Math::Dir prevToThisDir = FromVec::conv(prevToThisVec);
     const Math::Dir thisToNextDir = FromVec::conv(thisToNextVec);
     renderer.renderTile(
-      name + ' ' + getBodySpriteTurnName(prevToThisDir, thisToNextDir),
+      (visible ? "" : "invis ") + name + ' ' + getBodySpriteTurnName(prevToThisDir, thisToNextDir),
       pos,
       getBodySpriteAngle(prevToThisDir)
     );
@@ -165,7 +172,10 @@ namespace {
 }
 
 void Snake::render(RenderManager &renderer) const {
-  if (state == State::EATING) {
+  const bool visible = timeTillVisible == 0;
+  const bool eating = state == State::EATING;
+
+  if (eating) {
     renderer.renderTile("eat rat " + dirToString(currentDir), head());
   } else {
     renderer.renderTile("head", head(), getBodySpriteAngle(currentDir));
@@ -173,20 +183,25 @@ void Snake::render(RenderManager &renderer) const {
 
   Pos nextPos = positions[2];
   Pos thisToNextVec = getDirVec(positions[1], nextPos);
-  renderBody(renderer, "head", positions[1], thisToNextVec, getDirVec(positions[0], positions[1]));
+  renderBody(renderer, "head", positions[1], thisToNextVec, getDirVec(positions[0], positions[1]), visible);
   
   for (auto b = positions.cbegin() + 2; b != positions.cend() - 2; ++b) {
     const Pos pos = nextPos;
     nextPos = *(b + 1);
     const Pos prevToThisVec = getDirVec(pos, nextPos);
-    renderBody(renderer, "body", pos, prevToThisVec, thisToNextVec);
+    if (visible) {
+      renderBody(renderer, "body", pos, prevToThisVec, thisToNextVec, visible);
+    }
     thisToNextVec = prevToThisVec;
   }
   
   const Pos prevToThisVec = getDirVec(nextPos, positions.back());
-  renderBody(renderer, state == State::EATING ? "body" : "tail", nextPos, prevToThisVec, thisToNextVec);
+  
+  if (visible || (!visible && !eating)) {
+    renderBody(renderer, eating ? "body" : "tail", nextPos, prevToThisVec, thisToNextVec, visible);
+  }
   thisToNextVec = prevToThisVec;
 
   const double tailAngle = getBodySpriteAngle(FromVec::conv(thisToNextVec));
-  renderer.renderTile(state == State::EATING ? "tail grow" : "tail", tail(), tailAngle);
+  renderer.renderTile(eating ? "tail grow" : "tail", tail(), tailAngle);
 }

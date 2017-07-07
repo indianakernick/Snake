@@ -13,6 +13,7 @@
 #include "slicer.hpp"
 #include "reverser.hpp"
 #include "constants.hpp"
+#include "invis potion.hpp"
 #include <Simpleton/Event/manager.hpp>
 #include <Simpleton/Platform/system info.hpp>
 
@@ -24,9 +25,11 @@ AppImpl::AppImpl()
   itemFactories.emplace_back(&makeItem<Reverser>);
   itemFactories.emplace_back(&makeItem<Slicer>);
   itemFactories.emplace_back(&makeItem<Coin>);
+  itemFactories.emplace_back(&makeItem<InvisPotion>);
   itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(Reverser::RARITY)]);
   itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(Slicer::RARITY)]);
   itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(Coin::RARITY)]);
+  itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(InvisPotion::RARITY)]);
 }
 
 bool AppImpl::input(const uint64_t) {

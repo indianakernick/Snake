@@ -14,7 +14,7 @@
 class Coin : public ItemConfig<Coin> {
 public:
   static constexpr Rarity RARITY = Rarity::VERY_HIGH;
-  static constexpr unsigned LIFE_TIME = 100;
+  static constexpr unsigned LIFE_TIME = 40;
   
   Coin(Pos);
 };

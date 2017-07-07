@@ -1,22 +1,22 @@
 //
-//  slicer.hpp
+//  invis potion.hpp
 //  Snake
 //
-//  Created by Indi Kernick on 5/7/17.
+//  Created by Indi Kernick on 7/7/17.
 //  Copyright © 2017 Indi Kernick. All rights reserved.
 //
 
-#ifndef game_slicer_hpp
-#define game_slicer_hpp
+#ifndef game_invis_potion_hpp
+#define game_invis_potion_hpp
 
 #include "item.hpp"
 
-class Slicer : public ItemConfig<Slicer> {
+class InvisPotion : public ItemConfig<InvisPotion> {
 public:
   static constexpr Rarity RARITY = Rarity::HIGH;
   static constexpr unsigned LIFE_TIME = 50;
-
-  Slicer(Pos);
+  
+  InvisPotion(Pos);
 };
 
 #endif
