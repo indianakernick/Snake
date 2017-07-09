@@ -33,7 +33,7 @@ bool AppImpl::init() {
   itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(Coin::RARITY)]);
   itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(InvisPotion::RARITY)]);
   
-  return RUN;
+  return true;
 }
 
 void AppImpl::quit() {
@@ -48,7 +48,7 @@ bool AppImpl::input(const uint64_t) {
   while (SDL_PollEvent(&e)) {
     switch (e.type) {
       case SDL_QUIT:
-        return QUIT;
+        return false;
       case SDL_KEYDOWN:
         if (state == State::GAME) {
           snakeInput(e.key.keysym.scancode);
@@ -59,7 +59,7 @@ bool AppImpl::input(const uint64_t) {
         break;
     }
   }
-  return RUN;
+  return true;
 }
 
 bool AppImpl::update(const uint64_t delta) {
@@ -73,7 +73,7 @@ bool AppImpl::update(const uint64_t delta) {
       updateGame();
     }
   }
-  return RUN;
+  return true;
 }
 
 void renderTitle(RenderManager &renderMan, const char *title, const char *subTitle) {
