@@ -11,9 +11,7 @@
 
 #include <Simpleton/Event/event.hpp>
 
-constexpr char COIN_CONSUMED_NAME[] = "Coin Consumed";
-
-class CoinConsumed : public Game::StaticEvent<CoinConsumed, COIN_CONSUMED_NAME> {
+class CoinConsumed : public Game::StaticEvent<CoinConsumed> {
 public:
   static constexpr unsigned SCORE = 100;
 
