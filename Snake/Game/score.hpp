@@ -15,8 +15,10 @@ class RenderManager;
 
 class Score {
 public:
-  Score();
-  ~Score();
+  Score() = default;
+  
+  void init();
+  void quit();
   
   void incr(unsigned = 1);
   void reset();
@@ -25,7 +27,7 @@ public:
   
 private:
   unsigned val = 0;
-  unsigned high;
+  unsigned high = 0;
   
   void onCoinConsumed(CoinConsumed::Ptr);
 };

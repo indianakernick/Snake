@@ -17,9 +17,12 @@
 #include <Simpleton/Event/manager.hpp>
 #include <Simpleton/Platform/system info.hpp>
 
-AppImpl::AppImpl()
-  : SDLApp(WINDOW_DESC, true),
-    renderMan(renderer, fontLib) {
+bool AppImpl::init() {
+  SDLApp::initWindow(WINDOW_DESC, true);
+  renderMan.init(renderer);
+  evtMan = std::make_unique<Game::EventManager>();
+  score.init();
+  
   reset();
   itemFactories.emplace_back(&makeItem<Reverser>);
   itemFactories.emplace_back(&makeItem<Slicer>);
@@ -29,6 +32,15 @@ AppImpl::AppImpl()
   itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(Slicer::RARITY)]);
   itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(Coin::RARITY)]);
   itemProbs.emplace_back(ITEM_SPAWN_PROB[static_cast<size_t>(InvisPotion::RARITY)]);
+  
+  return RUN;
+}
+
+void AppImpl::quit() {
+  score.quit();
+  evtMan.reset();
+  renderMan.quit();
+  SDLApp::quitWindow();
 }
 
 bool AppImpl::input(const uint64_t) {
@@ -36,7 +48,7 @@ bool AppImpl::input(const uint64_t) {
   while (SDL_PollEvent(&e)) {
     switch (e.type) {
       case SDL_QUIT:
-        return false;
+        return QUIT;
       case SDL_KEYDOWN:
         if (state == State::GAME) {
           snakeInput(e.key.keysym.scancode);
@@ -47,7 +59,7 @@ bool AppImpl::input(const uint64_t) {
         break;
     }
   }
-  return true;
+  return RUN;
 }
 
 bool AppImpl::update(const uint64_t delta) {
@@ -61,7 +73,7 @@ bool AppImpl::update(const uint64_t delta) {
       updateGame();
     }
   }
-  return true;
+  return RUN;
 }
 
 void renderTitle(RenderManager &renderMan, const char *title, const char *subTitle) {

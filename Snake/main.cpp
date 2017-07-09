@@ -7,11 +7,9 @@
 //
 
 #include "Game/app impl.hpp"
-#include <Simpleton/Event/manager.hpp>
 
 int main(int, char **) {
-  evtMan = std::make_unique<Game::EventManager>(std::numeric_limits<uint64_t>::max());
   AppImpl app;
-  app.mainLoop();  
+  app.mainLoop<std::chrono::milliseconds>();
   return 0;
 }

@@ -18,7 +18,10 @@
 
 class RenderManager {
 public:
-  RenderManager(Platform::Renderer &, Platform::FontLibrary &);
+  RenderManager();
+  
+  void init(Platform::Renderer &);
+  void quit();
   
   void reset();
   
@@ -30,7 +33,6 @@ public:
   Pos textSize(int, const std::string &);
   
 private:
-  Platform::FontLibrary &fontLib;
   Unpack::Spritesheet sheet;
   std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)> texture;
   std::unordered_map<int, std::unique_ptr<TTF_Font, decltype(&TTF_CloseFont)>> fonts;

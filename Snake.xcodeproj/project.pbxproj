@@ -26,8 +26,6 @@
 		4592BAC71F0F071900D1640D /* invis potion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592BAC51F0F071800D1640D /* invis potion.cpp */; };
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
-		45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */; };
-		45B5E8D41EFA0DD200A6A3E2 /* sdl app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E8D21EFA0DD200A6A3E2 /* sdl app.cpp */; };
 		45B5E9121EFF967700A6A3E2 /* libSimpleton Engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */; };
 		45B5E9131EFF9B8500A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */; };
 /* End PBXBuildFile section */
@@ -579,10 +577,6 @@
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B5E6841EF66AB000A6A3E2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2/2.0.5/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
-		45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = app.cpp; sourceTree = "<group>"; };
-		45B5E8D01EFA0AD200A6A3E2 /* app.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = app.hpp; sourceTree = "<group>"; };
-		45B5E8D21EFA0DD200A6A3E2 /* sdl app.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "sdl app.cpp"; sourceTree = "<group>"; };
-		45B5E8D31EFA0DD200A6A3E2 /* sdl app.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "sdl app.hpp"; sourceTree = "<group>"; };
 		45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSimpleton Engine.dylib"; path = "../../../../../../../usr/local/lib/libSimpleton Engine.dylib"; sourceTree = "<group>"; };
 		45B5E9011EFF90C500A6A3E2 /* libUnpacker.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libUnpacker.dylib; path = ../../../../../../../usr/local/lib/libUnpacker.dylib; sourceTree = "<group>"; };
 		45B5E9031EFF936000A6A3E2 /* config.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yaml; sourceTree = "<group>"; };
@@ -1493,10 +1487,6 @@
 		45B5E68D1EF6745100A6A3E2 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				45B5E8CF1EFA0AD200A6A3E2 /* app.cpp */,
-				45B5E8D01EFA0AD200A6A3E2 /* app.hpp */,
-				45B5E8D21EFA0DD200A6A3E2 /* sdl app.cpp */,
-				45B5E8D31EFA0DD200A6A3E2 /* sdl app.hpp */,
 				4592B9511F08E08300D1640D /* app impl.cpp */,
 				4592B9521F08E08300D1640D /* app impl.hpp */,
 				4592B9541F09CDA300D1640D /* render manager.cpp */,
@@ -1615,11 +1605,9 @@
 				4592B9591F09CDAD00D1640D /* rat.cpp in Sources */,
 				4592BAC71F0F071900D1640D /* invis potion.cpp in Sources */,
 				4592B9771F0B4A5300D1640D /* item.cpp in Sources */,
-				45B5E8D11EFA0AD200A6A3E2 /* app.cpp in Sources */,
 				4592B97A1F0B4D1200D1640D /* reverser.cpp in Sources */,
 				4592BA351F0DAEFE00D1640D /* coin consumed.cpp in Sources */,
 				4592B9611F0A1EE800D1640D /* score.cpp in Sources */,
-				45B5E8D41EFA0DD200A6A3E2 /* sdl app.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

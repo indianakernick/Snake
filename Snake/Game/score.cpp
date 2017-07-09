@@ -18,7 +18,7 @@ std::string highscorePath() {
   return Platform::getSaveDir("Indi Kernick", "Snake") + "highscore.txt";
 }
 
-Score::Score() {
+void Score::init() {
   evtMan->addListener(Utils::memFunWrap(this, &Score::onCoinConsumed));
   std::ifstream file(highscorePath());
   if (file.is_open() && file.peek() != EOF) {
@@ -26,7 +26,7 @@ Score::Score() {
   }
 }
 
-Score::~Score() {
+void Score::quit() {
   std::ofstream file(highscorePath());
   if (file.is_open()) {
     file << high;

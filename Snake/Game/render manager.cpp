@@ -20,16 +20,17 @@ Unpack::Spritesheet makeSheet() {
   );
 }
 
-RenderManager::RenderManager(Platform::Renderer &renderer, Platform::FontLibrary &fontLib)
-  : fontLib(fontLib),
-    sheet(makeSheet()),
-    texture(nullptr, &SDL_DestroyTexture),
-    renderer(renderer.get()) {
-  SDL_RenderSetLogicalSize(renderer.get(), GAME_SIZE.x * TILE_SPRITE_SIZE.x, GAME_SIZE.y * TILE_SPRITE_SIZE.y);
+RenderManager::RenderManager()
+  : texture(nullptr, &SDL_DestroyTexture) {}
+
+void RenderManager::init(Platform::Renderer &otherRenderer) {
+  sheet = makeSheet();
+  renderer = otherRenderer.get();
+  SDL_RenderSetLogicalSize(renderer, GAME_SIZE.x * TILE_SPRITE_SIZE.x, GAME_SIZE.y * TILE_SPRITE_SIZE.y);
   
   const Unpack::Image &image = sheet.getImage();
   texture.reset(SDL_CreateTexture(
-    renderer.get(),
+    renderer,
     SDL_PIXELFORMAT_ABGR8888,
     SDL_TEXTUREACCESS_STATIC,
     image.width(),
@@ -37,6 +38,11 @@ RenderManager::RenderManager(Platform::Renderer &renderer, Platform::FontLibrary
   ));
   SDL_UpdateTexture(texture.get(), nullptr, image.data(), static_cast<int>(image.pitch()));
   SDL_SetTextureBlendMode(texture.get(), SDL_BLENDMODE_BLEND);
+}
+
+void RenderManager::quit() {
+  texture.reset();
+  fonts.clear();
 }
 
 void RenderManager::reset() {
@@ -150,7 +156,7 @@ void RenderManager::renderTileImpl(
 TTF_Font *RenderManager::getFont(const int size) {
   auto iter = fonts.find(size);
   if (iter == fonts.end()) {
-    Platform::Font font = fontLib.openFont(Platform::getResDir() + FONT_PATH, size);
+    Platform::Font font = Platform::openFont(Platform::getResDir() + FONT_PATH, size);
     TTF_Font *const fontPtr = font.get();
     fonts.emplace(size, std::move(font));
     return fontPtr;
