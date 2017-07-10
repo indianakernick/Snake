@@ -587,11 +587,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4592B9D21F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib in Frameworks */,
-				4592B9631F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
-				4592B4621EFF9EAF00D1640D /* libUnpacker.dylib in Frameworks */,
 				45B5E9131EFF9B8500A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */,
 				45B5E9121EFF967700A6A3E2 /* libSimpleton Engine.dylib in Frameworks */,
+				4592B4621EFF9EAF00D1640D /* libUnpacker.dylib in Frameworks */,
+				4592B9D21F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib in Frameworks */,
+				4592B9631F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1587,7 +1587,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "src=\"/usr/local/lib\"\ndest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\nfor f in \"libSDL2-2.0.0.dylib\" \"libSimpleton Engine.dylib\" \"libUnpacker.dylib\"\ndo\n  ditto \"$src/$f\" \"$dest/$f\"\ndone\n\ncd \"Snake/Resources\"\n\npacker --silent config.yaml";
+			shellScript = "src=\"/usr/local/lib\"\ndest=\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/\"\nfor f in \"libSDL2-2.0.0.dylib\" \"libSimpleton Engine.dylib\" \"libUnpacker.dylib\" \"libyaml-cpp.0.5.3.dylib\" \"libSDL2_ttf-2.0.0.dylib\"\ndo\n  ditto \"$src/$f\" \"$dest/$f\"\ndone\n\ncd \"Snake/Resources\"\n\npacker --silent config.yaml";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1731,6 +1731,8 @@
 					"/usr/local/Cellar/sdl2/**",
 					"/usr/local/Cellar/sdl2_ttf/**",
 					"/usr/local/Cellar/yaml-cpp/**",
+					"/usr/local/Cellar/yaml-cpp/0.5.3/lib",
+					/usr/local/Cellar/sdl2_ttf/2.0.14/lib,
 				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
@@ -1770,6 +1772,8 @@
 					"/usr/local/Cellar/sdl2/**",
 					"/usr/local/Cellar/sdl2_ttf/**",
 					"/usr/local/Cellar/yaml-cpp/**",
+					"/usr/local/Cellar/yaml-cpp/0.5.3/lib",
+					/usr/local/Cellar/sdl2_ttf/2.0.14/lib,
 				);
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
