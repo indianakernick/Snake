@@ -59,7 +59,7 @@ void RenderManager::renderBack() {
   SDL_RenderFillRect(renderer, &rect);
 }
 
-SDL_Rect toSDL(const RectPx rect) {
+SDL_Rect toSDL(const Unpack::RectPx rect) {
   return {rect.x, rect.y, rect.w, rect.h};
 }
 

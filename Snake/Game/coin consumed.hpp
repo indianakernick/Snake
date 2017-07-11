@@ -11,7 +11,7 @@
 
 #include <Simpleton/Event/event.hpp>
 
-class CoinConsumed : public Game::StaticEvent<CoinConsumed> {
+class CoinConsumed : public Game::EventImpl<CoinConsumed> {
 public:
   static constexpr unsigned SCORE = 100;
 
