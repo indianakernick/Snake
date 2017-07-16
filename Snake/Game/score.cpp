@@ -19,7 +19,7 @@ std::string highscorePath() {
 }
 
 void Score::init() {
-  evtMan->addListener(Utils::memFunWrap(this, &Score::onCoinConsumed));
+  Game::evtMan->addListener(Utils::memFunWrap(this, &Score::onCoinConsumed));
   std::ifstream file(highscorePath());
   if (file.is_open() && file.peek() != EOF) {
     file >> high;

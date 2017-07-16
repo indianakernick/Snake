@@ -20,7 +20,7 @@
 bool AppImpl::init() {
   SDLApp::initWindow(WINDOW_DESC, true);
   renderMan.init(renderer);
-  evtMan = std::make_unique<Game::EventManager>();
+  Game::evtMan = std::make_unique<Game::EventManager>();
   score.init();
   
   reset();
@@ -38,7 +38,7 @@ bool AppImpl::init() {
 
 void AppImpl::quit() {
   score.quit();
-  evtMan.reset();
+  Game::evtMan.reset();
   renderMan.quit();
   SDLApp::quitWindow();
 }
@@ -129,7 +129,7 @@ void AppImpl::updateGame() {
     (*i)->update();
   }
   
-  evtMan->update();
+  Game::evtMan->update();
   
   spawnItemIfShould();
   

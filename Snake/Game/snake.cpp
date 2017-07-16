@@ -92,7 +92,7 @@ bool Snake::tryToConsume(Item &item) {
     } else if (dynamic_cast<Slicer *>(ptr)) {
       positions.resize(std::max(size_t(4), positions.size() / 2));
     } else if (dynamic_cast<Coin *>(ptr)) {
-      evtMan->emit<CoinConsumed>();
+      Game::evtMan->emit<CoinConsumed>();
     } else if (dynamic_cast<InvisPotion *>(ptr)) {
       timeTillVisible = INVIS_DURATION;
     }
