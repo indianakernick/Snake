@@ -11,12 +11,12 @@
 
 #include "item.hpp"
 
-class Slicer : public ItemConfig<Slicer> {
+class Slicer : public Powerup {
 public:
   static constexpr Rarity RARITY = Rarity::HIGH;
   static constexpr unsigned LIFE_TIME = 50;
 
-  Slicer(Pos);
+  explicit Slicer(Pos);
 };
 
 #endif

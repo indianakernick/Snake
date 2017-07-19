@@ -11,12 +11,12 @@
 
 #include "item.hpp"
 
-class Coin : public ItemConfig<Coin> {
+class Coin : public Powerup {
 public:
   static constexpr Rarity RARITY = Rarity::VERY_HIGH;
   static constexpr unsigned LIFE_TIME = 40;
   
-  Coin(Pos);
+  explicit Coin(Pos);
 };
 
 #endif

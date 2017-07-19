@@ -11,12 +11,12 @@
 
 #include "item.hpp"
 
-class Reverser : public ItemConfig<Reverser> {
+class Reverser : public Powerup {
 public:
   static constexpr Rarity RARITY = Rarity::LOW;
   static constexpr unsigned LIFE_TIME = 100;
   
-  Reverser(Pos);
+  explicit Reverser(Pos);
 };
 
 #endif

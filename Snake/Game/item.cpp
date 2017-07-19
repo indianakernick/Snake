@@ -42,3 +42,23 @@ void Item::update() {
 Item::State Item::getState() const {
   return state;
 }
+
+Powerup::Powerup(const Pos pos)
+  : Item(pos) {}
+
+Powerup::Powerup(const Pos pos, const unsigned lifetime)
+  : Item(pos, lifetime) {}
+
+void Powerup::render(RenderManager &renderer) const {
+  switch (getState()) {
+    case State::SPAWNING:
+      renderer.renderTile("powerup spawn", pos);
+      break;
+    case State::ALIVE:
+    case State::BEING_CONSUMED:
+      renderer.renderTile("powerup", pos);
+      break;
+    case State::DESPAWNING:
+      renderer.renderTileReverse("powerup spawn", pos);
+  }
+}

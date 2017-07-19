@@ -60,50 +60,13 @@ makeItem(const Pos pos) {
   return std::make_unique<ItemType>(pos);
 }
 
-template <typename Subclass>
-class ItemConfig : public Item {
+class Powerup : public Item {
 public:
-  ItemConfig(const Pos pos)
-    : Item(pos) {}
-  ItemConfig(const Pos pos, const unsigned lifeTime)
-    : Item(pos, lifeTime) {}
-  ~ItemConfig() {
-    static_assert(std::is_base_of<ItemConfig, Subclass>::value);
-  }
+  explicit Powerup(Pos);
+  Powerup(Pos, unsigned);
+  ~Powerup() = default;
   
-  void render(RenderManager &renderMan) const override {
-    #define CASE(STATE)                                                         \
-      case State::STATE:                                                        \
-        if (STATE##_SPRITE) {                                                   \
-          renderMan.renderTile(STATE##_SPRITE, pos);                            \
-        }                                                                       \
-        break
-    
-    #pragma clang diagnostic push
-    #pragma clang diagnostic ignored "-Wundefined-var-template"
-    
-    switch (getState()) {
-      CASE(SPAWNING);
-      CASE(ALIVE);
-      CASE(BEING_CONSUMED);
-      case State::DESPAWNING:
-        if (SPAWNING_SPRITE) {
-          renderMan.renderTileReverse(SPAWNING_SPRITE, pos);
-        }
-    }
-    
-    #pragma clang diagnostic pop
-    
-    #undef CASE
-  }
-  
-protected:
-  static const char *const SPAWNING_SPRITE;
-  static const char *const ALIVE_SPRITE;
-  static const char *const BEING_CONSUMED_SPRITE;
+  void render(RenderManager &) const override;
 };
-
-#define SET_ITEM_SPRITE(SUB_CLASS, STATE, PATH) template <> \
-  const char *const ItemConfig<SUB_CLASS>::STATE##_SPRITE = PATH
 
 #endif

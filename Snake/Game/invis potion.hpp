@@ -11,12 +11,12 @@
 
 #include "item.hpp"
 
-class InvisPotion : public ItemConfig<InvisPotion> {
+class InvisPotion : public Powerup {
 public:
   static constexpr Rarity RARITY = Rarity::HIGH;
   static constexpr unsigned LIFE_TIME = 50;
   
-  InvisPotion(Pos);
+  explicit InvisPotion(Pos);
 };
 
 #endif

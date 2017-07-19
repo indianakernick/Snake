@@ -9,8 +9,4 @@
 #include "invis potion.hpp"
 
 InvisPotion::InvisPotion(const Pos pos)
-  : ItemConfig(pos, LIFE_TIME) {}
-
-SET_ITEM_SPRITE(InvisPotion, SPAWNING,       "invis potion spawn");
-SET_ITEM_SPRITE(InvisPotion, ALIVE,          "invis potion");
-SET_ITEM_SPRITE(InvisPotion, BEING_CONSUMED, "invis potion");
+  : Powerup(pos, LIFE_TIME) {}

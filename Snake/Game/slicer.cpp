@@ -9,8 +9,4 @@
 #include "slicer.hpp"
 
 Slicer::Slicer(const Pos pos)
-  : ItemConfig(pos, LIFE_TIME) {}
-
-SET_ITEM_SPRITE(Slicer, SPAWNING,       "slicer spawn");
-SET_ITEM_SPRITE(Slicer, ALIVE,          "slicer");
-SET_ITEM_SPRITE(Slicer, BEING_CONSUMED, "slicer");
+  : Powerup(pos, LIFE_TIME) {}
