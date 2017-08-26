@@ -20,7 +20,7 @@
 
 using ItemFactory = std::unique_ptr<Item> (*)(Pos);
 
-class AppImpl final : public Game::SDLApp {
+class AppImpl final : public Game::SDLApp<std::chrono::duration<uint64_t, std::milli>> {
 public:
   AppImpl() = default;
   
