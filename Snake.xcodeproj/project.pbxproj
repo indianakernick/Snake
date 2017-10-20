@@ -7,38 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		453479731F1F5F5E0083743E /* powerup 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479631F1F5F5E0083743E /* powerup 0.png */; };
-		453479741F1F5F5E0083743E /* powerup 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479641F1F5F5E0083743E /* powerup 1.png */; };
-		453479751F1F5F5E0083743E /* powerup 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479651F1F5F5E0083743E /* powerup 2.png */; };
-		453479761F1F5F5E0083743E /* powerup 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479661F1F5F5E0083743E /* powerup 3.png */; };
-		453479771F1F5F5E0083743E /* powerup 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479671F1F5F5E0083743E /* powerup 4.png */; };
-		453479781F1F5F5E0083743E /* powerup 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479681F1F5F5E0083743E /* powerup 5.png */; };
-		453479791F1F5F5E0083743E /* powerup 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479691F1F5F5E0083743E /* powerup 6.png */; };
-		4534797A1F1F5F5E0083743E /* powerup 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534796A1F1F5F5E0083743E /* powerup 7.png */; };
-		4534797B1F1F5F5E0083743E /* powerup 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534796B1F1F5F5E0083743E /* powerup 8.png */; };
-		4534797C1F1F5F5E0083743E /* powerup 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534796C1F1F5F5E0083743E /* powerup 9.png */; };
-		4534797D1F1F5F5E0083743E /* powerup 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534796D1F1F5F5E0083743E /* powerup 10.png */; };
-		4534797E1F1F5F5E0083743E /* powerup 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534796E1F1F5F5E0083743E /* powerup 11.png */; };
-		4534797F1F1F5F5E0083743E /* powerup 12.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534796F1F1F5F5E0083743E /* powerup 12.png */; };
-		453479801F1F5F5E0083743E /* powerup 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479701F1F5F5E0083743E /* powerup 13.png */; };
-		453479811F1F5F5E0083743E /* powerup 14.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479711F1F5F5E0083743E /* powerup 14.png */; };
-		453479821F1F5F5E0083743E /* powerup 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479721F1F5F5E0083743E /* powerup 15.png */; };
-		453479931F1F5F810083743E /* powerup spawn 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479831F1F5F810083743E /* powerup spawn 0.png */; };
-		453479941F1F5F810083743E /* powerup spawn 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479841F1F5F810083743E /* powerup spawn 1.png */; };
-		453479951F1F5F810083743E /* powerup spawn 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479851F1F5F810083743E /* powerup spawn 2.png */; };
-		453479961F1F5F810083743E /* powerup spawn 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479861F1F5F810083743E /* powerup spawn 3.png */; };
-		453479971F1F5F810083743E /* powerup spawn 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479871F1F5F810083743E /* powerup spawn 4.png */; };
-		453479981F1F5F810083743E /* powerup spawn 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479881F1F5F810083743E /* powerup spawn 5.png */; };
-		453479991F1F5F810083743E /* powerup spawn 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479891F1F5F810083743E /* powerup spawn 6.png */; };
-		4534799A1F1F5F810083743E /* powerup spawn 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534798A1F1F5F810083743E /* powerup spawn 7.png */; };
-		4534799B1F1F5F810083743E /* powerup spawn 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534798B1F1F5F810083743E /* powerup spawn 8.png */; };
-		4534799C1F1F5F810083743E /* powerup spawn 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534798C1F1F5F810083743E /* powerup spawn 9.png */; };
-		4534799D1F1F5F810083743E /* powerup spawn 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534798D1F1F5F810083743E /* powerup spawn 10.png */; };
-		4534799E1F1F5F810083743E /* powerup spawn 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534798E1F1F5F810083743E /* powerup spawn 11.png */; };
-		4534799F1F1F5F810083743E /* powerup spawn 12.png in Resources */ = {isa = PBXBuildFile; fileRef = 4534798F1F1F5F810083743E /* powerup spawn 12.png */; };
-		453479A01F1F5F810083743E /* powerup spawn 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479901F1F5F810083743E /* powerup spawn 13.png */; };
-		453479A11F1F5F810083743E /* powerup spawn 14.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479911F1F5F810083743E /* powerup spawn 14.png */; };
-		453479A21F1F5F810083743E /* powerup spawn 15.png in Resources */ = {isa = PBXBuildFile; fileRef = 453479921F1F5F810083743E /* powerup spawn 15.png */; };
 		4592B4621EFF9EAF00D1640D /* libUnpacker.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E9011EFF90C500A6A3E2 /* libUnpacker.dylib */; };
 		4592B8CE1F07884300D1640D /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4592B8CA1F077D5F00D1640D /* sprites.atlas */; };
 		4592B8CF1F07884300D1640D /* sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B8CB1F077D5F00D1640D /* sprites.png */; };
@@ -1325,7 +1293,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Indi Kernick";
 				TargetAttributes = {
 					45B5E6711EF66A8B00A6A3E2 = {
@@ -1358,41 +1326,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4534799A1F1F5F810083743E /* powerup spawn 7.png in Resources */,
-				453479931F1F5F810083743E /* powerup spawn 0.png in Resources */,
-				453479751F1F5F5E0083743E /* powerup 2.png in Resources */,
-				4534799D1F1F5F810083743E /* powerup spawn 10.png in Resources */,
-				453479A21F1F5F810083743E /* powerup spawn 15.png in Resources */,
-				4534799E1F1F5F810083743E /* powerup spawn 11.png in Resources */,
-				4534797A1F1F5F5E0083743E /* powerup 7.png in Resources */,
 				4592B9D61F0C6A6400D1640D /* Grand9K Pixel.ttf in Resources */,
-				453479971F1F5F810083743E /* powerup spawn 4.png in Resources */,
-				453479A01F1F5F810083743E /* powerup spawn 13.png in Resources */,
-				453479741F1F5F5E0083743E /* powerup 1.png in Resources */,
-				453479781F1F5F5E0083743E /* powerup 5.png in Resources */,
-				453479821F1F5F5E0083743E /* powerup 15.png in Resources */,
-				4534797E1F1F5F5E0083743E /* powerup 11.png in Resources */,
-				4534797B1F1F5F5E0083743E /* powerup 8.png in Resources */,
-				453479981F1F5F810083743E /* powerup spawn 5.png in Resources */,
-				453479801F1F5F5E0083743E /* powerup 13.png in Resources */,
-				453479951F1F5F810083743E /* powerup spawn 2.png in Resources */,
 				4592B8CE1F07884300D1640D /* sprites.atlas in Resources */,
-				453479961F1F5F810083743E /* powerup spawn 3.png in Resources */,
-				453479811F1F5F5E0083743E /* powerup 14.png in Resources */,
-				4534799F1F1F5F810083743E /* powerup spawn 12.png in Resources */,
-				4534797C1F1F5F5E0083743E /* powerup 9.png in Resources */,
-				4534797F1F1F5F5E0083743E /* powerup 12.png in Resources */,
-				453479771F1F5F5E0083743E /* powerup 4.png in Resources */,
-				4534799B1F1F5F810083743E /* powerup spawn 8.png in Resources */,
 				4592B8CF1F07884300D1640D /* sprites.png in Resources */,
-				4534797D1F1F5F5E0083743E /* powerup 10.png in Resources */,
-				453479761F1F5F5E0083743E /* powerup 3.png in Resources */,
-				4534799C1F1F5F810083743E /* powerup spawn 9.png in Resources */,
-				453479941F1F5F810083743E /* powerup spawn 1.png in Resources */,
-				453479791F1F5F5E0083743E /* powerup 6.png in Resources */,
-				453479991F1F5F810083743E /* powerup spawn 6.png in Resources */,
-				453479A11F1F5F810083743E /* powerup spawn 14.png in Resources */,
-				453479731F1F5F5E0083743E /* powerup 0.png in Resources */,
 				45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1448,7 +1384,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1456,7 +1394,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1498,7 +1440,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1506,7 +1450,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
