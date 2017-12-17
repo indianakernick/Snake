@@ -138,7 +138,7 @@ void RenderManager::renderTileImpl(
   const Pos pos,
   const double rotation
 ) {
-  const SDL_Rect srcRect = toSDL(sheet.getSprite(name));
+  const SDL_Rect srcRect = toSDL(sheet.getSprite(sheet.getIDfromName(name)));
   const SDL_Rect dstRect = toTile(pos);
   if (SDL_RenderCopyEx(
     renderer,
