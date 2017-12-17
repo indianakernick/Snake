@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45771B891FE7246E00F533DA /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45771B881FE7246E00F533DA /* libSDL2-2.0.0.dylib */; };
+		45771B8D1FE725D000F533DA /* libfreetype.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45771B8C1FE725D000F533DA /* libfreetype.6.dylib */; };
 		4592B4621EFF9EAF00D1640D /* libUnpacker.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E9011EFF90C500A6A3E2 /* libUnpacker.dylib */; };
 		4592B8CE1F07884300D1640D /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4592B8CA1F077D5F00D1640D /* sprites.atlas */; };
 		4592B8CF1F07884300D1640D /* sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B8CB1F077D5F00D1640D /* sprites.png */; };
@@ -26,8 +28,6 @@
 		4592BAC71F0F071900D1640D /* invis potion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592BAC51F0F071800D1640D /* invis potion.cpp */; };
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
-		45B5E9121EFF967700A6A3E2 /* libSimpleton Engine.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */; };
-		45B5E9131EFF9B8500A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +63,9 @@
 		453479901F1F5F810083743E /* powerup spawn 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "powerup spawn 13.png"; sourceTree = "<group>"; };
 		453479911F1F5F810083743E /* powerup spawn 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "powerup spawn 14.png"; sourceTree = "<group>"; };
 		453479921F1F5F810083743E /* powerup spawn 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "powerup spawn 15.png"; sourceTree = "<group>"; };
+		45771B881FE7246E00F533DA /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2/2.0.7/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
+		45771B8A1FE7255F00F533DA /* libSimpleton Engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSimpleton Engine.a"; path = "../../../../../../../usr/local/lib/libSimpleton Engine.a"; sourceTree = "<group>"; };
+		45771B8C1FE725D000F533DA /* libfreetype.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = ../../../../../../../usr/local/Cellar/freetype/2.8.1/lib/libfreetype.6.dylib; sourceTree = "<group>"; };
 		4592B6C81F077B8100D1640D /* eat rat down 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eat rat down 0.png"; sourceTree = "<group>"; };
 		4592B6C91F077B8100D1640D /* eat rat down 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eat rat down 1.png"; sourceTree = "<group>"; };
 		4592B6CA1F077B8100D1640D /* eat rat down 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eat rat down 2.png"; sourceTree = "<group>"; };
@@ -480,8 +483,6 @@
 		45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B5E6841EF66AB000A6A3E2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2/2.0.5/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
-		45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSimpleton Engine.dylib"; path = "../../../../../../../usr/local/lib/libSimpleton Engine.dylib"; sourceTree = "<group>"; };
 		45B5E9011EFF90C500A6A3E2 /* libUnpacker.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libUnpacker.dylib; path = ../../../../../../../usr/local/lib/libUnpacker.dylib; sourceTree = "<group>"; };
 		45B5E9031EFF936000A6A3E2 /* config.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.yaml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -491,8 +492,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B5E9131EFF9B8500A6A3E2 /* libSDL2-2.0.0.dylib in Frameworks */,
-				45B5E9121EFF967700A6A3E2 /* libSimpleton Engine.dylib in Frameworks */,
+				45771B8D1FE725D000F533DA /* libfreetype.6.dylib in Frameworks */,
+				45771B891FE7246E00F533DA /* libSDL2-2.0.0.dylib in Frameworks */,
 				4592B4621EFF9EAF00D1640D /* libUnpacker.dylib in Frameworks */,
 				4592B9D21F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib in Frameworks */,
 				4592B9631F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
@@ -1235,11 +1236,12 @@
 		45B5E6881EF6726C00A6A3E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45771B8C1FE725D000F533DA /* libfreetype.6.dylib */,
+				45771B8A1FE7255F00F533DA /* libSimpleton Engine.a */,
+				45771B881FE7246E00F533DA /* libSDL2-2.0.0.dylib */,
 				4592B9D11F0B902F00D1640D /* libyaml-cpp.0.5.3.dylib */,
 				4592B9621F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib */,
 				45B5E9011EFF90C500A6A3E2 /* libUnpacker.dylib */,
-				45B5E8D51EFA171000A6A3E2 /* libSimpleton Engine.dylib */,
-				45B5E6891EF6726C00A6A3E2 /* libSDL2-2.0.0.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1505,7 +1507,10 @@
 					"/usr/local/Cellar/yaml-cpp/**",
 					"/usr/local/Cellar/yaml-cpp/0.5.3/lib",
 					/usr/local/Cellar/sdl2_ttf/2.0.14/lib,
+					/usr/local/Cellar/sdl2/2.0.7/lib,
+					/usr/local/Cellar/freetype/2.8.1/lib,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-Wall",
@@ -1516,6 +1521,7 @@
 					"-Wno-documentation",
 					"-std=c++1z",
 				);
+				OTHER_LDFLAGS = "/usr/local/lib/libSimpleton\\ Engine.a";
 				PRODUCT_BUNDLE_IDENTIFIER = "Indi-Kernick.Snake";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1547,7 +1553,10 @@
 					"/usr/local/Cellar/yaml-cpp/**",
 					"/usr/local/Cellar/yaml-cpp/0.5.3/lib",
 					/usr/local/Cellar/sdl2_ttf/2.0.14/lib,
+					/usr/local/Cellar/sdl2/2.0.7/lib,
+					/usr/local/Cellar/freetype/2.8.1/lib,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-Wall",
@@ -1558,6 +1567,7 @@
 					"-Wno-documentation",
 					"-std=c++1z",
 				);
+				OTHER_LDFLAGS = "/usr/local/lib/libSimpleton\\ Engine.a";
 				PRODUCT_BUNDLE_IDENTIFIER = "Indi-Kernick.Snake";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
