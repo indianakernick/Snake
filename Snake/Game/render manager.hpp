@@ -13,13 +13,12 @@
 #include <unordered_map>
 #include <SDL2/SDL_ttf.h>
 #include <Unpacker/unpacker.hpp>
+#include <Simpleton/SDL/texture.hpp>
 #include <Simpleton/SDL/renderer.hpp>
 #include <Simpleton/SDL/font library.hpp>
 
 class RenderManager {
 public:
-  RenderManager();
-  
   void init(SDL::Renderer &);
   void quit();
   
@@ -34,8 +33,8 @@ public:
   
 private:
   Unpack::Spritesheet sheet;
-  std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)> texture;
-  std::unordered_map<int, std::unique_ptr<TTF_Font, decltype(&TTF_CloseFont)>> fonts;
+  SDL::Texture texture;
+  std::unordered_map<int, SDL::Font> fonts;
   SDL_Renderer *renderer;
   uint64_t animProg = 0;
   

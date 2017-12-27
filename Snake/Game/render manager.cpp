@@ -11,7 +11,7 @@
 #include "constants.hpp"
 #include <Simpleton/SDL/paths.hpp>
 #include <Simpleton/Time/frame.hpp>
-#include <Simpleton/SDL/sdl object.hpp>
+#include <Simpleton/SDL/surface.hpp>
 
 Unpack::Spritesheet makeSheet() {
   return Unpack::makeSpritesheet(
@@ -19,9 +19,6 @@ Unpack::Spritesheet makeSheet() {
     SDL::getResDir() + SPRITE_IMAGE_PATH
   );
 }
-
-RenderManager::RenderManager()
-  : texture(nullptr, &SDL_DestroyTexture) {}
 
 void RenderManager::init(SDL::Renderer &otherRenderer) {
   sheet = makeSheet();
@@ -95,19 +92,13 @@ SDL_Color toSDL(const Color color) {
 void RenderManager::renderText(const int size, const std::string &text, const Color color, const Pos pos) {
   TTF_Font *const font = getFont(size);
   
-  SDL_OBJECT_FREE(Surface) surface(
-    TTF_RenderText_Solid(font, text.c_str(), toSDL(color)),
-    &SDL_FreeSurface
-  );
+  SDL::Surface surface(TTF_RenderText_Solid(font, text.c_str(), toSDL(color)));
   
   if (surface == nullptr) {
     throw std::runtime_error(std::string("Failed to render text: ") + TTF_GetError());
   }
   
-  SDL_OBJECT_DESTROY(Texture) texture(
-    SDL_CreateTextureFromSurface(renderer, surface.get()),
-    &SDL_DestroyTexture
-  );
+  SDL::Texture texture(SDL_CreateTextureFromSurface(renderer, surface.get()));
   
   if (texture == nullptr) {
     throw std::runtime_error(std::string("Failed to render text: ") + SDL_GetError());
