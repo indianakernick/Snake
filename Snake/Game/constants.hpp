@@ -10,7 +10,7 @@
 #define game_constants_hpp
 
 #include "types.hpp"
-#include <Simpleton/Platform/window.hpp>
+#include <Simpleton/SDL/window.hpp>
 
 const Color BACK_COLOR = {127, 127, 255, 255};
 const Color TEXT_COLOR = {255, 255, 255, 255};
@@ -19,7 +19,7 @@ const uint32_t ANIM_FPS = 50;
 const uint32_t NUM_FRAMES = 16;
 const uint32_t MILLI_PER_UPDATE = (1000 * NUM_FRAMES) / ANIM_FPS;
 
-const Platform::Window::Desc WINDOW_DESC = {
+const SDL::Window::Desc WINDOW_DESC = {
   "Snake",
   {768, 768},
   true

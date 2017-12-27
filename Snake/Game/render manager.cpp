@@ -9,21 +9,21 @@
 #include "render manager.hpp"
 
 #include "constants.hpp"
+#include <Simpleton/SDL/paths.hpp>
 #include <Simpleton/Time/frame.hpp>
-#include <Simpleton/Platform/sdl object.hpp>
-#include <Simpleton/Platform/system info.hpp>
+#include <Simpleton/SDL/sdl object.hpp>
 
 Unpack::Spritesheet makeSheet() {
   return Unpack::makeSpritesheet(
-    Platform::getResDir() + SPRITE_ATLAS_PATH,
-    Platform::getResDir() + SPRITE_IMAGE_PATH
+    SDL::getResDir() + SPRITE_ATLAS_PATH,
+    SDL::getResDir() + SPRITE_IMAGE_PATH
   );
 }
 
 RenderManager::RenderManager()
   : texture(nullptr, &SDL_DestroyTexture) {}
 
-void RenderManager::init(Platform::Renderer &otherRenderer) {
+void RenderManager::init(SDL::Renderer &otherRenderer) {
   sheet = makeSheet();
   renderer = otherRenderer.get();
   SDL_RenderSetLogicalSize(renderer, GAME_SIZE.x * TILE_SPRITE_SIZE.x, GAME_SIZE.y * TILE_SPRITE_SIZE.y);
@@ -156,7 +156,7 @@ void RenderManager::renderTileImpl(
 TTF_Font *RenderManager::getFont(const int size) {
   auto iter = fonts.find(size);
   if (iter == fonts.end()) {
-    Platform::Font font = Platform::openFont(Platform::getResDir() + FONT_PATH, size);
+    SDL::Font font = SDL::openFont(SDL::getResDir() + FONT_PATH, size);
     TTF_Font *const fontPtr = font.get();
     fonts.emplace(size, std::move(font));
     return fontPtr;

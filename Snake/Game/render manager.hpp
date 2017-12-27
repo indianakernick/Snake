@@ -13,14 +13,14 @@
 #include <unordered_map>
 #include <SDL2/SDL_ttf.h>
 #include <Unpacker/unpacker.hpp>
-#include <Simpleton/Platform/renderer.hpp>
-#include <Simpleton/Platform/font library.hpp>
+#include <Simpleton/SDL/renderer.hpp>
+#include <Simpleton/SDL/font library.hpp>
 
 class RenderManager {
 public:
   RenderManager();
   
-  void init(Platform::Renderer &);
+  void init(SDL::Renderer &);
   void quit();
   
   void reset();

@@ -14,8 +14,8 @@
 #include "reverser.hpp"
 #include "constants.hpp"
 #include "invis potion.hpp"
+#include <Simpleton/SDL/paths.hpp>
 #include <Simpleton/Event/manager.hpp>
-#include <Simpleton/Platform/system info.hpp>
 
 bool AppImpl::init() {
   SDLApp::initWindow(WINDOW_DESC, true);

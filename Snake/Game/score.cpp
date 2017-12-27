@@ -11,11 +11,11 @@
 #include <fstream>
 #include "constants.hpp"
 #include "render manager.hpp"
-#include <Simpleton/Platform/system info.hpp>
+#include <Simpleton/SDL/paths.hpp>
 #include <Simpleton/Event/manager.hpp>
 
 std::string highscorePath() {
-  return Platform::getSaveDir("Indi Kernick", "Snake") + "highscore.txt";
+  return SDL::getSaveDir("Indi Kernick", "Snake") + "highscore.txt";
 }
 
 void Score::init() {
