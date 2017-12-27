@@ -13,19 +13,12 @@
 #include <Simpleton/Time/frame.hpp>
 #include <Simpleton/SDL/surface.hpp>
 
-Unpack::Spritesheet makeSheet() {
-  return Unpack::makeSpritesheet(
-    SDL::getResDir() + SPRITE_ATLAS_PATH,
-    SDL::getResDir() + SPRITE_IMAGE_PATH
-  );
-}
-
 void RenderManager::init(SDL::Renderer &otherRenderer) {
-  sheet = makeSheet();
+  sheet = Unpack::makeSpritesheet(SDL::getResDir() + SPRITE_ATLAS_PATH);
   renderer = otherRenderer.get();
   SDL_RenderSetLogicalSize(renderer, GAME_SIZE.x * TILE_SPRITE_SIZE.x, GAME_SIZE.y * TILE_SPRITE_SIZE.y);
   
-  const Surface &image = sheet.getImage();
+  const Surface image = loadSurface(SDL::getResDir() + SPRITE_IMAGE_PATH);
   texture.reset(SDL_CreateTexture(
     renderer,
     SDL_PIXELFORMAT_ABGR8888,
@@ -33,7 +26,7 @@ void RenderManager::init(SDL::Renderer &otherRenderer) {
     image.width(),
     image.height()
   ));
-  SDL_UpdateTexture(texture.get(), nullptr, image.data(), static_cast<int>(image.pitch()));
+  SDL_UpdateTexture(texture.get(), nullptr, image.data(), image.pitch());
   SDL_SetTextureBlendMode(texture.get(), SDL_BLENDMODE_BLEND);
 }
 
