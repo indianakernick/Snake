@@ -9,6 +9,7 @@
 #include "render manager.hpp"
 
 #include "constants.hpp"
+#include <Surface/load.hpp>
 #include <Simpleton/SDL/paths.hpp>
 #include <Simpleton/Time/frame.hpp>
 #include <Simpleton/SDL/surface.hpp>
