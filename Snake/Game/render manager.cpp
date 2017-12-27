@@ -25,7 +25,7 @@ void RenderManager::init(SDL::Renderer &otherRenderer) {
   renderer = otherRenderer.get();
   SDL_RenderSetLogicalSize(renderer, GAME_SIZE.x * TILE_SPRITE_SIZE.x, GAME_SIZE.y * TILE_SPRITE_SIZE.y);
   
-  const Unpack::Image &image = sheet.getImage();
+  const Surface &image = sheet.getImage();
   texture.reset(SDL_CreateTexture(
     renderer,
     SDL_PIXELFORMAT_ABGR8888,
