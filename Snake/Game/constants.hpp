@@ -19,14 +19,18 @@ const uint32_t ANIM_FPS = 50;
 const uint32_t NUM_FRAMES = 16;
 const uint32_t MILLI_PER_UPDATE = (1000 * NUM_FRAMES) / ANIM_FPS;
 
-const SDL::Window::Desc WINDOW_DESC = {
-  "Snake",
-  {768, 768},
-  true
-};
-
 const Pos GAME_SIZE = {16, 16};
 const Pos TILE_SPRITE_SIZE = {16, 16};
+const int SCALE = 3;
+
+const SDL::Window::Desc WINDOW_DESC = {
+  "Snake",
+  {
+    GAME_SIZE.x * TILE_SPRITE_SIZE.x * SCALE,
+    GAME_SIZE.y * TILE_SPRITE_SIZE.y * SCALE
+  },
+  true
+};
 
 const int SCORE_FONT_SIZE = 8;
 const int TITLE_FONT_SIZE = 32;
