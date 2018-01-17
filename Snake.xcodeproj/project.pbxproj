@@ -273,7 +273,7 @@
 		4592B8B71F077CF500D1640D /* tail 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tail 13.png"; sourceTree = "<group>"; };
 		4592B8B81F077CF500D1640D /* tail 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tail 14.png"; sourceTree = "<group>"; };
 		4592B8B91F077CF500D1640D /* tail 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tail 15.png"; sourceTree = "<group>"; };
-		4592B8CA1F077D5F00D1640D /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = file; path = sprites.atlas; sourceTree = "<group>"; };
+		4592B8CA1F077D5F00D1640D /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = text; path = sprites.atlas; sourceTree = "<group>"; };
 		4592B8CB1F077D5F00D1640D /* sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sprites.png; sourceTree = "<group>"; };
 		4592B8D01F088BA200D1640D /* body left corner 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "body left corner 0.png"; sourceTree = "<group>"; };
 		4592B8D11F088BA200D1640D /* body left corner 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "body left corner 1.png"; sourceTree = "<group>"; };
@@ -1272,8 +1272,8 @@
 			buildPhases = (
 				45B5E66E1EF66A8B00A6A3E2 /* Sources */,
 				45B5E66F1EF66A8B00A6A3E2 /* Frameworks */,
-				45B5E6701EF66A8B00A6A3E2 /* Resources */,
 				45B5E68B1EF672B700A6A3E2 /* ShellScript */,
+				45B5E6701EF66A8B00A6A3E2 /* Resources */,
 			);
 			buildRules = (
 			);
