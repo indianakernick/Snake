@@ -23,7 +23,6 @@
 		4592BA301F0CE79600D1640D /* coin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592BA2E1F0CE79600D1640D /* coin.cpp */; };
 		4592BA351F0DAEFE00D1640D /* coin consumed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592BA331F0DAEFE00D1640D /* coin consumed.cpp */; };
 		4592BAC71F0F071900D1640D /* invis potion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592BAC51F0F071800D1640D /* invis potion.cpp */; };
-		45B32EAD1FF46A75007BA7F4 /* libSurface.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B32EAC1FF46A75007BA7F4 /* libSurface.dylib */; };
 		45B5E67A1EF66A8B00A6A3E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */; };
 		45B5E6851EF66AB000A6A3E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45B5E6841EF66AB000A6A3E2 /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -474,7 +473,6 @@
 		4592BABF1F0F04E800D1640D /* invis head right corner 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "invis head right corner 15.png"; sourceTree = "<group>"; };
 		4592BAC51F0F071800D1640D /* invis potion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "invis potion.cpp"; sourceTree = "<group>"; };
 		4592BAC61F0F071800D1640D /* invis potion.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "invis potion.hpp"; sourceTree = "<group>"; };
-		45B32EAC1FF46A75007BA7F4 /* libSurface.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libSurface.dylib; path = ../../../../../../../usr/local/lib/libSurface.dylib; sourceTree = "<group>"; };
 		45B5E6721EF66A8B00A6A3E2 /* Snake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B5E6791EF66A8B00A6A3E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B5E67E1EF66A8B00A6A3E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -487,7 +485,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B32EAD1FF46A75007BA7F4 /* libSurface.dylib in Frameworks */,
 				45771B891FE7246E00F533DA /* libSDL2-2.0.0.dylib in Frameworks */,
 				4592B9631F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
 			);
@@ -1229,7 +1226,6 @@
 		45B5E6881EF6726C00A6A3E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				45B32EAC1FF46A75007BA7F4 /* libSurface.dylib */,
 				45771B881FE7246E00F533DA /* libSDL2-2.0.0.dylib */,
 				4592B9621F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib */,
 			);
