@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		45771B891FE7246E00F533DA /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45771B881FE7246E00F533DA /* libSDL2-2.0.0.dylib */; };
-		45771B8D1FE725D000F533DA /* libfreetype.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45771B8C1FE725D000F533DA /* libfreetype.6.dylib */; };
 		4592B8CE1F07884300D1640D /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4592B8CA1F077D5F00D1640D /* sprites.atlas */; };
 		4592B8CF1F07884300D1640D /* sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 4592B8CB1F077D5F00D1640D /* sprites.png */; };
 		4592B9531F08E08300D1640D /* app impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4592B9511F08E08300D1640D /* app impl.cpp */; };
@@ -63,8 +62,6 @@
 		453479911F1F5F810083743E /* powerup spawn 14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "powerup spawn 14.png"; sourceTree = "<group>"; };
 		453479921F1F5F810083743E /* powerup spawn 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "powerup spawn 15.png"; sourceTree = "<group>"; };
 		45771B881FE7246E00F533DA /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../../../../usr/local/Cellar/sdl2/2.0.7/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
-		45771B8A1FE7255F00F533DA /* libSimpleton Engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libSimpleton Engine.a"; path = "../../../../../../../usr/local/lib/libSimpleton Engine.a"; sourceTree = "<group>"; };
-		45771B8C1FE725D000F533DA /* libfreetype.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfreetype.6.dylib; path = ../../../../../../../usr/local/Cellar/freetype/2.8.1/lib/libfreetype.6.dylib; sourceTree = "<group>"; };
 		4592B6C81F077B8100D1640D /* eat rat down 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eat rat down 0.png"; sourceTree = "<group>"; };
 		4592B6C91F077B8100D1640D /* eat rat down 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eat rat down 1.png"; sourceTree = "<group>"; };
 		4592B6CA1F077B8100D1640D /* eat rat down 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eat rat down 2.png"; sourceTree = "<group>"; };
@@ -491,7 +488,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B32EAD1FF46A75007BA7F4 /* libSurface.dylib in Frameworks */,
-				45771B8D1FE725D000F533DA /* libfreetype.6.dylib in Frameworks */,
 				45771B891FE7246E00F533DA /* libSDL2-2.0.0.dylib in Frameworks */,
 				4592B9631F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
 			);
@@ -1234,8 +1230,6 @@
 			isa = PBXGroup;
 			children = (
 				45B32EAC1FF46A75007BA7F4 /* libSurface.dylib */,
-				45771B8C1FE725D000F533DA /* libfreetype.6.dylib */,
-				45771B8A1FE7255F00F533DA /* libSimpleton Engine.a */,
 				45771B881FE7246E00F533DA /* libSDL2-2.0.0.dylib */,
 				4592B9621F0A20B900D1640D /* libSDL2_ttf-2.0.0.dylib */,
 			);
@@ -1502,7 +1496,6 @@
 					"/usr/local/Cellar/sdl2_ttf/**",
 					/usr/local/Cellar/sdl2_ttf/2.0.14/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
-					/usr/local/Cellar/freetype/2.8.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -1515,7 +1508,7 @@
 					"-Wno-documentation",
 					"-std=c++1z",
 				);
-				OTHER_LDFLAGS = "/usr/local/lib/libSimpleton\\ Engine.a";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "Indi-Kernick.Snake";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1546,7 +1539,6 @@
 					"/usr/local/Cellar/sdl2_ttf/**",
 					/usr/local/Cellar/sdl2_ttf/2.0.14/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
-					/usr/local/Cellar/freetype/2.8.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -1559,7 +1551,7 @@
 					"-Wno-documentation",
 					"-std=c++1z",
 				);
-				OTHER_LDFLAGS = "/usr/local/lib/libSimpleton\\ Engine.a";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "Indi-Kernick.Snake";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
