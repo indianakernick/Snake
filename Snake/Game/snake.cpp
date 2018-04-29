@@ -128,7 +128,7 @@ void Snake::update() {
 
 namespace {
   double getBodySpriteAngle(const Math::Dir prevToThisDir) {
-    return Math::ToNum<double>::conv(prevToThisDir, 90.0);
+    return Math::toNum<double>(prevToThisDir, 90.0);
   }
 
   std::string getBodySpriteTurnName(const Math::Dir prevToThisDir, const Math::Dir thisToNextDir) {
@@ -168,7 +168,7 @@ namespace {
     static const std::string NAMES[4] = {
       "up", "right", "down", "left"
     };
-    return NAMES[Math::ToNum<size_t>::conv(dir)];
+    return NAMES[Math::toNum<size_t>(dir)];
   }
 }
 
