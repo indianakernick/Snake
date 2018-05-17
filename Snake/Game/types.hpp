@@ -10,11 +10,11 @@
 #define game_types_hpp
 
 #include <glm/vec4.hpp>
-#include <Simpleton/Math/dir.hpp>
+#include <Simpleton/Grid/dir.hpp>
 
 using Color = glm::tvec4<uint8_t>;
 using PosScalar = int;
 using Pos = glm::tvec2<PosScalar>;
-using ToVec = Math::ToVec<PosScalar, Math::Dir::RIGHT, Math::Dir::DOWN>;
+using ToVec = Grid::ToVec<PosScalar, Grid::Dir::RIGHT, Grid::Dir::DOWN>;
 
 #endif

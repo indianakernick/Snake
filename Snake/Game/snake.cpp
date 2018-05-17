@@ -19,7 +19,7 @@
 #include <Simpleton/Event/manager.hpp>
 
 namespace {
-  using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
+  using FromVec = Grid::FromVec<double, Grid::Dir::RIGHT, Grid::Dir::DOWN>;
   
   //returns a vector pointing from this to prev
   Pos getDirVec(const Pos thisPos, const Pos prevPos) {
@@ -52,9 +52,9 @@ Snake::Snake(const Pos center)
       {center.x + 2, center.y}
     }) {}
 
-void Snake::move(const Math::Dir newDir) {
+void Snake::move(const Grid::Dir newDir) {
   assert(positions.size());
-  if (Math::opposite(newDir) != currentDir) {
+  if (Grid::opposite(newDir) != currentDir) {
     nextDir = newDir;
   }
 }
@@ -127,12 +127,12 @@ void Snake::update() {
 }
 
 namespace {
-  double getBodySpriteAngle(const Math::Dir prevToThisDir) {
-    return Math::toNum<double>(prevToThisDir, 90.0);
+  double getBodySpriteAngle(const Grid::Dir prevToThisDir) {
+    return Grid::toNum<double>(prevToThisDir, 90.0);
   }
 
-  std::string getBodySpriteTurnName(const Math::Dir prevToThisDir, const Math::Dir thisToNextDir) {
-    const Math::SignedDirType diff = Math::diff(prevToThisDir, thisToNextDir);
+  std::string getBodySpriteTurnName(const Grid::Dir prevToThisDir, const Grid::Dir thisToNextDir) {
+    const Grid::SignedDirType diff = Grid::diff(prevToThisDir, thisToNextDir);
     if (diff == 0) {
       return "straight";
     } else if (diff == 1) {
@@ -153,10 +153,10 @@ namespace {
     const Pos thisToNextVec,
     const bool visible
   ) {
-    using FromVec = Math::FromVec<double, Math::Dir::RIGHT, Math::Dir::DOWN>;
+    using FromVec = Grid::FromVec<double, Grid::Dir::RIGHT, Grid::Dir::DOWN>;
     
-    const Math::Dir prevToThisDir = FromVec::conv(prevToThisVec);
-    const Math::Dir thisToNextDir = FromVec::conv(thisToNextVec);
+    const Grid::Dir prevToThisDir = FromVec::conv(prevToThisVec);
+    const Grid::Dir thisToNextDir = FromVec::conv(thisToNextVec);
     renderer.renderTile(
       (visible ? "" : "invis ") + name + ' ' + getBodySpriteTurnName(prevToThisDir, thisToNextDir),
       pos,
@@ -164,11 +164,11 @@ namespace {
     );
   }
 
-  std::string dirToString(const Math::Dir dir) {
+  std::string dirToString(const Grid::Dir dir) {
     static const std::string NAMES[4] = {
       "up", "right", "down", "left"
     };
-    return NAMES[Math::toNum<size_t>(dir)];
+    return NAMES[Grid::toNum<size_t>(dir)];
   }
 }
 

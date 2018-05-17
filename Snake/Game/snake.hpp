@@ -23,7 +23,7 @@ public:
   Snake() = default;
   explicit Snake(Pos);
   
-  void move(Math::Dir);
+  void move(Grid::Dir);
   bool isEating(const Rat &) const;
   bool colliding(Pos, bool = true) const;
   bool isDead() const;
@@ -39,8 +39,8 @@ public:
 private:
   std::deque<Pos> positions;
   unsigned timeTillVisible = 0;
-  Math::Dir currentDir = Math::Dir::LEFT;
-  Math::Dir nextDir = Math::Dir::LEFT;
+  Grid::Dir currentDir = Grid::Dir::LEFT;
+  Grid::Dir nextDir = Grid::Dir::LEFT;
   
   enum class State : uint8_t {
     ALIVE,

@@ -202,16 +202,16 @@ Pos AppImpl::getFreePos() const {
 void AppImpl::snakeInput(const SDL_Scancode code) {
   switch (code) {
     case SDL_SCANCODE_UP:
-      snake.move(Math::Dir::UP);
+      snake.move(Grid::Dir::UP);
       break;
     case SDL_SCANCODE_RIGHT:
-      snake.move(Math::Dir::RIGHT);
+      snake.move(Grid::Dir::RIGHT);
       break;
     case SDL_SCANCODE_DOWN:
-      snake.move(Math::Dir::DOWN);
+      snake.move(Grid::Dir::DOWN);
       break;
     case SDL_SCANCODE_LEFT:
-      snake.move(Math::Dir::LEFT);
+      snake.move(Grid::Dir::LEFT);
     default: ;
   }
 }
