@@ -15,6 +15,6 @@
 using Color = glm::tvec4<uint8_t>;
 using PosScalar = int;
 using Pos = glm::tvec2<PosScalar>;
-using ToVec = Grid::ToVec<PosScalar, Grid::Dir::RIGHT, Grid::Dir::DOWN>;
+constexpr Grid::ToVec<PosScalar, Grid::Dir::right, Grid::Dir::down> toVec;
 
 #endif

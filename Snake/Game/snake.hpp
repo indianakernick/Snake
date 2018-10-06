@@ -39,8 +39,8 @@ public:
 private:
   std::deque<Pos> positions;
   unsigned timeTillVisible = 0;
-  Grid::Dir currentDir = Grid::Dir::LEFT;
-  Grid::Dir nextDir = Grid::Dir::LEFT;
+  Grid::Dir currentDir = Grid::Dir::left;
+  Grid::Dir nextDir = Grid::Dir::left;
   
   enum class State : uint8_t {
     ALIVE,

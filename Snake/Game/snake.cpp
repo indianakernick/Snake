@@ -19,7 +19,7 @@
 #include <Simpleton/Event/manager.hpp>
 
 namespace {
-  using FromVec = Grid::FromVec<double, Grid::Dir::RIGHT, Grid::Dir::DOWN>;
+  constexpr Grid::FromVec<Grid::Dir::right, Grid::Dir::down> fromVec {};
   
   //returns a vector pointing from this to prev
   Pos getDirVec(const Pos thisPos, const Pos prevPos) {
@@ -85,7 +85,7 @@ bool Snake::tryToConsume(Item &item) {
     
     if (dynamic_cast<Reverser *>(ptr)) {
       std::reverse(positions.begin(), --positions.end());
-      currentDir = FromVec::conv(getDirVec(positions[0], positions[1]));
+      currentDir = fromVec(getDirVec(positions[0], positions[1]));
       nextDir = currentDir;
     } else if (dynamic_cast<Rat *>(ptr)) {
       state = State::EATING;
@@ -116,7 +116,7 @@ void Snake::update() {
   } else {
     positions.pop_back();
   }
-  positions.push_front((positions.front() + ToVec::conv(nextDir) + GAME_SIZE) % GAME_SIZE);
+  positions.push_front((positions.front() + toVec(nextDir) + GAME_SIZE) % GAME_SIZE);
   currentDir = nextDir;
   if (colliding(head(), false) && head() != tail()) {
     state = State::DEAD;
@@ -153,10 +153,10 @@ namespace {
     const Pos thisToNextVec,
     const bool visible
   ) {
-    using FromVec = Grid::FromVec<double, Grid::Dir::RIGHT, Grid::Dir::DOWN>;
+    constexpr Grid::FromVec<Grid::Dir::right, Grid::Dir::down> fromVec {};
     
-    const Grid::Dir prevToThisDir = FromVec::conv(prevToThisVec);
-    const Grid::Dir thisToNextDir = FromVec::conv(thisToNextVec);
+    const Grid::Dir prevToThisDir = fromVec(prevToThisVec);
+    const Grid::Dir thisToNextDir = fromVec(thisToNextVec);
     renderer.renderTile(
       (visible ? "" : "invis ") + name + ' ' + getBodySpriteTurnName(prevToThisDir, thisToNextDir),
       pos,
@@ -207,6 +207,6 @@ void Snake::render(RenderManager &renderer) const {
   }
   thisToNextVec = prevToThisVec;
 
-  const double tailAngle = getBodySpriteAngle(FromVec::conv(thisToNextVec));
+  const double tailAngle = getBodySpriteAngle(fromVec(thisToNextVec));
   renderer.renderTile(eating ? "tail grow" : "tail", tail(), tailAngle);
 }

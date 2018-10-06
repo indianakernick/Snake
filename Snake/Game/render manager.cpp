@@ -9,17 +9,17 @@
 #include "render manager.hpp"
 
 #include "constants.hpp"
-#include <Surface/load.hpp>
 #include <Simpleton/SDL/paths.hpp>
 #include <Simpleton/Time/frame.hpp>
 #include <Simpleton/SDL/surface.hpp>
+#include <Simpleton/Graphics 2D/load surface.hpp>
 
 void RenderManager::init(SDL::Renderer &otherRenderer) {
   sheet = Unpack::makeSpritesheet(SDL::getResDir() + SPRITE_ATLAS_PATH);
   renderer = otherRenderer.get();
   SDL_RenderSetLogicalSize(renderer, GAME_SIZE.x * TILE_SPRITE_SIZE.x, GAME_SIZE.y * TILE_SPRITE_SIZE.y);
   
-  const Surface image = loadSurface(SDL::getResDir() + SPRITE_IMAGE_PATH);
+  const G2D::Surface image = G2D::loadSurface(SDL::getResDir() + SPRITE_IMAGE_PATH);
   texture.reset(SDL_CreateTexture(
     renderer,
     SDL_PIXELFORMAT_ABGR8888,
